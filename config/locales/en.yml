@@ -1,0 +1,23 @@
+***REMOVED*** Files in the config/locales directory are used for internationalization
+***REMOVED*** and are automatically loaded by Rails. If you want to use locales other
+***REMOVED*** than English, add the necessary files in this directory.
+***REMOVED***
+***REMOVED*** To use the locales, use `I18n.t`:
+***REMOVED***
+***REMOVED***     I18n.t 'hello'
+***REMOVED***
+***REMOVED*** In views, this is aliased to just `t`:
+***REMOVED***
+***REMOVED***     <%= t('hello') %>
+***REMOVED***
+***REMOVED*** To use a different locale, set it with `I18n.locale`:
+***REMOVED***
+***REMOVED***     I18n.locale = :es
+***REMOVED***
+***REMOVED*** This would use the information in config/locales/es.yml.
+***REMOVED***
+***REMOVED*** To learn more, please read the Rails Internationalization guide
+***REMOVED*** available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  hello: "Hello world"
