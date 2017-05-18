@@ -10,7 +10,7 @@
 ***REMOVED***
 ***REMOVED*** It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170518125748) do
+ActiveRecord::Schema.define(version: 20170518141842) do
 
   create_table "churches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20170518125748) do
     t.string   "email"
     t.string   "url"
     t.text     "worshiping_time",   limit: 65535
-    t.integer  "language_id"
     t.datetime "created_at",                                               null: false
     t.datetime "updated_at",                                               null: false
     t.datetime "soft_destroyed_at"
@@ -44,9 +43,9 @@ ActiveRecord::Schema.define(version: 20170518125748) do
     t.decimal  "latitude",          precision: 11, scale: 8
     t.decimal  "longitude",         precision: 11, scale: 8
     t.integer  "zoom_level"
+    t.datetime "soft_destroyed_at"
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
-    t.datetime "soft_destroyed_at"
   end
 
 end
