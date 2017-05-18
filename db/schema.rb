@@ -44,9 +44,9 @@ ActiveRecord::Schema.define(version: 20170518125748) do
     t.decimal  "latitude",          precision: 11, scale: 8
     t.decimal  "longitude",         precision: 11, scale: 8
     t.integer  "zoom_level"
+    t.datetime "soft_destroyed_at"
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
-    t.datetime "soft_destroyed_at"
   end
 
 end
