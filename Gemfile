@@ -35,6 +35,11 @@ gem 'jbuilder', '~> 2.5'
 ***REMOVED*** Use Capistrano for deployment
 ***REMOVED*** gem 'capistrano-rails', group: :development
 
+***REMOVED*** 論理削除
+gem 'kakurenbo-puti'
+***REMOVED*** rake
+gem 'rake', '< 11.0'
+
 group :development, :test do
   ***REMOVED*** Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
