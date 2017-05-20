@@ -9,3 +9,4 @@ Rails.application.config.assets.version = '1.0'
 ***REMOVED*** Precompile additional assets.
 ***REMOVED*** application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 ***REMOVED*** Rails.application.config.assets.precompile += %w( search.js )
+Rails.application.config.assets.precompile += %w( agency.js )
