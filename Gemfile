@@ -41,6 +41,8 @@ gem 'kakurenbo-puti'
 gem 'rake', '< 11.0'
 ***REMOVED*** font-awesome
 gem 'font-awesome-rails'
+***REMOVED*** google-map
+gem 'gmaps4rails'
 
 group :development, :test do
   ***REMOVED*** Call 'byebug' anywhere in the code to stop execution and get a debugger console
