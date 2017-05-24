@@ -10,11 +10,10 @@
 ***REMOVED***
 ***REMOVED*** It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170518141842) do
+ActiveRecord::Schema.define(version: 20170524105939) do
 
   create_table "churches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.string   "group"
     t.integer  "group_id"
     t.string   "postal_code"
     t.integer  "prefecture_id"
