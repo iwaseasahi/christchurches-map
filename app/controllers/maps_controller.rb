@@ -1,7 +1,12 @@
 class MapsController < ApplicationController
-  before_action :set_selects, only: :index
+  before_action :set_selects, only: %i(index search)
 
   def index
+    @q = Church.ransack(params[:q])
+    set_map_position_basic
+  end
+
+  def search
     @q = Church.ransack(params[:q])
     @churches = @q.result(distinct: true)
     build_markers(@churches)
