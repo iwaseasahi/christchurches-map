@@ -1,0 +1,38 @@
+<section id="google-map">
+  <div class="container">
+    <div class='centering'>
+      <%= search_form_for @q, url: search_maps_path do |f| %>
+        <div class='form-custom'>
+          <%= f.label :group_id_eq, 'グループ' %>
+          <%= f.select :group_id_eq, options_from_collection_for_select(@groups, :id, :name), { prompt: '選択してください。', include_blank: '選択なし' }, class: 'form-control' %>
+        </div>
+        <div class='form-custom'>
+          <%= f.label :prefecture_id_eq, '都道府県' %>
+          <%= f.select :prefecture_id_eq, options_from_collection_for_select(@prefectures, :id, :name), { prompt: '選択してください。', include_blank: '選択なし' }, class: 'form-control' %>
+        </div>
+        <div class='form-custom'>
+          <%= f.label :name_cont, '名前' %>
+          <%= f.search_field :name_cont, class: 'form-control' %>
+        </div>
+        <div class='form-custom'>
+          <%= f.label :address_cont, '住所' %>
+          <%= f.search_field :address_cont, class: 'form-control' %>
+        </div>
+        <%= f.submit '検索', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+    <div id="map"></div>
+  </div>
+</section>
+<script type="text/javascript">
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers(<%=raw @hash.to_json %>);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+  <% if @map_position.present? %>
+    handler.getMap().setCenter({lat: <%= @map_position[:lat] %>, lng: <%= @map_position[:lng] %>});
+    handler.getMap().setZoom(<%= @map_position[:zoom] %>);
+  <% end %>
+});
+</script>
