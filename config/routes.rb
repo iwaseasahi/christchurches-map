@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/contact' => 'homes#contact'
   resources :maps, only: :index do
     collection do
+      get '/search' => 'maps#search'
     end
   end
 end
