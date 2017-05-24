@@ -43,6 +43,8 @@ gem 'rake', '< 11.0'
 gem 'font-awesome-rails'
 # google-map
 gem 'gmaps4rails'
+# 検索用
+gem 'ransack', github: 'activerecord-hackery/ransack'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
