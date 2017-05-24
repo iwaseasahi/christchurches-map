@@ -1,3 +1,64 @@
-// Place all the styles related to the maps controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "variables.scss";
+@import "mixins.scss";
+
+// Google Map
+// 共通
+***REMOVED***google-map {
+  ***REMOVED***map {
+    width: 100%;
+    max-height: 100%;
+  }
+}
+
+// スマホ用
+@media(max-width:767px) {
+  ***REMOVED***google-map {
+    ***REMOVED***map {
+      height: 600px;
+    }
+    padding: 10px 0;
+    .form-custom {
+      margin-bottom: 5px;
+      label {
+        width: 60px;
+        text-align: center;
+      }
+    }
+    .form-control {
+      display: inline;
+      width: 70%;
+    }
+  }
+}
+
+// PC用
+@media(min-width:768px) {
+  ***REMOVED***google-map {
+    padding: 0;
+    ***REMOVED***map {
+      height: 500px;
+      max-height: 100%;
+    }
+    .form-custom {
+      display: inline;
+    }
+    .form-control {
+      display: inline;
+      width: 250px;
+    }
+    .centering {
+      text-align: center;
+    }
+  }
+}
+
+***REMOVED***church_search {
+  padding-bottom: 10px;
+}
+
+@media(min-width:768px) {
+  ***REMOVED***church_search {
+    padding: 20px 0;
+  }
+}
+
