@@ -26,9 +26,10 @@ class MapsController < ApplicationController
 
   def church_info(church)
     info = ''
-    info += "<div>#{church.name}</div>"
-    info += "<div>#{church.group.name}</div>"
-    info += "<div>#{church.address}</div>"
+    info += "<h4>#{church.name}</h4>"
+    info += "<p>#{church.group.name}</p>"
+    info += "<p>#{church.address}</p>"
+    info += "<a href='/'>詳細はこちら</a>"
     info.html_safe
   end
 
