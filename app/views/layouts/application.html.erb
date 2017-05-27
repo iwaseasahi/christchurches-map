@@ -44,6 +44,7 @@
             <li class="hidden">
               <a href="#page-top"></a>
             </li>
+            <%= yield :extend_menu %>
             <li>
               <%= link_to 'マップ検索', maps_path, class: 'page-scroll' %>
             </li>
