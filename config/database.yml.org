@@ -49,10 +49,6 @@ test:
 #
 production:
   <<: *default
-  adapter: mysql2
-  encoding: utf8
-  database: christchurches_map_production
-  username: root
-  password: asahi2225
-  host: christchurches-map-mysql.cbev6lgaewnk.ap-northeast-1.rds.amazonaws.com
-  port: 3306
+  database: christchurches-map_production
+  username: christchurches-map
+  password: <%= ENV['CHRISTCHURCHES-MAP_DATABASE_PASSWORD'] %>
