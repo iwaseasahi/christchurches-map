@@ -1,0 +1,51 @@
+<!-- Header -->
+<div class="church-header">
+  <div class="container">
+    <div class="intro-text">
+      <div class="intro-lead-in">Welcome To</div>
+      <div class="intro-heading"><%= @church.name %></div>
+    </div>
+  </div>
+</div>
+
+<!-- Services Section -->
+<section id="services">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">Information</h2>
+        <h3 class="section-subheading text-muted"><%= @church.name %>に関する情報は以下になります。</h3>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-6">
+        <span class="fa-stack fa-4x">
+          <i class="fa fa-circle fa-stack-2x text-primary"></i>
+          <i class="fa fa-map-marker fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="service-heading"><%= @church.address %></h4>
+      </div>
+      <div class="col-md-6">
+        <span class="fa-stack fa-4x">
+          <i class="fa fa-circle fa-stack-2x text-primary"></i>
+          <i class="fa fa-users fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="service-heading"><%= @church.group.name %></h4>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="google-map">
+  <div class="container">
+    <div class='centering'></div>
+    <div id="church_map"></div>
+  </div>
+</section>
+<script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'church_map'}}, function(){
+    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+</script>
