@@ -29,7 +29,7 @@ class MapsController < ApplicationController
     info += "<h4>#{church.name}</h4>"
     info += "<p>#{church.group.name}</p>"
     info += "<p>#{church.address}</p>"
-    info += "<a href='/'>詳細はこちら</a>"
+    info += "<a href='/churches/#{church.id}'>詳細はこちら</a>"
     info.html_safe
   end
 
