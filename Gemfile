@@ -45,6 +45,8 @@ gem 'font-awesome-rails'
 gem 'gmaps4rails'
 ***REMOVED*** 検索用
 gem 'ransack', github: 'activerecord-hackery/ransack'
+***REMOVED*** Googleアナリティクス
+gem 'google-analytics-rails'
 
 group :development, :test do
   ***REMOVED*** Call 'byebug' anywhere in the code to stop execution and get a debugger console
