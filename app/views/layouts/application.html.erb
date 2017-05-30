@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <title>キリスト教会マップ</title>
+    <title><%= content_for?(:title) ? yield(:title) : 'キリスト教会マップ' %></title>
     <%= csrf_meta_tags %>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name='keywords' content=<%= content_for?(:keywords) ? yield(:keywords) : 'キリスト教,教会,church,プロテスタント,地図,マップ,住所' %>/>
+    <meta name='description' content=<%= content_for?(:description) ? yield(:description) : 'キリスト教会マップは、日本全国にあるプロテスタント教会をマップに表示します。教団教派・グループ・都道府県・名前・住所で検索することができます。' %>/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- favicon -->
