@@ -47,6 +47,8 @@ gem 'gmaps4rails'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 # Googleアナリティクス
 gem 'google-analytics-rails'
+# サイトマップ
+gem 'sitemap_generator'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
