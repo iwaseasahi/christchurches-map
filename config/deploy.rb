@@ -22,7 +22,7 @@ set :deploy_to, "/var/www/projects/christchurches-map"
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, fetch(:linked_files, []).push('config/settings/production.yml')
+# set :linked_files, fetch(:linked_files, []).push('config/settings/production.yml')
 # append :linked_files, "config/database.yml", "config/secrets.yml"
 
 # Default value for linked_dirs is []
