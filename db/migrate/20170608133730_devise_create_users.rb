@@ -19,11 +19,11 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string   :current_sign_in_ip
       t.string   :last_sign_in_ip
 
-      ***REMOVED******REMOVED*** Confirmable
-      ***REMOVED*** t.string   :confirmation_token
-      ***REMOVED*** t.datetime :confirmed_at
-      ***REMOVED*** t.datetime :confirmation_sent_at
-      ***REMOVED*** t.string   :unconfirmed_email ***REMOVED*** Only if using reconfirmable
+      ***REMOVED*** Confirmable
+      t.string   :confirmation_token
+      t.datetime :confirmed_at
+      t.datetime :confirmation_sent_at
+      t.string   :unconfirmed_email ***REMOVED*** Only if using reconfirmable
 
       ***REMOVED******REMOVED*** Lockable
       ***REMOVED*** t.integer  :failed_attempts, default: 0, null: false ***REMOVED*** Only if lock strategy is :failed_attempts
