@@ -81,6 +81,9 @@ group :test do
   gem 'database_cleaner', '~> 1.3.0'
   gem 'launchy', '~> 2.4.2'
   gem 'selenium-webdriver', '~> 2.43.0 '
+end
+
+group :production, :staging do
   # Unicorn
   gem 'unicorn'
   # capistrano関連
@@ -89,10 +92,6 @@ group :test do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
-end
-
-group :production, :staging do
-    gem 'unicorn'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
