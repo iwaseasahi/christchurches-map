@@ -45,7 +45,7 @@ server '52.192.101.190', user: 'IwaseAsahi', roles: %w{app}
  set :pty, false
  set :ssh_options, {
    keys: %w(~/.ssh/christchurches-map.pem),
-   forward_agent: true,
+   forward_agent: false,
    auth_methods: %w(publickey),
    port: '37459'
  }
