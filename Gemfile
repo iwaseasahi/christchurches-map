@@ -51,6 +51,8 @@ gem 'google-analytics-rails'
 gem 'sitemap_generator'
 ***REMOVED*** ユーザーログイン
 gem 'devise'
+***REMOVED*** Unicorn
+gem 'unicorn'
 
 group :development, :test do
   ***REMOVED*** Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -73,6 +75,12 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   ***REMOVED*** コーディングスタイル
   gem 'rubocop', require: false
+  ***REMOVED*** capistrano関連
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
 end
 
 group :test do
@@ -84,14 +92,6 @@ group :test do
 end
 
 group :production, :staging do
-  ***REMOVED*** Unicorn
-  gem 'unicorn'
-  ***REMOVED*** capistrano関連
-  gem 'capistrano'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails'
-  gem 'capistrano-rbenv'
-  gem 'capistrano3-unicorn'
 end
 
 ***REMOVED*** Windows does not include zoneinfo files, so bundle the tzinfo-data gem
