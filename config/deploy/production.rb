@@ -48,6 +48,7 @@ server '52.192.101.190',
    keys: %w(/home/vagrant/.ssh/christchurches-map.pem),
    forward_agent: false,
    auth_methods: %w(asahi2225)
+ }
 #  }
 #
 # The server-based syntax can be used to override options:
