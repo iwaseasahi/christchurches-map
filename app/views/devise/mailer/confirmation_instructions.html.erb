@@ -1,0 +1,8 @@
+<p>キリスト教会マップへのユーザー登録ありがとうございます。</p>
+<p>こちらのメールアドレスで登録致します。</p>
+
+<p><%= @email %></p>
+
+<p>以下のリンクからアカウントの承認をお願い致します。</p>
+
+<p><%= link_to 'メールアドレスの登録を承認する', controller: 'devise/confirmations', action: 'create', confirmation_token: @token %></p>

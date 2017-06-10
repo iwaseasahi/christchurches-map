@@ -49,6 +49,8 @@ gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'google-analytics-rails'
 ***REMOVED*** サイトマップ
 gem 'sitemap_generator'
+***REMOVED*** ユーザーログイン
+gem 'devise'
 
 group :development, :test do
   ***REMOVED*** Call 'byebug' anywhere in the code to stop execution and get a debugger console
