@@ -1,0 +1,12 @@
+@import "variables.scss";
+@import "mixins.scss";
+
+.alert {
+  max-width: 400px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+}

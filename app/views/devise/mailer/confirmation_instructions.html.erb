@@ -1,5 +1,8 @@
-<p>Welcome <%= @email %>!</p>
+<p>キリスト教会マップへのユーザー登録ありがとうございます。</p>
+<p>こちらのメールアドレスで登録致します。</p>
 
-<p>You can confirm your account email through the link below:</p>
+<p><%= @email %></p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p>以下のリンクからアカウントの承認をお願い致します。</p>
+
+<p><%= link_to 'メールアドレスの登録を承認する', controller: 'devise/confirmations', action: 'create', confirmation_token: @token %></p>
