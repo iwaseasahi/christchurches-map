@@ -2,14 +2,12 @@
 # ======================
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
+set :stage, :production
 
 # server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
-server '52.192.101.190',
-  user: 'IwaseAsahi',
-  roles: %w{app},
-  port: '37459'
+server '52.192.101.190', user: 'IwaseAsahi', roles: %w{app}
 
 
 # role-based syntax
@@ -44,10 +42,12 @@ server '52.192.101.190',
 #
 # Global options
 # --------------
+ set :pty, false
  set :ssh_options, {
-   keys: %w(/home/vagrant/.ssh/christchurches-map.pem),
-   forward_agent: false,
-   auth_methods: %w(asahi2225)
+   keys: %w(~/.ssh/christchurches-map.pem),
+   forward_agent: true,
+   auth_methods: %w(publickey),
+   port: '37459'
  }
 #  }
 #
