@@ -52,10 +52,7 @@
             <%= yield :extend_menu %>
             <% if user_signed_in? %>
               <li>
-                Logged in as <strong><%= current_user.email %></strong>
-              </li>
-              <li>
-                <%= link_to 'プロフィール編集', edit_user_registration_path, class: 'page-scroll' %>
+                <%= link_to "#{current_user.email}", edit_user_registration_path, class: 'page-scroll' %>
               </li>
               <li>
                 <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'page-scroll' %>
@@ -82,10 +79,14 @@
     </nav>
 
     <% if notice %>
-      <p class="alert alert-notice"><%= notice %></p>
+      <div class="alert alert-info" role="alert">
+        <%= notice %>
+      </div>
     <% end %>
     <% if alert %>
-      <p class="alert alert-error"><%= alert %></p>
+      <div class="alert alert-danger" role="alert">
+        <%= alert %>
+      </div>
     <% end %>
 
     <%= yield %>
