@@ -50,6 +50,21 @@
               <a href="#page-top"></a>
             </li>
             <%= yield :extend_menu %>
+            <% if user_signed_in? %>
+              <li>
+                <%= link_to "#{current_user.email}", edit_user_registration_path, class: 'page-scroll' %>
+              </li>
+              <li>
+                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'page-scroll' %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to 'ユーザー登録', new_user_registration_path, class: 'page-scroll' %>
+              </li>
+              <li>
+                <%= link_to 'ログイン', new_user_session_path, class: 'page-scroll' %>
+              </li>
+            <% end %>
             <li>
               <%= link_to 'マップ検索', maps_path, class: 'page-scroll' %>
             </li>
@@ -62,6 +77,17 @@
       </div>
       <!-- /.container-fluid -->
     </nav>
+
+    <% if notice %>
+      <div class="alert alert-info" role="alert">
+        <%= notice %>
+      </div>
+    <% end %>
+    <% if alert %>
+      <div class="alert alert-danger" role="alert">
+        <%= alert %>
+      </div>
+    <% end %>
 
     <%= yield %>
 
