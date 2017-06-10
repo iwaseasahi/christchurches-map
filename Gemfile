@@ -84,7 +84,14 @@ group :test do
 end
 
 group :production, :staging do
-    gem 'unicorn'
+  ***REMOVED*** Unicorn
+  gem 'unicorn'
+  ***REMOVED*** capistrano関連
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
 end
 
 ***REMOVED*** Windows does not include zoneinfo files, so bundle the tzinfo-data gem
