@@ -1,0 +1,18 @@
+@import "variables.scss";
+@import "mixins.scss";
+
+.new_user, .edit_user {
+  .field {
+    padding-bottom: 20px;
+    input {
+      max-width: 100%;
+      width: 250px;
+      height: 32px;
+      border: 1px solid #ccc;
+    }
+    #user_remember_me {
+      width: 12px;
+      height: 12px;
+    }
+  }
+}
