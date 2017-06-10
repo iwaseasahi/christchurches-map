@@ -51,8 +51,6 @@ gem 'google-analytics-rails'
 gem 'sitemap_generator'
 ***REMOVED*** ユーザーログイン
 gem 'devise'
-***REMOVED*** Unicorn
-gem 'unicorn'
 
 group :development, :test do
   ***REMOVED*** Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -92,6 +90,8 @@ group :test do
 end
 
 group :production, :staging do
+  ***REMOVED*** Unicorn
+  gem 'unicorn'
 end
 
 ***REMOVED*** Windows does not include zoneinfo files, so bundle the tzinfo-data gem
