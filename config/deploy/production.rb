@@ -42,7 +42,6 @@ server '52.192.101.190', user: 'IwaseAsahi', roles: %w{web app db}
 #
 # Global options
 # --------------
- set :pty, false
  set :ssh_options, {
    keys: %w(~/.ssh/christchurches-map.pem),
    forward_agent: true,
