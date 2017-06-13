@@ -19,7 +19,7 @@ set :deploy_to, "/var/www/projects/christchurches-map"
 ***REMOVED*** set :format_options, command_output: true, log_file: "log/capistrano.log", color: :auto, truncate: :auto
 
 ***REMOVED*** Default value for :pty is false
-***REMOVED*** set :pty, true
+set :pty, true
 
 ***REMOVED*** Default value for :linked_files is []
 ***REMOVED*** set :linked_files, fetch(:linked_files, []).push('config/settings/production.yml')
