@@ -9,15 +9,28 @@
   <%= @church.name %>に関する詳細情報です。
 <% end %>
 
-<!--  -->
 <!-- Header -->
 <div class="church-header">
   <div class="container">
     <div class="intro-text">
       <div class="intro-lead-in">Welcome To</div>
       <div class="intro-heading"><%= @church.name %></div>
+      <div id="like-link">
+        <%= render 'likes/like_links', church: @church %>
+      </div>
     </div>
   </div>
+</div>
+
+<!-- Likes -->
+<div class="line-section">
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <span id="like-count"><%= @church.likes.count %></span>人がいいね！といっています
+    </div>
+  </div>
+</div>
 </div>
 
 <!-- Services Section -->
