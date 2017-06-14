@@ -14,4 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :churches, except: %i(index)
+
+  post 'like/:church_id' => 'likes#like', as: 'like'
+  delete 'unlike/:church_id' => 'likes#unlike', as: 'unlike'
 end
