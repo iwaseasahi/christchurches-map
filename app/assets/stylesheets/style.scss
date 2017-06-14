@@ -10,3 +10,17 @@
   margin: auto;
   text-align: center;
 }
+
+.btn-xl-secondary {
+  @include button-variant(white, $theme-secondary, $theme-secondary);
+  @include heading-font;
+  font-weight: 700;
+  border-radius: 3px;
+  font-size: 18px;
+  padding: 20px 40px;
+}
+
+.line-section {
+  padding-top: 25px;
+}
+

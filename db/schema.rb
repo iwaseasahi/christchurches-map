@@ -10,7 +10,7 @@
 ***REMOVED***
 ***REMOVED*** It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170608133730) do
+ActiveRecord::Schema.define(version: 20170614101535) do
 
   create_table "churches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -35,6 +35,13 @@ ActiveRecord::Schema.define(version: 20170608133730) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.datetime "soft_destroyed_at"
+  end
+
+  create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "church_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "prefectures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

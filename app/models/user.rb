@@ -3,4 +3,6 @@ class User < ApplicationRecord
   ***REMOVED*** :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
+  has_many :likes
+  has_many :like_churches, through: :likes, source: :church
 end
