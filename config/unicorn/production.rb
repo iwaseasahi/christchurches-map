@@ -15,6 +15,10 @@ listen  $listen
 pid $pid
 # loading booster
 preload_app true
+# bundlerの場所を明示
+before_exec do |server|
+  ENV['BUNDLE_GEMFILE'] = @app_path + "/current/Gemfile"
+end
 # before starting processes
 before_fork do |server, worker|
   defined?(ActiveRecord::Base) and ActiveRecord::Base.connection.disconnect!
