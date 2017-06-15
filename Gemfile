@@ -51,6 +51,8 @@ gem 'google-analytics-rails'
 gem 'sitemap_generator'
 ***REMOVED*** ユーザーログイン
 gem 'devise'
+***REMOVED*** 開発環境をYAMLファイルで管理
+gem 'config'
 
 group :development, :test do
   ***REMOVED*** Call 'byebug' anywhere in the code to stop execution and get a debugger console
