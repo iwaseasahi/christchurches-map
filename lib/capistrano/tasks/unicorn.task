@@ -5,7 +5,8 @@ namespace :unicorn do
   end
   def start_unicorn
     within current_path do
-      execute :bundle, :exec, :unicorn, "-c ***REMOVED***{fetch(:unicorn_config)} -E ***REMOVED***{fetch(:rails_env)} -D"
+      execute :bundle, :exec, :unicorn, "-c ***REMOVED***{fetch(:unicorn_config)} -E production -D"
+      /* execute :bundle, :exec, :unicorn, "-c ***REMOVED***{fetch(:unicorn_config)} -E ***REMOVED***{fetch(:rails_env)} -D" */
     end
   end
   def stop_unicorn
