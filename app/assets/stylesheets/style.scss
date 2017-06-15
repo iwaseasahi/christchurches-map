@@ -1,6 +1,11 @@
 @import "variables.scss";
 @import "mixins.scss";
 
+input,
+textarea {
+  @include serif-font;
+}
+
 .alert {
   max-width: 400px;
   width: 100%;
