@@ -53,6 +53,8 @@ gem 'sitemap_generator'
 gem 'devise'
 ***REMOVED*** 開発環境をYAMLファイルで管理
 gem 'config'
+***REMOVED*** New Relic
+gem 'newrelic_rpm'
 
 group :development, :test do
   ***REMOVED*** Call 'byebug' anywhere in the code to stop execution and get a debugger console
