@@ -53,6 +53,10 @@ gem 'sitemap_generator'
 gem 'devise'
 # 開発環境をYAMLファイルで管理
 gem 'config'
+# 例外通知
+gem 'exception_notification', github: 'smartinez87/exception_notification'
+# Slack
+gem 'slack-notifier'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
