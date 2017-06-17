@@ -21,15 +21,7 @@ ExceptionNotification.configure do |config|
   config.add_notifier :email, {
     email_prefix:         '[キリスト教会マップERROR] ',
     sender_address:       %{"Notifier" <j.c.project153@gmail.com>},
-    exception_recipients: %w{j.c.project153@gmail.com},
-    smtp_settings: {
-      address: 'smtp.gmail.com',
-      port: '587',
-      domain: 'christchurches-map.com',
-      authentication: 'plain',
-      user_name: 'j.c.project153@gmail.com',
-      password: 'iwqkkakvfjeuxdts'
-    }
+    exception_recipients: %w{j.c.project153@gmail.com}
   }
 
   # Slack
