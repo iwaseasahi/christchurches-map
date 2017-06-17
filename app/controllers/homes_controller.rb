@@ -1,6 +1,4 @@
 class HomesController < ApplicationController
-  def top
-    raise
-  end
+  def top; end
   def contact; end
 end
