@@ -19,6 +19,12 @@
         <div id="like-link">
           <%= render 'likes/like_links', church: @church %>
         </div>
+      <% else %>
+        <div id="like-link">
+          <%= link_to modal_churches_path, remote: true, class: 'page-scroll btn btn-xl' do %>
+            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> いいね
+          <% end %>
+        </div>
       <% end %>
     </div>
   </div>
@@ -34,6 +40,9 @@
     </div>
   </div>
 </div>
+
+<!-- モーダル表示 -->
+<div id="product-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
 
 <!-- Services Section -->
 <section id="services">
