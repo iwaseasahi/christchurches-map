@@ -13,7 +13,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :churches, except: %i(index)
+  resources :churches, except: %i(index) do
+    collection do
+      get '/modal' => 'churches#modal'
+    end
+  end
 
   post 'like/:church_id' => 'likes#like', as: 'like'
   delete 'unlike/:church_id' => 'likes#unlike', as: 'unlike'

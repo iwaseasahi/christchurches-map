@@ -9,7 +9,7 @@ class ChurchesController < ApplicationController
     @church = Church.new
   end
 
-  def edit;end
+  def edit; end
 
   def create
     @church = Church.new(church_params)
@@ -32,6 +32,8 @@ class ChurchesController < ApplicationController
     @church.soft_destroy
     redirect_to maps_path
   end
+
+  def modal; end
 
   private
 
