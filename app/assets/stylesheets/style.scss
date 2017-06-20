@@ -27,3 +27,13 @@ textarea {
   padding-top: 25px;
 }
 
+.btn-secondary {
+  @include button-variant(white, $theme-secondary, $theme-secondary);
+  @include heading-font;
+  font-weight: 700;
+}
+
+.text-center {
+  text-align: center;
+}
+
