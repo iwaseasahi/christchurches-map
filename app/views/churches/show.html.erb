@@ -85,3 +85,37 @@
     handler.fitMapToBounds();
   });
 </script>
+
+<!-- コメント投稿 -->
+<section id="comment-form">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="form-group">
+          <%= form_for @comment, url: comment_create_path(@church.id) do |f| %>
+
+            <div class="field">
+              <%= f.label :comment, 'コメント' %>
+              <%= f.text_area :comment, size: '10x5', class: 'form-control' %>
+            </div>
+
+            <div class="actions">
+              <%= f.submit '投稿', class: 'btn btn-primary' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- コメント一覧 -->
+<div class="line-section">
+  <div class="container">
+    <div class="row">
+      <% @church.comments.each do |comment| %>
+        <div class="col-lg-12 text-center"><%= comment.comment %></div>
+      <% end %>
+    </div>
+  </div>
+</div>
