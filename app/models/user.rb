@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :likes
   has_many :like_churches, through: :likes, source: :church
+  has_many :comments
+  has_many :comment_churches, through: :comments, source: :church
 end
