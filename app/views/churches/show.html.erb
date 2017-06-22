@@ -87,7 +87,7 @@
 </script>
 
 <!-- コメント投稿 -->
-<section id="comment-form">
+<div class="comment-form">
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
@@ -107,14 +107,16 @@
       </div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- コメント一覧 -->
 <div class="line-section">
   <div class="container">
     <div class="row">
       <% @church.comments.each do |comment| %>
-        <div class="col-lg-12 text-center"><%= comment.comment %></div>
+        <div class="col-lg-12">
+          <div class='well'><%= simple_format(comment.comment) %></div>
+        </div>
       <% end %>
     </div>
   </div>
