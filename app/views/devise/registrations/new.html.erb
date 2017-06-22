@@ -7,6 +7,16 @@
         <%= devise_error_messages! %>
 
         <div class="field">
+          <%= f.label :last_name, '姓' %><br />
+          <%= f.text_field :last_name %>
+        </div>
+
+        <div class="field">
+          <%= f.label :first_name, '姓' %><br />
+          <%= f.text_field :first_name %>
+        </div>
+
+        <div class="field">
           <%= f.label :email, 'メールアドレス' %><br />
           <%= f.email_field :email, autofocus: true %>
         </div>
