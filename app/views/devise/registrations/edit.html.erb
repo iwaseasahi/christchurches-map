@@ -7,6 +7,16 @@
         <%= devise_error_messages! %>
 
         <div class="field">
+          <%= f.label :last_name, '姓' %><br />
+          <%= f.text_field :last_name %>
+        </div>
+
+        <div class="field">
+          <%= f.label :first_name, '姓' %><br />
+          <%= f.text_field :first_name %>
+        </div>
+
+        <div class="field">
           <%= f.label :email, 'メールアドレス' %><br />
           <%= f.email_field :email, autofocus: true %>
         </div>
@@ -17,6 +27,7 @@
 
         <div class="field">
           <%= f.label :password, 'パスワード' %><br />
+          <%= f.label :password, '（変更する場合のみ入力してください）' %><br />
           <%= f.password_field :password, autocomplete: "off" %>
           <% if @minimum_password_length %>
             <br />
@@ -36,7 +47,7 @@
         </div>
 
         <div class="actions">
-          <%= f.submit "更新", class: 'btn btn-primary' %>
+          <%= f.submit "更新", class: 'btn btn-secondary' %>
         </div>
       <% end %>
 
