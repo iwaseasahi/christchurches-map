@@ -1,8 +1,19 @@
 @import "variables.scss";
 @import "mixins.scss";
 
-***REMOVED***comment-form {
+.comment-form {
+  padding-top: 100px;
   .field {
     padding-bottom: 10px;
+  }
+}
+
+@media(min-width:768px) {
+  .comment-form {
+  }
+}
+
+@media(max-width:767px) {
+  .comment-form {
   }
 }
