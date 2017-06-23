@@ -3,5 +3,5 @@ class Church < ApplicationRecord
   belongs_to :group
   belongs_to :prefecture
   has_many :likes, dependent: :destroy
-  has_many :comments, dependent: :destroy
+  has_many :comments, -> { order(created_at: :desc) } , dependent: :destroy
 end
