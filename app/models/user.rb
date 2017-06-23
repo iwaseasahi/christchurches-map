@@ -10,4 +10,8 @@ class User < ApplicationRecord
   has_many :like_churches, through: :likes, source: :church
   has_many :comments
   has_many :comment_churches, through: :comments, source: :church
+
+  def full_name
+    "#{last_name} #{first_name}"
+  end
 end

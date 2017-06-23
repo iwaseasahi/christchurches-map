@@ -2,9 +2,8 @@ class CommentsController < ApplicationController
   before_action :set_church, only: %i(create destroy)
 
   def create
-    comment = current_user.comments.build(church_id: @church.id, comment: comment_params[:comment])
-    comment.save
-    redirect_to church_path(@church)
+    @comment = current_user.comments.build(church_id: @church.id, comment: comment_params[:comment])
+    @comment.save
   end
 
   def destory

@@ -1,4 +1,12 @@
-<div class="form-group">
-  <label for="comment">Comment:</label>
-  <textarea class="form-control" rows="5" id="comment"></textarea>
+<div class="col-lg-12">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        <%= comment.user.full_name %>
+      </h3>
+    </div>
+    <div class="panel-body">
+      <%= simple_format(comment.comment) %>
+    </div>
+  </div>
 </div>
