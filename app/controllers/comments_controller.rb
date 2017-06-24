@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :set_comment, only: %i(edit update destroy)
   before_action :set_church, only: %i(create)
 
   def create
@@ -6,12 +7,21 @@ class CommentsController < ApplicationController
     @comment.save
   end
 
+  def edit; end
+
+  def update
+    @comment.update(comment: comment_params[:comment])
+  end
+
   def destroy
-    @comment = Comment.find(params[:comment_id])
     @comment.soft_destroy
   end
 
   private
+
+  def set_comment
+    @comment = Comment.find(params[:id])
+  end
 
   def set_church
     @church = Church.find(params[:church_id])
