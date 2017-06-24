@@ -7,6 +7,23 @@
   }
 }
 
+.panel-heading-group:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.panel-heading {
+  color: ***REMOVED***31708f;
+  background-color: ***REMOVED***d9edf7;
+  border-color: ***REMOVED***bce8f1;
+  width: 33.3%;
+  float: left;
+  p {
+    font-size: 10px;
+  }
+}
+
 @media(min-width:768px) {
   .comment-form {
   }
