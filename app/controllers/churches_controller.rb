@@ -3,6 +3,7 @@ class ChurchesController < ApplicationController
 
   def show
     build_marker(@church)
+    @comment = Comment.new
   end
 
   def new
