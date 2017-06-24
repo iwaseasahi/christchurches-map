@@ -52,7 +52,7 @@
             <%= yield :extend_menu %>
             <% if user_signed_in? %>
               <li>
-                <%= link_to "#{current_user.last_name} #{current_user.first_name}", edit_user_registration_path, class: 'page-scroll' %>
+                <%= link_to current_user.full_name, edit_user_registration_path, class: 'page-scroll' %>
               </li>
               <li>
                 <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'page-scroll' %>
