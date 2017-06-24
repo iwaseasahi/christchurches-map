@@ -1,7 +1,7 @@
 @import "variables.scss";
 @import "mixins.scss";
 
-.comment-form {
+.comment-form, #comments-list {
   .field {
     padding-bottom: 10px;
   }
