@@ -1,14 +1,14 @@
 class CommentsController < ApplicationController
-  before_action :set_church, only: %i(create destroy)
+  before_action :set_church, only: %i(create)
 
   def create
     @comment = current_user.comments.build(church_id: @church.id, comment: comment_params[:comment])
     @comment.save
   end
 
-  def destory
-    comment = current_user.comments.find_by(church_id: @church.id, comment: comment_params[:comment])
-    comment.destroy
+  def destroy
+    @comment = Comment.find(params[:comment_id])
+    @comment.soft_destroy
   end
 
   private
