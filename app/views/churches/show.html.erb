@@ -93,7 +93,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="form-group">
-            <%= form_for @comment, url: comment_create_path(@church.id), remote: true do |f| %>
+            <%= form_for @comment, url: create_comments_path(@church.id), remote: true do |f| %>
 
               <div class="field">
                 <%= f.label :comment, 'コメント' %>
@@ -126,9 +126,11 @@
                   </h3>
                 </div>
                 <div class="panel-heading">
-                  <h3 class="panel-title text-center">
-                    <%= '編集' %> | <%= link_to '削除', comment_destroy_path(comment.id), method: :delete, remote: true %>
-                  </h3>
+                    <h3 class="panel-title text-center">
+                      <% if comment.user_id == current_user.id %>
+                        <%= link_to '編集', edit_comment_path(comment.id), remote: true %> | <%= link_to '削除', comment_path(comment.id), method: :delete, remote: true %>
+                      <% end %>
+                    </h3>
                 </div>
                 <div class="panel-heading">
                   <p class="panel-title text-right">

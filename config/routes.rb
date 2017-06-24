@@ -22,6 +22,9 @@ Rails.application.routes.draw do
   post 'like/:church_id' => 'likes#like', as: 'like'
   delete 'unlike/:church_id' => 'likes#unlike', as: 'unlike'
 
-  post 'comment/:church_id' => 'comments#create', as: 'comment_create'
-  delete 'comment/:comment_id' => 'comments#destroy', as: 'comment_destroy'
+  resources :comments, only: %i(edit update destroy) do
+    collection do
+      post '/:church_id' => 'comments#create', as: 'create'
+    end
+  end
 end
