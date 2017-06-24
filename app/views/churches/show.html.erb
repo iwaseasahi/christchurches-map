@@ -127,7 +127,7 @@
                 </div>
                 <div class="panel-heading">
                     <h3 class="panel-title text-center">
-                      <% if comment.user_id == current_user.id %>
+                      <% if user_signed_in? && comment.user_id == current_user.id %>
                         <%= link_to '編集', edit_comment_path(comment.id), remote: true %> | <%= link_to '削除', comment_path(comment.id), method: :delete, remote: true %>
                       <% end %>
                     </h3>
