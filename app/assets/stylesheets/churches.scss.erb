@@ -39,6 +39,19 @@
   padding-bottom: 100px;
 }
 
+.like-counts-custom {
+  border-color: #ffffff !important;
+  height: 50px;
+}
+
+.comment-counts-custom {
+  @extend .like-counts-custom;
+}
+
+#like-count, #comment-count {
+  font-size: 18px;
+}
+
 // PC用
 @media(min-width:768px) {
   .church-header {
