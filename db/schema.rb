@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170621102925) do
+ActiveRecord::Schema.define(version: 20170629135329) do
 
   create_table "churches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20170621102925) do
     t.string   "first_name"
     t.integer  "church_id"
     t.integer  "gender"
+    t.string   "icon"
     t.boolean  "is_test",                default: false, null: false
     t.datetime "soft_destroyed_at"
     t.datetime "created_at",                             null: false
