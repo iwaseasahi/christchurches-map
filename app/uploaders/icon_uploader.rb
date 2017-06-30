@@ -20,13 +20,14 @@ class IconUploader < CarrierWave::Uploader::Base
   ***REMOVED***   "uploads/***REMOVED***{model.class.to_s.underscore}/***REMOVED***{mounted_as}/***REMOVED***{model.id}"
   ***REMOVED*** end
 
-  ***REMOVED*** Provide a default URL as a default if there hasn't been a file uploaded:
-  ***REMOVED*** def default_url(*args)
-  ***REMOVED***   ***REMOVED*** For Rails 3.1+ asset pipeline compatibility:
-  ***REMOVED***   ***REMOVED*** ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-  ***REMOVED***
-  ***REMOVED***   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-  ***REMOVED*** end
+  ***REMOVED*** 画像がアップロードされていない場合の対応
+  ***REMOVED*** public/images/default_icon.jpgを読み込む
+  def default_url(*args)
+    ***REMOVED*** For Rails 3.1+ asset pipeline compatibility:
+    ***REMOVED*** ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
+    ***REMOVED*** "/images/fallback/" + [version_name, "default_icon.png"].compact.join('_')
+    'default_icon.jpg'
+  end
 
   ***REMOVED*** Process files as they are uploaded:
   ***REMOVED*** process scale: [200, 300]
