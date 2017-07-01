@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     if @user.update(icon_params)
       redirect_to user_path(@user.id)
     else
-      redirect_to user_path(@user.id)
+      redirect_to user_path(@user.id), alert: 'アイコンが変更できませんでした。'
     end
   end
 
