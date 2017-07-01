@@ -6,7 +6,7 @@
       <div class="show_user">
         <div class="field">
           <%= label :user, :icon, 'アイコン' %><br />
-          <%= image_tag @user.icon_url, class: 'icon' %>
+          <%= image_tag @user.icon_url(:thumb), class: 'icon' %>
         </div>
 
         <% if user_signed_in? && current_user.id == @user.id %>
