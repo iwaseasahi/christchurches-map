@@ -5,6 +5,21 @@
 
       <div class="show_user">
         <div class="field">
+          <%= label :user, :icon, 'アイコン' %><br />
+          <%= image_tag @user.icon_url, class: 'icon' %>
+        </div>
+
+        <% if user_signed_in? && current_user.id == @user.id %>
+          <%= form_for @user, url: upload_icon_user_path(@user.id), method: :put do |f| %>
+            <div class="field">
+              <span class="btn btn-primary btn-file">
+                アイコン変更 <%= f.file_field :icon %>
+              </span>
+            </div>
+          <% end %>
+        <% end %>
+
+        <div class="field">
           <%= label :user, :last_name, '姓' %><br />
           <span class="user_info"><%= @user.last_name %></span>
         </div>
