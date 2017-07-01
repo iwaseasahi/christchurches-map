@@ -3,6 +3,13 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
+
+  resources :users, only: %i(show) do
+    member do
+      put :upload_icon
+    end
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'homes#top'
   get '/contact' => 'homes#contact'
