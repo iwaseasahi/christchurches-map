@@ -35,6 +35,8 @@ gem 'jbuilder', '~> 2.5'
 ***REMOVED*** Use Capistrano for deployment
 ***REMOVED*** gem 'capistrano-rails', group: :development
 
+***REMOVED*** .envファイルを使用
+gem 'dotenv-rails'
 ***REMOVED*** 論理削除
 gem 'kakurenbo-puti'
 ***REMOVED*** rake
@@ -57,6 +59,12 @@ gem 'config'
 gem 'exception_notification', github: 'smartinez87/exception_notification'
 ***REMOVED*** Slack
 gem 'slack-notifier'
+***REMOVED*** 画像アップロード
+gem 'carrierwave'
+***REMOVED*** 画像トリミング
+gem 'rmagick'
+***REMOVED*** S3にアップロードを簡単にするライブラリ
+gem 'fog'
 
 group :development, :test do
   ***REMOVED*** Call 'byebug' anywhere in the code to stop execution and get a debugger console
