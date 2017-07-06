@@ -1,17 +1,22 @@
 <div class="col-lg-12 comment_id_<%= comment.id %>">
   <div class="panel panel-info">
     <div class="panel-heading-group">
-      <div class="panel-heading">
+      <div class="panel-heading user_profile">
         <h3 class="panel-title">
-          <%= comment.user.full_name %>
+          <span>
+            <%= image_tag comment.user.icon_url, class: 'icon' %>
+          </span>
+          <span>
+            <%= comment.user.full_name %>
+          </span>
         </h3>
       </div>
-      <div class="panel-heading">
-        <h3 class="panel-title text-center">
-          <%= link_to '編集', edit_comment_path(comment.id), remote: true %> | <%= link_to '削除', comment_path(comment.id), method: :delete, remote: true %>
-        </h3>
+      <div class="panel-heading comment_edit_or_delete">
+        <p class="panel-title text-center">
+          <%= link_to '編集', edit_comment_path(comment.id), remote: true %> | <%= link_to '削除', comment_path(comment.id), method: :delete, remote: true, data: { confirm: "本当に削除しますか？" } %>
+        </p>
       </div>
-      <div class="panel-heading">
+      <div class="panel-heading created_at">
         <p class="panel-title text-right">
           <%= comment.time %>
         </p>
