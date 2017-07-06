@@ -7,6 +7,21 @@
   }
 }
 
+.panel-heading-group {
+  .user_profile {
+    width: 50%;
+    padding: 5px 5px;
+  }
+  .comment_edit_or_delete {
+    width: 20%;
+    padding: 10px 5px;
+  }
+  .created_at {
+    width: 30%;
+    padding: 10px 10px 10px 0;
+  }
+}
+
 .panel-heading-group:after {
   content: '';
   display: block;
@@ -17,8 +32,7 @@
   color: #31708f;
   background-color: #d9edf7;
   border-color: #bce8f1;
-  width: 33.33%;
-  height: 38px;
+  height: 40px;
   float: left;
   p {
     font-size: 10px;
