@@ -31,7 +31,7 @@
 </div>
 
 <!-- Likes -->
-<div class="line-section">
+<div class="line-section-small">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
@@ -59,7 +59,7 @@
     <div class="row">
       <div class="col-lg-12 text-center">
         <h2 class="section-heading">Information</h2>
-        <h3 class="section-subheading text-muted"><%= @church.name %>に関する情報は以下になります。</h3>
+        <h3 class="section-subheading text-muted"><%= @church.name %>に関する情報</h3>
       </div>
     </div>
     <div class="row text-center">
@@ -79,7 +79,52 @@
       </div>
     </div>
   </div>
+  <div class="line-section-middle">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fa fa-circle fa-stack-2x text-primary"></i>
+            <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading"><%= @church.display_tel %></h4>
+        </div> <div class="col-md-4"> <span class="fa-stack fa-4x"> <i class="fa fa-circle fa-stack-2x text-primary"></i>
+            <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading"><%= @church.display_email %></h4>
+        </div>
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fa fa-circle fa-stack-2x text-primary"></i>
+            <i class="fa fa-home fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading"><%= @church.display_url %></h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="line-section-middle">
+    <div class="container">
+      <div class="row text-center">
+        <% if user_signed_in? %>
+          <div id="edit-link">
+            <%= link_to edit_church_path(@church), class: 'page-scroll btn btn-xl-secondary' do %>
+              <i class="fa fa-pencil" aria-hidden="true"></i> 編集する
+            <% end %>
+          </div>
+        <% else %>
+          <div id="edit-link">
+            <%= link_to modal_churches_path, remote: true, class: 'page-scroll btn btn-xl-secondary' do %>
+              <i class="fa fa-pencil" aria-hidden="true"></i> 編集する
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </section>
+
+<!-- 教会地図 -->
 <section id="google-map">
   <div class="container separation">
     <div class='centering'></div>
@@ -121,7 +166,7 @@
 <% end %>
 
 <!-- コメント一覧 -->
-<div class="line-section">
+<div class="line-section-small">
   <div class="container">
     <div class="row">
       <div id="comments-list">
