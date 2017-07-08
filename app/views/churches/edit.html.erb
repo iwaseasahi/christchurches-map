@@ -10,11 +10,20 @@
 <% end %>
 
 <!-- Header -->
-<div class="church-header" style="background-image: url(<%= asset_path "church_top_#{rand(3) + 1}.jpg" %>)">
+<div class="church-header" style="background-image: url(<%= @church.top_image_url(:thumb) %>)">
   <div class="container">
     <div class="intro-text">
       <div class="intro-lead-in">Welcome To</div>
       <div class="intro-heading"><%= @church.name %></div>
+      <div id="top-image-link">
+        <%= form_for @church, url: upload_top_image_church_path(@church.id), method: :put do |f| %>
+          <div class="field">
+            <span class="page-scroll btn btn-xl btn-file">
+              <i class="fa fa-file-image-o" aria-hidden="true"></i> トップ画像を変更 <%= f.file_field :top_image %>
+            </span>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
