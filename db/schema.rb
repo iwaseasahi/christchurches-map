@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170629135329) do
+ActiveRecord::Schema.define(version: 20170708010640) do
 
   create_table "churches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20170629135329) do
     t.string   "email"
     t.string   "url"
     t.text     "worshiping_time",   limit: 65535
+    t.string   "top_image"
     t.datetime "created_at",                                               null: false
     t.datetime "updated_at",                                               null: false
     t.datetime "soft_destroyed_at"

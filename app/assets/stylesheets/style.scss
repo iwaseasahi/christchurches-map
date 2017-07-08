@@ -48,3 +48,24 @@ textarea {
 .text-left {
   text-align: left;
 }
+
+.loading {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  opacity: 0.5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  text-align: center;
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -24px;
+    margin-left: -24px;
+  }
+}
+

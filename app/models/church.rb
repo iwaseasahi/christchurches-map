@@ -1,5 +1,8 @@
 class Church < ApplicationRecord
   soft_deletable
+
+  mount_uploader :top_image, TopImageUploader
+
   belongs_to :group
   belongs_to :prefecture
   has_many :likes, dependent: :destroy

@@ -1,5 +1,5 @@
 class ChurchesController < ApplicationController
-  before_action :set_church, only: %i(show edit update destroy)
+  before_action :set_church, only: %i(show edit update destroy upload_top_image)
 
   def show
     build_marker(@church)
@@ -36,6 +36,14 @@ class ChurchesController < ApplicationController
 
   def modal; end
 
+  def upload_top_image
+    if @church.update(top_image_params)
+      redirect_to edit_church_path(@church.id)
+    else
+      redirect_to edit_church_path(@church.id), alert: 'トップ画像が変更できませんでした。'
+    end
+  end
+
   private
 
   def set_church
@@ -44,6 +52,10 @@ class ChurchesController < ApplicationController
 
   def church_params
     params.require(:church).permit(:name, :group_id, :postal_code, :prefecture_id, :address, :tel, :fax, :email, :url, :worshiping_time)
+  end
+
+  def top_image_params
+    params.require(:church).permit(:top_image)
   end
 
   def build_marker(church)
