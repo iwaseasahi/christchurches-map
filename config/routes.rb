@@ -24,6 +24,9 @@ Rails.application.routes.draw do
     collection do
       get '/modal' => 'churches#modal'
     end
+    member do
+      put :upload_top_image
+    end
   end
 
   post 'like/:church_id' => 'likes#like', as: 'like'
