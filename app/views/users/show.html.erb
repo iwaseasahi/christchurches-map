@@ -9,6 +9,11 @@
           <%= image_tag @user.icon_url(:thumb), class: 'icon' %>
         </div>
 
+        <!-- ローディング画面 -->
+        <div class="loading js-loading">
+          <%= image_tag(asset_path 'loading.gif') %>
+        </div>
+
         <% if user_signed_in? && current_user.id == @user.id %>
           <%= form_for @user, url: upload_icon_user_path(@user.id), method: :put do |f| %>
             <div class="field">
