@@ -39,6 +39,9 @@
           <div class="actions">
             <%= link_to "変更", edit_user_registration_path, class: 'btn btn-primary' %>
           </div>
+          <div class="actions">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-secondary element-section-small' %>
+          </div>
         <% end %>
       </div>
     </div>
