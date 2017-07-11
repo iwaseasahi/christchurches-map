@@ -31,6 +31,14 @@ textarea {
   padding-top: 50px;
 }
 
+.element-section-small {
+  margin-top: 25px;
+}
+
+.element-section-middle {
+  margin-top: 50px;
+}
+
 .btn-secondary {
   @include button-variant(white, $theme-secondary, $theme-secondary);
   @include heading-font;
