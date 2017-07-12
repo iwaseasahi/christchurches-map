@@ -1,4 +1,5 @@
 class TopImageUploader < CarrierWave::Uploader::Base
+  after :store, :remove_original_file
 
   include CarrierWave::RMagick
 
@@ -48,6 +49,12 @@ class TopImageUploader < CarrierWave::Uploader::Base
      img = yield(img) if block_given?
      img
    end
+  end
+
+  # 元画像の削除
+  def remove_original_file(original_file)
+    return if version_name.present?
+    file.delete if file.exists?
   end
 
   # アップロード可能な形式
