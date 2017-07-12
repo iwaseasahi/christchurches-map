@@ -58,7 +58,10 @@
           <i class="fa fa-circle fa-stack-2x text-primary"></i>
           <i class="fa fa-users fa-stack-1x fa-inverse"></i>
         </span>
-        <h4 class="service-heading"><%= @church.group.name %></h4>
+        <div class="field">
+          <%= f.label :group, '教団教派・グループ', class: 'service-heading' %><br />
+          <%= f.collection_select :group_id, @groups, :id, :name, { prompt: '選択してください。'}, class: 'form-control' %>
+        </div>
       </div>
     </div>
   </div>
