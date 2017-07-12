@@ -65,6 +65,8 @@ gem 'carrierwave'
 gem 'rmagick'
 # S3にアップロードを簡単にするライブラリ
 gem 'fog'
+# 住所から緯度経度を算出
+gem 'geocoder'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
