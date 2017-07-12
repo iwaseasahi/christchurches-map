@@ -4,7 +4,7 @@ class User < ApplicationRecord
   validates :last_name,  presence: true, length: { maximum: 50 }
   validates :first_name, presence: true, length: { maximum: 50 }
 
-  devise :database_authenticatable, :registerable, :confirmable,
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   mount_uploader :icon, IconUploader
