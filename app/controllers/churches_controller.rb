@@ -10,7 +10,9 @@ class ChurchesController < ApplicationController
     @church = Church.new
   end
 
-  def edit; end
+  def edit
+    @groups = Group.all
+  end
 
   def create
     @church = Church.new(church_params)
