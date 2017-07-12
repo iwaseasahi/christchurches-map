@@ -8,6 +8,9 @@ class Church < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :comments, -> { order(created_at: :desc).without_soft_destroyed } , dependent: :destroy
 
+  geocoded_by :address
+  after_validation :geocode
+
   def display_tel
     if tel.present?
       tel
