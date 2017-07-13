@@ -20,7 +20,7 @@
           <div class="field">
             <span class="page-scroll btn btn-xl btn-file">
               <i class="fa fa-file-image-o" aria-hidden="true"></i> トップ画像を変更 <%= f.file_field :top_image %>
-            </span>
+          </span>
           </div>
         <% end %>
       </div>
@@ -36,82 +36,83 @@
 <!-- Services Section -->
 <section id="services">
   <div class="container">
-  <%= form_for @church, url: church_path(@church), method: :put do |f| %>
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <h2 class="section-heading">Information</h2>
-        <h3 class="section-subheading text-muted"><%= @church.name %>に関する情報</h3>
-      </div>
-    </div>
-    <div class="row text-center">
-      <div class="col-md-6">
-        <span class="fa-stack fa-4x">
-          <i class="fa fa-circle fa-stack-2x text-primary"></i>
-          <i class="fa fa-map-marker fa-stack-1x fa-inverse"></i>
-        </span>
-        <div class="field">
-          <%= f.label :address, '住所', class: 'service-heading' %><br />
-          <%= f.text_field :address %>
-        </div>
-      <div class="col-md-6">
-        <span class="fa-stack fa-4x">
-          <i class="fa fa-circle fa-stack-2x text-primary"></i>
-          <i class="fa fa-users fa-stack-1x fa-inverse"></i>
-        </span>
-        <div class="field">
-          <%= f.label :group, '教団教派・グループ', class: 'service-heading' %><br />
-          <%= f.collection_select :group_id, @groups, :id, :name, { prompt: '選択してください。'}, class: 'form-control' %>
+    <%= form_for @church, url: church_path(@church), method: :put do |f| %>
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading">Information</h2>
+          <h3 class="section-subheading text-muted"><%= @church.name %>に関する情報</h3>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="line-section-middle">
-    <div class="container">
       <div class="row text-center">
-        <div class="col-md-4">
+        <div class="col-md-6">
           <span class="fa-stack fa-4x">
             <i class="fa fa-circle fa-stack-2x text-primary"></i>
-            <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
+            <i class="fa fa-map-marker fa-stack-1x fa-inverse"></i>
           </span>
           <div class="field">
-            <%= f.label :tel, '電話番号', class: 'service-heading' %><br />
-            <%= f.telephone_field :tel %>
+            <%= f.label :address, '住所', class: 'service-heading' %><br />
+            <%= f.text_field :address %>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
           <span class="fa-stack fa-4x">
             <i class="fa fa-circle fa-stack-2x text-primary"></i>
-            <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+            <i class="fa fa-users fa-stack-1x fa-inverse"></i>
           </span>
           <div class="field">
-            <%= f.label :email, 'メールアドレス', class: 'service-heading' %><br />
-            <%= f.email_field :email %>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <span class="fa-stack fa-4x">
-            <i class="fa fa-circle fa-stack-2x text-primary"></i>
-            <i class="fa fa-home fa-stack-1x fa-inverse"></i>
-          </span>
-          <div class="field">
-            <%= f.label :url, 'ホームページ', class: 'service-heading' %><br />
-            <%= f.url_field :url %>
+            <%= f.label :group, '教団教派・グループ', class: 'service-heading' %><br />
+            <%= f.collection_select :group_id, @groups, :id, :name, { prompt: '選択してください。'}, class: 'form-control' %>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="line-section-middle">
-    <div class="container">
-      <div class="row text-center">
-        <div>
-          <%= button_tag type: 'submit', class: 'page-scroll btn btn-xl-secondary' do %>
-            <i class="fa fa-pencil" aria-hidden="true"></i> 更新する
-          <% end %>
+      <div class="line-section-middle">
+        <div class="container">
+          <div class="row text-center">
+            <div class="col-md-4">
+              <span class="fa-stack fa-4x">
+                <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
+              </span>
+              <div class="field">
+                <%= f.label :tel, '電話番号', class: 'service-heading' %><br />
+                <%= f.telephone_field :tel %>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <span class="fa-stack fa-4x">
+                <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+              </span>
+              <div class="field">
+                <%= f.label :email, 'メールアドレス', class: 'service-heading' %><br />
+                <%= f.email_field :email %>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <span class="fa-stack fa-4x">
+                <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                <i class="fa fa-home fa-stack-1x fa-inverse"></i>
+              </span>
+              <div class="field">
+                <%= f.label :url, 'ホームページ', class: 'service-heading' %><br />
+                <%= f.url_field :url %>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+      <div class="line-section-middle">
+        <div class="container">
+          <div class="row text-center">
+            <div>
+              <%= button_tag type: 'submit', class: 'page-scroll btn btn-xl-secondary' do %>
+                <i class="fa fa-pencil" aria-hidden="true"></i> 更新する
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
-  <% end %>
 </section>
 
