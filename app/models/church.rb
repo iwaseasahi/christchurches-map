@@ -9,7 +9,7 @@ class Church < ApplicationRecord
   has_many :comments, -> { order(created_at: :desc).without_soft_destroyed } , dependent: :destroy
 
   geocoded_by :address
-  after_validation :geocode
+  after_validation :geocode, if: lambda { |obj| obj.address_changed? }
 
   def display_tel
     if tel.present?
