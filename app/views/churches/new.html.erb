@@ -1,28 +1,8 @@
-<!-- meta -->
-<% content_for :title do %>
-  <%= @church.name %> | キリスト教会マップ
-<% end %>
-<% content_for :keywords do %>
-  <%= @church.name %>,キリスト教,教会,church,プロテスタント,地図,マップ,住所
-<% end %>
-<% content_for :description do %>
-  <%= @church.name %>に関する詳細情報です。
-<% end %>
-
 <!-- Header -->
 <div class="church-header" style="background-image: url(<%= @church.top_image_url(:thumb) %>)">
   <div class="container">
     <div class="intro-text">
-      <div class="intro-heading"><%= @church.name %></div>
-      <div id="top-image-link">
-        <%= form_for @church, url: upload_top_image_church_path(@church.id), method: :put do |f| %>
-          <div class="field">
-            <span class="page-scroll btn btn-xl btn-file">
-              <i class="fa fa-file-image-o" aria-hidden="true"></i> トップ画像を変更 <%= f.file_field :top_image %>
-            </span>
-          </div>
-        <% end %>
-      </div>
+      <div class="intro-lead-in">Welcome</div>
     </div>
   </div>
 </div>
@@ -35,10 +15,10 @@
 <!-- Services Section -->
 <section id="services">
   <div class="container">
-    <%= form_for @church, url: church_path(@church), method: :put do |f| %>
+    <%= form_for @church, url: churches_path, method: :post do |f| %>
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading">編集</h2>
+          <h2 class="section-heading">登録</h2>
           <span class="fa-stack fa-4x">
             <i class="fa fa-circle fa-stack-2x text-primary"></i>
             <i class="fa fa-tags fa-stack-1x fa-inverse"></i>
@@ -86,7 +66,7 @@
           <div class="row text-center">
             <div class="col-md-4">
               <span class="fa-stack fa-4x">
-                <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                <i class="fa fa-circle fa-stack-2x text-secondary"></i>
                 <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
               </span>
               <div class="field">
@@ -96,7 +76,7 @@
             </div>
             <div class="col-md-4">
               <span class="fa-stack fa-4x">
-                <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                <i class="fa fa-circle fa-stack-2x text-secondary"></i>
                 <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
               </span>
               <div class="field">
@@ -106,7 +86,7 @@
             </div>
             <div class="col-md-4">
               <span class="fa-stack fa-4x">
-                <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                <i class="fa fa-circle fa-stack-2x text-secondary"></i>
                 <i class="fa fa-home fa-stack-1x fa-inverse"></i>
               </span>
               <div class="field">
@@ -121,8 +101,8 @@
         <div class="container">
           <div class="row text-center">
             <div>
-              <%= button_tag type: 'submit', class: 'page-scroll btn btn-xl-secondary' do %>
-                <i class="fa fa-pencil" aria-hidden="true"></i> 更新する
+              <%= button_tag type: 'submit', class: 'page-scroll btn btn-xl' do %>
+                <i class="fa fa-pencil" aria-hidden="true"></i> 登録する
               <% end %>
             </div>
           </div>
