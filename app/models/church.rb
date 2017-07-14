@@ -1,6 +1,11 @@
 class Church < ApplicationRecord
   soft_deletable
 
+  validates :name, presence: true
+  validates :group_id, presence: true
+  validates :prefecture_id, presence: true
+  validates :address, presence: true
+
   mount_uploader :top_image, TopImageUploader
 
   belongs_to :group
