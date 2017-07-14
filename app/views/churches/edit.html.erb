@@ -50,7 +50,17 @@
         </div>
       </div>
       <div class="row text-center">
-        <div class="col-md-6">
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fa fa-circle fa-stack-2x text-primary"></i>
+            <i class="fa fa-map fa-stack-1x fa-inverse"></i>
+          </span>
+          <div class="field">
+            <%= f.label :prefecture_id, '都道府県', class: 'service-heading' %><br />
+            <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: '選択してください'}, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="col-md-4">
           <span class="fa-stack fa-4x">
             <i class="fa fa-circle fa-stack-2x text-primary"></i>
             <i class="fa fa-map-marker fa-stack-1x fa-inverse"></i>
@@ -60,7 +70,7 @@
             <%= f.text_field :address %>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
           <span class="fa-stack fa-4x">
             <i class="fa fa-circle fa-stack-2x text-primary"></i>
             <i class="fa fa-users fa-stack-1x fa-inverse"></i>
