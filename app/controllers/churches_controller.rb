@@ -10,15 +10,14 @@ class ChurchesController < ApplicationController
     @church = Church.new
   end
 
-  def edit
-    @groups = Group.all
-  end
+  def edit; end
 
   def create
     @church = Church.new(church_params)
     if @church.save
-      redirect_to new_church_path
+      redirect_to church_path(@church)
     else
+      flash.now[:alert] = "登録できませんでした。"
       render 'new'
     end
   end
@@ -53,7 +52,7 @@ class ChurchesController < ApplicationController
   end
 
   def church_params
-    params.require(:church).permit(:name, :group_id, :postal_code, :prefecture_id, :address, :tel, :fax, :email, :url, :worshiping_time)
+    params.require(:church).permit(:name, :group_id, :postal_code, :prefecture_id, :address, :tel, :fax, :email, :url, :worshiping_time, :top_image)
   end
 
   def top_image_params

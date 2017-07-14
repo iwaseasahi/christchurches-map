@@ -4,11 +4,11 @@
       <%= search_form_for @q, url: search_maps_path do |f| %>
         <div class='form-custom'>
           <%= f.label :group_id_eq, 'グループ' %>
-          <%= f.select :group_id_eq, options_from_collection_for_select(@groups, :id, :name), { prompt: '選択してください。', include_blank: '選択なし' }, class: 'form-control' %>
+          <%= f.select :group_id_eq, options_from_collection_for_select(@groups, :id, :name), { prompt: '選択してください'}, class: 'form-control' %>
         </div>
         <div class='form-custom'>
           <%= f.label :prefecture_id_eq, '都道府県' %>
-          <%= f.select :prefecture_id_eq, options_from_collection_for_select(@prefectures, :id, :name), { prompt: '選択してください。', include_blank: '選択なし' }, class: 'form-control' %>
+          <%= f.select :prefecture_id_eq, options_from_collection_for_select(@prefectures, :id, :name), { prompt: '選択してください'}, class: 'form-control' %>
         </div>
         <div class='form-custom'>
           <%= f.label :name_cont, '名前' %>
@@ -19,11 +19,21 @@
           <%= f.search_field :address_cont, class: 'form-control' %>
         </div>
         <%= f.submit '検索', class: 'btn btn-primary' %>
+        <% if user_signed_in? %>
+          <%= link_to '登録', new_church_path, class: 'btn btn-secondary' %>
+        <% else %>
+          <%= link_to '登録', modal_churches_path, remote: true, class: 'btn btn-secondary' %>
+        <% end %>
       <% end %>
     </div>
     <div id="map"></div>
   </div>
 </section>
+
+<!-- モーダル表示 -->
+<div id="product-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+
+<!-- Google Map -->
 <script type="text/javascript">
 handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
