@@ -1,5 +1,6 @@
 class Church < ApplicationRecord
   soft_deletable
+  has_paper_trail
 
   validates :name, presence: true
   validates :group_id, presence: true

@@ -67,6 +67,8 @@ gem 'rmagick'
 gem 'fog'
 ***REMOVED*** 住所から緯度経度を算出
 gem 'geocoder'
+***REMOVED*** 変更履歴を残す
+gem 'paper_trail'
 
 group :development, :test do
   ***REMOVED*** Call 'byebug' anywhere in the code to stop execution and get a debugger console
