@@ -62,20 +62,22 @@
         <h3 class="section-subheading text-muted"><%= @church.name %>に関する情報</h3>
       </div>
     </div>
-    <div class="row text-center">
-      <div class="col-md-6">
-        <span class="fa-stack fa-4x">
-          <i class="fa fa-circle fa-stack-2x text-primary"></i>
-          <i class="fa fa-map-marker fa-stack-1x fa-inverse"></i>
-        </span>
-        <h4 class="service-heading"><%= @church.address %></h4>
-      </div>
-      <div class="col-md-6">
-        <span class="fa-stack fa-4x">
-          <i class="fa fa-circle fa-stack-2x text-primary"></i>
-          <i class="fa fa-users fa-stack-1x fa-inverse"></i>
-        </span>
-        <h4 class="service-heading"><%= @church.group.name %></h4>
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-6">
+          <span class="fa-stack fa-4x">
+            <i class="fa fa-circle fa-stack-2x text-primary"></i>
+            <i class="fa fa-map-marker fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading"><%= @church.address %></h4>
+        </div>
+        <div class="col-md-6">
+          <span class="fa-stack fa-4x">
+            <i class="fa fa-circle fa-stack-2x text-primary"></i>
+            <i class="fa fa-users fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading"><%= @church.group.name %></h4>
+        </div>
       </div>
     </div>
   </div>
