@@ -29,7 +29,7 @@ function validationChurchForm() {
   });
 }
 
-$(function() {
+$(document).on('turbolinks:load', function() {
   // コメント箇所へのスクロール
   $('.comment-counts-custom').click(function() {
     var id = $(this).attr('href');
