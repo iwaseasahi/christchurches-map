@@ -7,7 +7,6 @@ function changeSubmitBtn($name, $prefecture_id, $address, $group_id, $submit) {
   }
 }
 
-
 // 教会フォームのバリデーション
 function validationChurchForm() {
   var $name = $('#church_name');
