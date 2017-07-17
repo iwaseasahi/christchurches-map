@@ -4,11 +4,11 @@
       <%= search_form_for @q, url: search_maps_path do |f| %>
         <div class='form-custom'>
           <%= f.label :group_id_eq, 'グループ' %>
-          <%= f.select :group_id_eq, options_from_collection_for_select(@groups, :id, :name), { prompt: '選択できます'}, class: 'form-control' %>
+          <%= f.select :group_id_eq, options_from_collection_for_select(@groups, :id, :name), { prompt: '選択できます', include_blank: '選択なし' }, class: 'form-control' %>
         </div>
         <div class='form-custom'>
           <%= f.label :prefecture_id_eq, '都道府県' %>
-          <%= f.select :prefecture_id_eq, options_from_collection_for_select(@prefectures, :id, :name), { prompt: '選択できます'}, class: 'form-control' %>
+          <%= f.select :prefecture_id_eq, options_from_collection_for_select(@prefectures, :id, :name), { prompt: '選択できます', include_blank: '選択なし' }, class: 'form-control' %>
         </div>
         <div class='form-custom'>
           <%= f.label :name_cont, '名前' %>
