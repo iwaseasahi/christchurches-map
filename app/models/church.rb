@@ -2,10 +2,10 @@ class Church < ApplicationRecord
   soft_deletable
   has_paper_trail
 
-  validates :name, presence: true
-  validates :group_id, presence: true
+  validates :name,          presence: true
+  validates :group_id,      presence: true
   validates :prefecture_id, presence: true
-  validates :address, presence: true
+  validates :address,       presence: true
 
   mount_uploader :top_image, TopImageUploader
 
@@ -15,7 +15,7 @@ class Church < ApplicationRecord
   has_many :comments, -> { order(created_at: :desc).without_soft_destroyed } , dependent: :destroy
 
   geocoded_by :address
-  after_validation :geocode, if: lambda { |obj| obj.address_changed? }
+  after_validation :geocode, if: Proc.new { |church| church.address_changed? }
 
   def display_tel
     if tel.present?
