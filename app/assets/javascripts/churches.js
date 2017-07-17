@@ -14,7 +14,7 @@ function validationChurchForm() {
   var $prefecture_id = $('#church_prefecture_id');
   var $address = $('#church_address');
   var $group_id = $('#church_group_id');
-  var $submit = $('.church-submit');
+  var $submit = $('#church-submit');
   changeSubmitBtn($name, $prefecture_id, $address, $group_id, $submit);
   $name.bind('keyup', function() {
     changeSubmitBtn($name, $prefecture_id, $address, $group_id, $submit);
