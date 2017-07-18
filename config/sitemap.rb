@@ -16,4 +16,9 @@ SitemapGenerator::Sitemap.create do
   Church.find_each do | church |
     add(church_path(church.id), dynamic_page_options.merge(lastmod: church.updated_at))
   end
+
+  # Church編集画面
+  Church.find_each do | church |
+    add(edit_church_path(church.id), dynamic_page_options.merge(lastmod: church.updated_at))
+  end
 end
