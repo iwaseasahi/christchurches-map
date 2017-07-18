@@ -8,9 +8,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   ***REMOVED*** end
 
   ***REMOVED*** POST /resource
-  ***REMOVED*** def create
-  ***REMOVED***   super
-  ***REMOVED*** end
+  def create
+    super
+    UserMailer.registration_confirmation(resource).deliver unless resource.invalid?
+  end
 
   ***REMOVED*** GET /resource/edit
   ***REMOVED*** def edit
