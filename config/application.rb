@@ -17,5 +17,8 @@ module ChristchurchesMap
 
     # データベースの保存時間を変更
     config.active_record.default_timezone = :local
+
+    # Active Job のキューアダプタとして Sidekiq を使用
+    config.active_job.queue_adapter = :sidekiq
   end
 end
