@@ -1,3 +1,4 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations',
@@ -37,4 +38,7 @@ Rails.application.routes.draw do
       post '/:church_id' => 'comments#create', as: 'create'
     end
   end
+
+  # Sidekiqのダッシュボード
+  mount Sidekiq::Web, at: '/sidekiq'
 end
