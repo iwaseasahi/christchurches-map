@@ -69,6 +69,11 @@ gem 'fog'
 gem 'geocoder'
 # 変更履歴を残す
 gem 'paper_trail'
+# 非同期処理
+gem 'sidekiq', '< 5'
+gem 'redis'
+gem 'redis-namespace'
+gem 'sinatra', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -97,6 +102,7 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
+  gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq'
 end
 
 group :test do
