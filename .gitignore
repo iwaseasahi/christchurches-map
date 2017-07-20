@@ -7,7 +7,6 @@
 ***REMOVED*** Ignore bundler config.
 /.bundle
 /vendor/bundle/
-.env
 ***REMOVED*** /config/database.yml
 
 ***REMOVED*** Ignore all logfiles and tempfiles.
