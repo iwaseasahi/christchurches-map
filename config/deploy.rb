@@ -24,7 +24,6 @@ set :pty, true
 ***REMOVED*** Default value for :linked_files is []
 ***REMOVED*** set :linked_files, fetch(:linked_files, []).push('config/settings/production.yml')
 ***REMOVED*** append :linked_files, "config/database.yml", "config/secrets.yml"
-set :linked_files, '.env'
 
 ***REMOVED*** Default value for linked_dirs is []
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
