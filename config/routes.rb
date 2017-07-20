@@ -1,4 +1,5 @@
 require 'sidekiq/web'
+
 Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations',
@@ -40,5 +41,9 @@ Rails.application.routes.draw do
   end
 
   # Sidekiqのダッシュボード
+  # Basic認証
+  Sidekiq::Web.use Rack::Auth::Basic do |username, password|
+    username == ENV['SIDEKIQ_DASHBOARD_USER'] && password == ENV['SIDEKIQ_DASHBOARD_PASSWORD']
+  end
   mount Sidekiq::Web, at: '/sidekiq'
 end
