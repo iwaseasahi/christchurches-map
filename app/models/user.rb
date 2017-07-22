@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  soft_deletable
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   validates :last_name,  presence: true, length: { maximum: 50 }
