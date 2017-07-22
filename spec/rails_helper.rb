@@ -26,7 +26,7 @@ ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   ***REMOVED*** Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "***REMOVED***{::Rails.root}/spec/fixtures"
+  ***REMOVED*** config.fixture_path = "***REMOVED***{::Rails.root}/spec/fixtures"
 
   ***REMOVED*** If you're not using ActiveRecord, or you'd prefer not to run each of your
   ***REMOVED*** examples within a transaction, remove the following line or assign false
@@ -47,4 +47,7 @@ RSpec.configure do |config|
   ***REMOVED*** The different available types are documented in the features, such as in
   ***REMOVED*** https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+
+  ***REMOVED*** ファクトリを簡単に呼び出せるよう、Factory Girlの構文をインクルードする
+  ***REMOVED*** config.include FactoryGirl::Syntax::Methods
 end
