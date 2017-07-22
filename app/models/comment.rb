@@ -1,8 +1,8 @@
 class Comment < ApplicationRecord
   soft_deletable dependent_associations: %i(user church)
-  validates :comment,  presence: true
-  validates :user_id,  presence: true
-  validates :church_id,  presence: true
+  validates :comment,   presence: true
+  validates :user_id,   presence: true
+  validates :church_id, presence: true
 
   belongs_to :user
   belongs_to :church
