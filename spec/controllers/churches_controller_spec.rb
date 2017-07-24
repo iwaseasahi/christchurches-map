@@ -65,7 +65,12 @@ RSpec.describe ChurchesController, :type => :controller do
       it 'データベースに新しい教会を保存しないこと' do
         expect{
           post :create, params: { church: FactoryGirl.attributes_for(:invalid_church) }
-        }.not_to change(Church)
+        }.not_to change(Church, :count)
+      end
+
+      it ':newテンプレートを再表示すること' do
+        post :create, params: { church: FactoryGirl.attributes_for(:invalid_church) }
+        expect(response).to render_template(:new)
       end
     end
   end
