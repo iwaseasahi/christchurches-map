@@ -145,3 +145,4 @@ RSpec.describe Church, :type => :model do
     expect(church.top_image_url(:thumb)).to include('church_top_2')
   end
 end
+
