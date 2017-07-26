@@ -9,7 +9,7 @@ FactoryGirl.define do
     password { Faker::Internet.password(min_length = 6, max_length = 12) }
   end
 
-  factory :user_test do
+  factory :user_test, class: :user do
     last_name '岩瀬'
     first_name '旭'
     password 'asahitest'
