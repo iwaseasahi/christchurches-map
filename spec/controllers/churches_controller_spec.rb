@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ChurchesController, :type => :controller do
+
   describe 'GET #show' do
     it '@churchに要求された教会を割り当てること' do
       church = FactoryGirl.create(:church)
@@ -12,6 +13,12 @@ RSpec.describe ChurchesController, :type => :controller do
       church = FactoryGirl.create(:church)
       get :show, params: { id: church }
       expect(assigns(:comment)).to be_a_new(Comment)
+    end
+
+    it '@hashに教会の位置情報を割り当てること' do
+      church = FactoryGirl.create(:church)
+      get :show, params: { id: church }
+      expect(assigns(:hash)).not_to eq nil
     end
 
     it ':showテンプレートを表示すること' do
@@ -75,4 +82,57 @@ RSpec.describe ChurchesController, :type => :controller do
     end
   end
 
+  describe 'PATCH #update' do
+    before :each do
+      @church = FactoryGirl.create(:church)
+    end
+
+    context '有効な属性の場合' do
+      it '要求された@churchを取得すること' do
+        patch :update, params: { id: @church, church: FactoryGirl.attributes_for(:church) }
+        expect(assigns(:church)).to eq(@church)
+      end
+
+      it 'churchの属性を変更すること' do
+        patch :update, params: { id: @church, church: FactoryGirl.attributes_for(:church, name: 'エクレシア') }
+        @church.reload
+        expect(@church.name).to eq('エクレシア')
+      end
+
+      it '更新した教会のページへリダイレクトすること' do
+        patch :update, params: { id: @church, church: FactoryGirl.attributes_for(:church) }
+        expect(response).to redirect_to @church
+      end
+    end
+
+    context '無効な属性の場合' do
+      it '教会の属性を変更しないこと' do
+        patch :update, params: { id: @church, church: FactoryGirl.attributes_for(:church, name: nil) }
+        @church.reload
+        expect(@church.name).not_to eq('エクレシア')
+      end
+
+      it 'editテンプレートを再表示すること' do
+        patch :update, params: { id: @church, church: FactoryGirl.attributes_for(:invalid_church) }
+        expect(response).to render_template(:edit)
+      end
+    end
+  end
+
+  describe 'DELETE #destroy' do
+    before :each do
+      @church = FactoryGirl.create(:church)
+    end
+
+    it '教会を削除すること' do
+      delete :destroy, params: { id: @church, church: FactoryGirl.attributes_for(:church) }
+      @church.reload
+      expect(@church.soft_destroyed_at).not_to eq(nil)
+    end
+
+    it 'maps#indexにリダイレクトすること' do
+      delete :destroy, params: { id: @church }
+      expect(response).to redirect_to maps_url
+    end
+  end
 end
