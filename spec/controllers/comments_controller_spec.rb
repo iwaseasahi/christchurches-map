@@ -113,8 +113,6 @@ RSpec.describe CommentsController, :type => :controller do
       @comment.reload
       expect(response).to render_template(:destroy)
     end
-
-
   end
 
 end
