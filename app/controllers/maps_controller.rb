@@ -1,5 +1,4 @@
 class MapsController < ApplicationController
-  before_action :set_selects, only: %i(index search)
 
   def index
     @q = Church.ransack(params[:q])
@@ -31,11 +30,6 @@ class MapsController < ApplicationController
     info += "<p>#{church.address}</p>"
     info += "<a href='/churches/#{church.id}'>詳細はこちら</a>"
     info.html_safe
-  end
-
-  def set_selects
-    @prefectures = Prefecture.all
-    @groups = Group.all
   end
 
   def set_map_position_basic
