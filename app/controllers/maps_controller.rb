@@ -6,7 +6,6 @@ class MapsController < ApplicationController
   end
 
   def search
-    pry
     @q = Church.ransack(params[:q])
     @churches = @q.result(distinct: true)
     build_markers(@churches)
