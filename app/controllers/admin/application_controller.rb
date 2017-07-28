@@ -9,7 +9,10 @@ module Admin
     before_action :authenticate_admin
 
     def authenticate_admin
-      # TODO Add authentication logic here.
+      # BASIC認証
+      authenticate_or_request_with_http_basic('Administration') do |name, password|
+        name == ENV['ADMIN_USERNAME'] && password == ENV['ADMIN_PASSWORD']
+      end
     end
 
     # Override this value to specify the number of elements to display at a time
@@ -19,3 +22,4 @@ module Admin
     # end
   end
 end
+
