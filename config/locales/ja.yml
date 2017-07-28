@@ -14,8 +14,36 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード確認
+        encrypted_password: 暗号化パスワード
+        sign_in_count: サインイン回数
+        church: 所属教会
+        gender: 性別
+        icon: アイコン画像
+        is_test: テストユーザー
+      comment:
+        user_id: ユーザーID
+        church_id: 教会ID
+        comment: コメント
+        soft_destroyed_at: 削除日
+      group:
+        name: 教団教派名
+        soft_destroyed_at: 削除日
+      like:
+        user_id: ユーザーID
+        church_id: 教会ID
+      prefecture:
+        name: 都道府県名
+        latitude: 緯度
+        longitude: 経度
+        zoom_level: ズームレベル
+        soft_destroyed_at: 削除日
     models:
       user: ユーザー
+      church: 教会
+      comment: コメント
+      group: 教団教派
+      like: いいね
+      prefecture: 都道府県
   date:
     abbr_day_names:
     - 日
