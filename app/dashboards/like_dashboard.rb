@@ -21,18 +21,17 @@ class LikeDashboard < Administrate::BaseDashboard
   ***REMOVED*** By default, it's limited to four items to reduce clutter on index pages.
   ***REMOVED*** Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
+    :id,
     :user,
     :church,
-    :id,
-    :created_at,
   ].freeze
 
   ***REMOVED*** SHOW_PAGE_ATTRIBUTES
   ***REMOVED*** an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
+    :id,
     :user,
     :church,
-    :id,
     :created_at,
     :updated_at,
   ].freeze
@@ -48,7 +47,7 @@ class LikeDashboard < Administrate::BaseDashboard
   ***REMOVED*** Overwrite this method to customize how likes are displayed
   ***REMOVED*** across all pages of the admin dashboard.
   ***REMOVED***
-  ***REMOVED*** def display_resource(like)
-  ***REMOVED***   "Like ***REMOVED******REMOVED***{like.id}"
-  ***REMOVED*** end
+  def display_resource(like)
+    "いいねID: ***REMOVED***{like.id}"
+  end
 end

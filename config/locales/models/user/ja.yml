@@ -32,3 +32,7 @@ ja:
         current_sign_in_at: アクセス日時
         last_sign_in_at: ログイン日時
         soft_destroyed_at: 削除日
+        likes: いいね
+        like_ids: いいね
+        like_ids-selectized: いいね
+        comments: コメント

@@ -36,8 +36,9 @@ class ChurchDashboard < Administrate::BaseDashboard
   ***REMOVED*** By default, it's limited to four items to reduce clutter on index pages.
   ***REMOVED*** Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :versions,
+    :id,
     :group,
+    :name,
     :prefecture,
     :likes,
   ].freeze
@@ -45,13 +46,12 @@ class ChurchDashboard < Administrate::BaseDashboard
   ***REMOVED*** SHOW_PAGE_ATTRIBUTES
   ***REMOVED*** an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :versions,
+    :id,
     :group,
+    :name,
     :prefecture,
     :likes,
     :comments,
-    :id,
-    :name,
     :postal_code,
     :address,
     :latitude,
@@ -62,8 +62,6 @@ class ChurchDashboard < Administrate::BaseDashboard
     :url,
     :worshiping_time,
     :top_image,
-    :created_at,
-    :updated_at,
     :soft_destroyed_at,
   ].freeze
 
@@ -71,12 +69,9 @@ class ChurchDashboard < Administrate::BaseDashboard
   ***REMOVED*** an array of attributes that will be displayed
   ***REMOVED*** on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :versions,
     :group,
-    :prefecture,
-    :likes,
-    :comments,
     :name,
+    :prefecture,
     :postal_code,
     :address,
     :latitude,
@@ -93,7 +88,7 @@ class ChurchDashboard < Administrate::BaseDashboard
   ***REMOVED*** Overwrite this method to customize how churches are displayed
   ***REMOVED*** across all pages of the admin dashboard.
   ***REMOVED***
-  ***REMOVED*** def display_resource(church)
-  ***REMOVED***   "Church ***REMOVED******REMOVED***{church.id}"
-  ***REMOVED*** end
+  def display_resource(church)
+    church.name
+  end
 end
