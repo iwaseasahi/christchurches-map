@@ -1,0 +1,18 @@
+---
+ja:
+  activerecord:
+    attributes:
+      prefecture:
+        name: 都道府県名
+        latitude: 緯度
+        longitude: 経度
+        zoom_level: ズームレベル
+        soft_destroyed_at: 削除日
+  helpers:
+    label:
+      prefecture:
+        name: 都道府県名
+        latitude: 緯度
+        longitude: 経度
+        zoom_level: ズームレベル
+        soft_destroyed_at: 削除日

@@ -1,0 +1,12 @@
+---
+ja:
+  activerecord:
+    attributes:
+      group:
+        name: 教団教派名
+        soft_destroyed_at: 削除日
+  helpers:
+    label:
+      group:
+        name: 教団教派名
+        soft_destroyed_at: 削除日

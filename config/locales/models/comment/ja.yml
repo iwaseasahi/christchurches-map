@@ -1,0 +1,16 @@
+---
+ja:
+  activerecord:
+    attributes:
+      comment:
+        user_id: ユーザーID
+        church_id: 教会ID
+        comment: コメント
+        soft_destroyed_at: 削除日
+  helpers:
+    label:
+      comment:
+        user_id: ユーザーID
+        church_id: 教会ID
+        comment: コメント
+        soft_destroyed_at: 削除日
