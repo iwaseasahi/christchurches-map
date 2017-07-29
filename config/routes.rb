@@ -1,6 +1,17 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :users
+    resources :churches
+    resources :comments
+    resources :groups
+    resources :likes
+    resources :prefectures
+
+    root to: "users#index"
+  end
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
