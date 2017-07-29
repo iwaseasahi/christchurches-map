@@ -68,10 +68,23 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
+    administrate (0.8.1)
+      actionpack (>= 4.2, < 5.2)
+      actionview (>= 4.2, < 5.2)
+      activerecord (>= 4.2, < 5.2)
+      autoprefixer-rails (>= 6.0)
+      datetime_picker_rails (~> 0.0.7)
+      jquery-rails (>= 4.0)
+      kaminari (>= 1.0)
+      momentjs-rails (~> 2.8)
+      sass-rails (~> 5.0)
+      selectize-rails (~> 0.6)
     airbrussh (1.2.0)
       sshkit (>= 1.6.1, != 1.7.0)
     arel (7.1.4)
     ast (2.3.0)
+    autoprefixer-rails (7.1.2.3)
+      execjs
     bcrypt (3.1.11)
     bindex (0.5.0)
     builder (3.2.3)
@@ -118,6 +131,8 @@ GEM
       deep_merge (~> 1.1.1)
     connection_pool (2.2.1)
     database_cleaner (1.3.0)
+    datetime_picker_rails (0.0.7)
+      momentjs-rails (>= 2.8.1)
     deep_merge (1.1.1)
     devise (4.3.0)
       bcrypt (~> 3.0)
@@ -300,6 +315,18 @@ GEM
     json (1.8.6)
     kakurenbo-puti (0.5.0)
       activerecord (>= 4.1.0)
+    kaminari (1.0.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.0.1)
+      kaminari-activerecord (= 1.0.1)
+      kaminari-core (= 1.0.1)
+    kaminari-actionview (1.0.1)
+      actionview
+      kaminari-core (= 1.0.1)
+    kaminari-activerecord (1.0.1)
+      activerecord
+      kaminari-core (= 1.0.1)
+    kaminari-core (1.0.1)
     kgio (2.11.0)
     launchy (2.4.3)
       addressable (~> 2.3)
@@ -316,6 +343,8 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
+    momentjs-rails (2.17.1)
+      railties (>= 3.1)
     multi_json (1.12.1)
     mustermann (1.0.0)
     mysql2 (0.4.6)
@@ -429,6 +458,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    selectize-rails (0.12.4)
     selenium-webdriver (2.43.0)
       childprocess (~> 0.5)
       multi_json (~> 1.0)
@@ -497,6 +527,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  administrate
   byebug
   capistrano
   capistrano-bundler
