@@ -8,6 +8,21 @@ ja:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
     attributes:
+      user:
+        last_name: 姓
+        first_name: 名
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード確認
+        encrypted_password: 暗号化パスワード
+        sign_in_count: サインイン回数
+        church_id: 所属教会
+        gender: 性別
+        icon: アイコン画像
+        is_test: テストユーザー
+        current_sign_in_at: アクセス日時
+        last_sign_in_at: ログイン日時
+        soft_destroyed_at: 削除日
       comment:
         user_id: ユーザーID
         church_id: 教会ID
@@ -25,6 +40,13 @@ ja:
         longitude: 経度
         zoom_level: ズームレベル
         soft_destroyed_at: 削除日
+    models:
+      user: ユーザー
+      church: 教会
+      comment: コメント
+      group: 教団教派
+      like: いいね
+      prefecture: 都道府県
   date:
     abbr_day_names:
     - 日
@@ -163,6 +185,20 @@ ja:
       create: 登録する
       submit: 保存する
       update: 更新する
+    label:
+      user:
+        email: メールアドレス
+        last_name: 姓
+        first_name: 名
+        encrypted_password: 暗号化パスワード
+        church_id: 所属教会
+        gender: 性別
+        icon: アイコン画像
+        is_test: テストユーザー
+        sign_in_count: サインイン回数
+        current_sign_in_at: アクセス日時
+        last_sign_in_at: ログイン日時
+        soft_destroyed_at: 削除日
   number:
     currency:
       format:

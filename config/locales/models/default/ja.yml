@@ -1,0 +1,10 @@
+---
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      church: 教会
+      comment: コメント
+      group: 教団教派
+      like: いいね
+      prefecture: 都道府県
