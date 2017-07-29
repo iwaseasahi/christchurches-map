@@ -8,17 +8,6 @@ ja:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
     attributes:
-      comment:
-        user_id: ユーザーID
-        church_id: 教会ID
-        comment: コメント
-        soft_destroyed_at: 削除日
-      group:
-        name: 教団教派名
-        soft_destroyed_at: 削除日
-      like:
-        user_id: ユーザーID
-        church_id: 教会ID
       prefecture:
         name: 都道府県名
         latitude: 緯度

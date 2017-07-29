@@ -1,0 +1,12 @@
+---
+ja:
+  activerecord:
+    attributes:
+      like:
+        user_id: ユーザーID
+        church_id: 教会ID
+  helpers:
+    label:
+      like:
+        user_id: ユーザーID
+        church_id: 教会ID
