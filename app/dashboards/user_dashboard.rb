@@ -90,9 +90,7 @@ class UserDashboard < Administrate::BaseDashboard
     :current_sign_in_at,
     :last_sign_in_at,
     :likes,
-    :like_churches,
     :comments,
-    :comment_churches,
     :soft_destroyed_at,
   ].freeze
 

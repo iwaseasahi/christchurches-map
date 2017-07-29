@@ -25,10 +25,9 @@ class PrefectureDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :churches,
     :id,
     :name,
-    :latitude,
+    :churches,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -41,8 +40,6 @@ class PrefectureDashboard < Administrate::BaseDashboard
     :longitude,
     :zoom_level,
     :soft_destroyed_at,
-    :created_at,
-    :updated_at,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -60,7 +57,7 @@ class PrefectureDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how prefectures are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(prefecture)
-  #   "Prefecture ##{prefecture.id}"
-  # end
+  def display_resource(prefecture)
+    prefecture.name
+  end
 end

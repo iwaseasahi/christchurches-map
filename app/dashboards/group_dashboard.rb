@@ -22,10 +22,9 @@ class GroupDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :churches,
     :id,
     :name,
-    :created_at,
+    :churches,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -34,8 +33,6 @@ class GroupDashboard < Administrate::BaseDashboard
     :churches,
     :id,
     :name,
-    :created_at,
-    :updated_at,
     :soft_destroyed_at,
   ].freeze
 
@@ -51,7 +48,7 @@ class GroupDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how groups are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(group)
-  #   "Group ##{group.id}"
-  # end
+  def display_resource(group)
+    group.name
+  end
 end
