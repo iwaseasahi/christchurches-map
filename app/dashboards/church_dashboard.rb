@@ -36,8 +36,9 @@ class ChurchDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :versions,
+    :id,
     :group,
+    :name,
     :prefecture,
     :likes,
   ].freeze
@@ -45,13 +46,12 @@ class ChurchDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :versions,
+    :id,
     :group,
+    :name,
     :prefecture,
     :likes,
     :comments,
-    :id,
-    :name,
     :postal_code,
     :address,
     :latitude,
@@ -62,8 +62,6 @@ class ChurchDashboard < Administrate::BaseDashboard
     :url,
     :worshiping_time,
     :top_image,
-    :created_at,
-    :updated_at,
     :soft_destroyed_at,
   ].freeze
 
@@ -71,12 +69,9 @@ class ChurchDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :versions,
     :group,
-    :prefecture,
-    :likes,
-    :comments,
     :name,
+    :prefecture,
     :postal_code,
     :address,
     :latitude,
@@ -93,7 +88,7 @@ class ChurchDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how churches are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(church)
-  #   "Church ##{church.id}"
-  # end
+  def display_resource(church)
+    church.name
+  end
 end

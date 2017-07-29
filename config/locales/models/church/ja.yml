@@ -19,14 +19,18 @@ ja:
     label:
       church:
         name: 教会名
-        group_id: 教団教派
-        prefecture_id: 都道府県
+        group: 教団教派
+        prefecture: 都道府県
         address: 住所
+        likes: いいね
+        comments: コメント
+        postal_code: 郵便番号
         latitude: 緯度
         longitude: 経度
         tel: 電話番号
         fax: FAX
         email: メールアドレス
         url: ホームページ
+        worshiping_time: 礼拝時間
         top_image: トップ画像
         soft_destroyed_at: 削除日

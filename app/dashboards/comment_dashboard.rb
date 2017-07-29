@@ -8,13 +8,13 @@ class CommentDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
+    id: Field::Number,
     user: Field::BelongsTo,
     church: Field::BelongsTo,
-    id: Field::Number,
     comment: Field::Text,
-    soft_destroyed_at: Field::DateTime,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    soft_destroyed_at: Field::DateTime,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -23,22 +23,22 @@ class CommentDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
+    :id,
     :user,
     :church,
-    :id,
     :comment,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
+    :id,
     :user,
     :church,
-    :id,
     :comment,
-    :soft_destroyed_at,
     :created_at,
     :updated_at,
+    :soft_destroyed_at,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -54,7 +54,7 @@ class CommentDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how comments are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(comment)
-  #   "Comment ##{comment.id}"
-  # end
+  def display_resource(comment)
+    "コメントID: #{comment.id}"
+  end
 end
