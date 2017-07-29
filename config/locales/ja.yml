@@ -7,13 +7,6 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
-    attributes:
-      prefecture:
-        name: 都道府県名
-        latitude: 緯度
-        longitude: 経度
-        zoom_level: ズームレベル
-        soft_destroyed_at: 削除日
   date:
     abbr_day_names:
     - 日
