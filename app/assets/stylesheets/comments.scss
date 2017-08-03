@@ -39,12 +39,11 @@
   }
 }
 
-@media(min-width:768px) {
-  .comment-form {
+@media(max-width:320px) {
+  section {
+    h2.section-heading {
+      font-size: 30px;
+    }
   }
 }
 
-@media(max-width:767px) {
-  .comment-form {
-  }
-}
