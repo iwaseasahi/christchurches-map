@@ -16,8 +16,12 @@
   }
 }
 
+#church_search {
+  padding-bottom: 10px;
+}
+
 // スマホ用
-@media(max-width:767px) {
+@media(max-width:768px) {
   #google-map {
     #map {
       height: 600px;
@@ -41,7 +45,7 @@
 }
 
 // PC用
-@media(min-width:768px) {
+@media(min-width:769px) {
   #google-map {
     padding: 0;
     #map {
@@ -58,16 +62,8 @@
     .centering {
       text-align: center;
     }
+    #church_search {
+      padding: 20px 0;
+    }
   }
 }
-
-#church_search {
-  padding-bottom: 10px;
-}
-
-@media(min-width:768px) {
-  #church_search {
-    padding: 20px 0;
-  }
-}
-

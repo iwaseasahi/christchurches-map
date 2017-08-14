@@ -1,4 +1,7 @@
 class HomesController < ApplicationController
-  def top; end
+  def top
+    @q = Church.ransack(params[:q])
+  end
+
   def contact; end
 end
