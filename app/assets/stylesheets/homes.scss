@@ -6,3 +6,42 @@
     color: $theme-primary;
   }
 }
+
+// PC用
+@media(min-width:769px) {
+  #top-page {
+    .intro-text {
+      padding-top: 120px;
+    }
+    .form-control {
+      display: inline;
+      width: 40%;
+      height: 45px;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+// タブレット用
+@media(max-width:768px) {
+  #top-page {
+    .form-control {
+      display: inline;
+      width: 50%;
+      height: 45px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+// スマホ用
+@media(max-width:640px) {
+  #top-page {
+    .form-control {
+      display: inline;
+      width: 90%;
+      height: 45px;
+      margin-bottom: 20px;
+    }
+  }
+}
