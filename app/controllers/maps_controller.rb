@@ -6,14 +6,26 @@ class MapsController < ApplicationController
   end
 
   def search
+    search_result(params)
+  end
+
+  def search_from_top
+    if params[:q][:name_or_address_cont].blank?
+      redirect_to maps_path
+    else
+      search_result(params)
+    end
+  end
+
+  private
+
+  def search_result(params)
     @q = Church.ransack(params[:q])
     @churches = @q.result(distinct: true)
     build_markers(@churches)
     set_map_position_basic if @churches.blank? || params[:q].blank?
     set_map_position(params)
   end
-
-  private
 
   def build_markers(churches)
     @hash = Gmaps4rails.build_markers(churches) do |church, marker|
@@ -58,5 +70,4 @@ class MapsController < ApplicationController
       }
     end
   end
-
 end

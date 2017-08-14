@@ -1,5 +1,5 @@
 <!-- Header -->
-<header>
+<header id="top-page">
   <div class="container">
     <div class="intro-text">
       <div class="intro-lead-in">
@@ -7,7 +7,14 @@
         ChristChurches Map
       </div>
       <div class="intro-heading"><span class="font-red">教会</span>を検索</div>
-      <%= link_to 'Search', maps_path, class: 'page-scroll btn btn-xl' %>
+      <div class="text-center">
+        <%= search_form_for @q, url: search_from_top_maps_path do |f| %>
+          <div class='form-custom'>
+            <%= f.search_field :name_or_address_cont, class: 'form-control', placeholder: '名前や住所を入力してください' %>
+          </div>
+          <%= f.submit 'Search', class: 'page-scroll btn btn-xl' %>
+        <% end %>
+      </div>
     </div>
   </div>
 </header>

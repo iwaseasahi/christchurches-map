@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   resources :maps, only: :index do
     collection do
       get '/search' => 'maps#search'
+      get '/search_from_top' => 'maps#search_from_top'
     end
   end
 
