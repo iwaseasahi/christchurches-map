@@ -1,0 +1,18 @@
+<!-- meta -->
+<% content_for :title do %>
+  <%= @church.name %>の写真一覧 | キリスト教会マップ
+<% end %>
+<% content_for :keywords do %>
+  <%= @church.name %>,写真,画像,キリスト教,プロテスタント
+<% end %>
+<% content_for :description do %>
+  <%= @church.name %>に関する写真や画像の一覧です。
+<% end %>
+
+
+
+
+<!-- ローディング画面 -->
+<div class="loading js-loading">
+  <%= image_tag(asset_path 'loading.gif') %>
+</div>
