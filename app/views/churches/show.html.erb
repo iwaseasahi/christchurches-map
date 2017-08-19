@@ -50,6 +50,34 @@
   </div>
 </div>
 
+<!-- スライドショー -->
+<% if @church.photos.present? %>
+  <div class="line-section-middle">
+    <div id="carousel-example" class="carousel slide" data-ride="carousel" data-interval="4000">
+      <ol class="carousel-indicators">
+        <% @church.photos.each do |photo| %>
+          <li data-target="#carousel-example" data-slide-to=<%= photo.sort_of_number - 1 %> class=<%= 'active' if photo.sort_of_number == 1 %>></li>
+        <% end %>
+      </ol>
+
+      <div class="carousel-inner">
+        <% @church.photos.each do |photo| %>
+          <div class="item <%= 'active' if photo.sort_of_number == 1 %>">
+            <%= image_tag photo.file_name_url(:thumb), class: 'church-photo-size center-block' %>
+          </div>
+        <% end %>
+      </div>
+
+      <a class="left carousel-control" href="#carousel-example" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      </a>
+    </div>
+  </div>
+<% end %>
+
 <!-- モーダル表示 -->
 <div id="product-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
 
