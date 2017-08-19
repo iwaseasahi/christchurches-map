@@ -3,18 +3,22 @@ class PhotosController < ApplicationController
   before_action :set_photo, only: :destroy
 
   def index
-    @photo = Photo.new
+    sort_of_number = @church.photos.count + 1
+    @photo = Photo.new(sort_of_number: sort_of_number)
   end
 
   def create
-    @photo = Photo.new(photo_params)
-    flash.now[:alert] = '登録できませんでした。' unless @photo.save
-    redirect_to church_photos_path(church_id: @church.id)
+    @photo = Photo.new(church_id: @church.id, file_name: photo_params[:file_name], sort_of_number: photo_params[:sort_of_number])
+    if @photo.save
+      redirect_to church_photos_path(church_id: @church.id), notice: 'アップロードが完了しました。'
+    else
+      redirect_to church_photos_path(church_id: @church.id), alert: '登録できませんでした。'
+    end
   end
 
   def destroy
     @photo.destroy
-    redirect_to church_photos_path(church_id: @church.id)
+    redirect_to church_photos_path(church_id: @church.id), alert: '削除しました。'
   end
 
   private
