@@ -32,6 +32,20 @@
   <%= image_tag(asset_path 'loading.gif') %>
 </div>
 
+<div class="line-section-middle">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <div class="field">
+          <%= link_to church_photos_path(church_id: @church.id), class: 'page-scroll btn btn-xl' do %>
+            <i class="fa fa-file-image-o" aria-hidden="true"></i> フォト管理
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Services Section -->
 <section id="services">
   <div class="container">
