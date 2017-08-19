@@ -1,0 +1,9 @@
+@import "variables.scss";
+@import "mixins.scss";
+
+.church-photo-size {
+  width:  300px !important;
+  height: 250px !important;
+  object-fit: cover;
+  border-radius: 3%;
+}
