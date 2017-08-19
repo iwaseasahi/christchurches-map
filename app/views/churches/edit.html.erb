@@ -50,101 +50,93 @@
 <section id="services">
   <div class="container">
     <%= form_for @church, url: church_path(@church), method: :put do |f| %>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading">編集</h2>
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading">編集</h2>
+          <span class="fa-stack fa-4x">
+            <i class="fa fa-circle fa-stack-2x text-primary"></i>
+            <i class="fa fa-tags fa-stack-1x fa-inverse"></i>
+          </span>
+          <div class="field">
+            <%= f.label :name, '教会名', class: 'service-heading' %><br />
+            <%= f.text_field :name %>
+          </div>
+        </div>
+      </div>
+      <div class="line-section-middle">
+        <div class="row text-center">
+          <div class="col-md-4">
             <span class="fa-stack fa-4x">
               <i class="fa fa-circle fa-stack-2x text-primary"></i>
-              <i class="fa fa-tags fa-stack-1x fa-inverse"></i>
+              <i class="fa fa-map fa-stack-1x fa-inverse"></i>
             </span>
             <div class="field">
-              <%= f.label :name, '教会名', class: 'service-heading' %><br />
-              <%= f.text_field :name %>
+              <%= f.label :prefecture_id, '都道府県', class: 'service-heading' %><br />
+              <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: '選択してください'}, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <span class="fa-stack fa-4x">
+              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+              <i class="fa fa-map-marker fa-stack-1x fa-inverse"></i>
+            </span>
+            <div class="field">
+              <%= f.label :address, '住所', class: 'service-heading' %><br />
+              <%= f.text_field :address %>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <span class="fa-stack fa-4x">
+              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+              <i class="fa fa-users fa-stack-1x fa-inverse"></i>
+            </span>
+            <div class="field">
+              <%= f.label :group, '教団教派・グループ', class: 'service-heading' %><br />
+              <%= f.collection_select :group_id, Group.all, :id, :name, { prompt: '選択してください'}, class: 'form-control' %>
             </div>
           </div>
         </div>
       </div>
       <div class="line-section-middle">
-        <div class="container">
-          <div class="row text-center">
-            <div class="col-md-4">
-              <span class="fa-stack fa-4x">
-                <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                <i class="fa fa-map fa-stack-1x fa-inverse"></i>
-              </span>
-              <div class="field">
-                <%= f.label :prefecture_id, '都道府県', class: 'service-heading' %><br />
-                <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: '選択してください'}, class: 'form-control' %>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <span class="fa-stack fa-4x">
-                <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                <i class="fa fa-map-marker fa-stack-1x fa-inverse"></i>
-              </span>
-              <div class="field">
-                <%= f.label :address, '住所', class: 'service-heading' %><br />
-                <%= f.text_field :address %>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <span class="fa-stack fa-4x">
-                <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                <i class="fa fa-users fa-stack-1x fa-inverse"></i>
-              </span>
-              <div class="field">
-                <%= f.label :group, '教団教派・グループ', class: 'service-heading' %><br />
-                <%= f.collection_select :group_id, Group.all, :id, :name, { prompt: '選択してください'}, class: 'form-control' %>
-              </div>
+        <div class="row text-center">
+          <div class="col-md-4">
+            <span class="fa-stack fa-4x">
+              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+              <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
+            </span>
+            <div class="field">
+              <%= f.label :tel, '電話番号', class: 'service-heading' %><br />
+              <%= f.telephone_field :tel %>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="line-section-middle">
-        <div class="container">
-          <div class="row text-center">
-            <div class="col-md-4">
-              <span class="fa-stack fa-4x">
-                <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
-              </span>
-              <div class="field">
-                <%= f.label :tel, '電話番号', class: 'service-heading' %><br />
-                <%= f.telephone_field :tel %>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <span class="fa-stack fa-4x">
-                <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
-              </span>
-              <div class="field">
-                <%= f.label :email, 'メールアドレス', class: 'service-heading' %><br />
-                <%= f.email_field :email %>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <span class="fa-stack fa-4x">
-                <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                <i class="fa fa-home fa-stack-1x fa-inverse"></i>
-              </span>
-              <div class="field">
-                <%= f.label :url, 'ホームページ', class: 'service-heading' %><br />
-                <%= f.url_field :url %>
-              </div>
+          <div class="col-md-4">
+            <span class="fa-stack fa-4x">
+              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+              <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+            </span>
+            <div class="field">
+              <%= f.label :email, 'メールアドレス', class: 'service-heading' %><br />
+              <%= f.email_field :email %>
             </div>
           </div>
+          <div class="col-md-4">
+            <span class="fa-stack fa-4x">
+              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+              <i class="fa fa-home fa-stack-1x fa-inverse"></i>
+            </span>
+            <div class="field">
+              <%= f.label :url, 'ホームページ', class: 'service-heading' %><br />
+              <%= f.url_field :url %>
+            </div>
         </div>
       </div>
+      </div>
       <div class="line-section-middle">
-        <div class="container">
-          <div class="row text-center">
-            <div>
-              <%= button_tag type: 'submit',id: 'church-submit' , class: 'page-scroll btn btn-xl-secondary church-submit' do %>
-                <i class="fa fa-pencil" aria-hidden="true"></i> 更新する
-              <% end %>
-            </div>
+        <div class="row text-center">
+          <div>
+            <%= button_tag type: 'submit',id: 'church-submit' , class: 'page-scroll btn btn-xl-secondary church-submit' do %>
+              <i class="fa fa-pencil" aria-hidden="true"></i> 更新する
+            <% end %>
           </div>
         </div>
       </div>
