@@ -17,6 +17,12 @@ class PhotoUploader < CarrierWave::Uploader::Base
     'photo'
   end
 
+  # 画像がアップロードされていない場合の対応
+  # public/images/default_top_image.jpgを読み込む
+  def default_url(*args)
+    ActionController::Base.helpers.asset_path('church_top_2.jpg')
+  end
+
   # Create different versions of your uploaded files:
   version :thumb do
     process :crop
