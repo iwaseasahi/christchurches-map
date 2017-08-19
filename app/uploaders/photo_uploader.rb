@@ -43,14 +43,13 @@ class PhotoUploader < CarrierWave::Uploader::Base
 
   ***REMOVED*** アップロード可能な形式
   def extension_whitelist
-    %w(jpg jpeg gif png)
+    %w[jpg jpeg gif png]
   end
 
   ***REMOVED*** アップロード時のファイル名を指定
   def filename
-    if original_filename.present?
-      "***REMOVED***{model.id}_***REMOVED***{secure_token}.***REMOVED***{file.extension}"
-    end
+    return if original_filename.blank?
+    "***REMOVED***{secure_token}.***REMOVED***{file.extension}"
   end
 
   protected
