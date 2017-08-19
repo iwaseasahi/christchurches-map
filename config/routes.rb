@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :likes
     resources :prefectures
 
-    root to: "users#index"
+    root to: 'users#index'
   end
 
   devise_for :users, controllers: {
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
-  resources :users, only: %i(show) do
+  resources :users, only: %i[show] do
     member do
       put :upload_icon
     end
@@ -34,19 +34,20 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :churches, except: %i(index) do
+  resources :churches, except: %i[index] do
     collection do
       get '/modal' => 'churches#modal'
     end
     member do
       put :upload_top_image
     end
+    resources :photos, only: %i[index create destroy]
   end
 
   post 'like/:church_id' => 'likes#like', as: 'like'
   delete 'unlike/:church_id' => 'likes#unlike', as: 'unlike'
 
-  resources :comments, only: %i(edit update destroy) do
+  resources :comments, only: %i[edit update destroy] do
     collection do
       post '/:church_id' => 'comments#create', as: 'create'
     end
