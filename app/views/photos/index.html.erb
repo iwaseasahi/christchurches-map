@@ -1,0 +1,64 @@
+<!-- meta -->
+<% content_for :title do %>
+  <%= @church.name %>のフォト管理 | キリスト教会マップ
+<% end %>
+<% content_for :keywords do %>
+  <%= @church.name %>,写真,画像,キリスト教,プロテスタント
+<% end %>
+<% content_for :description do %>
+  <%= @church.name %>に関する写真や画像の一覧です。
+<% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <h2><%= @church.name %></h2>
+      <h3>フォト管理</h3>
+      <div class="line-section-small">
+      <% if user_signed_in? %>
+        <%= form_for @photo, url: church_photos_path(church_id: @church.id) do |f| %>
+          <div class="field">
+            <span class="page-scroll btn btn-xl btn-file">
+              <i class="fa fa-file-image-o" aria-hidden="true"></i> アップロード <%= f.file_field :file_name %>
+              <%= f.hidden_field :sort_of_number %>
+            </span>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="field">
+          <%= link_to modal_churches_path, remote: true, class: 'page-scroll btn btn-xl' do %>
+            <i class="fa fa-file-image-o" aria-hidden="true"></i> アップロード
+          <% end %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row text-center">
+    <div class="line-section-middle">
+      <% @church.photos.each do |photo| %>
+        <div class="col-md-4">
+          <%= image_tag photo.file_name_url(:thumb), class: 'church-photo-size' %>
+          <% if user_signed_in? %>
+            <div class="both-sides-section-small">
+              <%= link_to '削除', church_photo_path(church_id: @church.id, id: photo.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-secondary' %>
+            </div>
+          <% else %>
+            <div class="line-section-bottom-small"></div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- ローディング画面 -->
+<div class="loading js-loading">
+  <%= image_tag(asset_path 'loading.gif') %>
+</div>
+
+<!-- モーダル表示 -->
+<div id="product-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
