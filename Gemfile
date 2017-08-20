@@ -76,6 +76,8 @@ gem 'redis-namespace'
 gem 'sinatra', require: false
 # 管理画面
 gem 'administrate'
+# ファイル名にdigestが付く問題を解決
+gem 'non-stupid-digest-assets'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
