@@ -355,6 +355,8 @@ GEM
     nio4r (2.0.0)
     nokogiri (1.7.1)
       mini_portile2 (~> 2.1.0)
+    non-stupid-digest-assets (1.0.9)
+      sprockets (>= 2.0)
     orm_adapter (0.5.0)
     paper_trail (7.1.0)
       activerecord (>= 4.0, < 5.2)
@@ -557,6 +559,7 @@ DEPENDENCIES
   listen (~> 3.0.5)
   mysql2 (>= 0.3.18, < 0.5)
   newrelic_rpm
+  non-stupid-digest-assets
   paper_trail
   pry
   pry-byebug
@@ -586,4 +589,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.15.0
+   1.15.3
