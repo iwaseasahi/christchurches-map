@@ -5,6 +5,7 @@ Rails.application.config.assets.version = '1.0'
 
 ***REMOVED*** Add additional assets to the asset load path
 ***REMOVED*** Rails.application.config.assets.paths << Emoji.images_path
+Rails.application.config.assets.paths << "***REMOVED***{Rails}/vendor/assets/fonts"
 
 ***REMOVED*** Precompile additional assets.
 ***REMOVED*** application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
