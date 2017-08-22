@@ -26,7 +26,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # Create different versions of your uploaded files:
   version :thumb do
     process :crop
-    process resize_to_fit: [300, 250]
+    process resize_to_fit: [600, 300]
   end
 
   def crop

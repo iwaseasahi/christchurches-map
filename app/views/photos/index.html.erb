@@ -36,21 +36,23 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="row text-center">
-    <div class="line-section-middle">
-      <% @church.photos.each do |photo| %>
-        <div class="col-md-4">
-          <%= image_tag photo.file_name_url(:thumb), class: 'church-photo-size' %>
-          <% if user_signed_in? %>
-            <div class="both-sides-section-small">
-              <%= link_to '削除', church_photo_path(church_id: @church.id, id: photo.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-secondary' %>
-            </div>
-          <% else %>
-            <div class="line-section-bottom-small"></div>
-          <% end %>
-        </div>
-      <% end %>
+<div id="church-photos">
+  <div class="container">
+    <div class="row text-center">
+      <div class="line-section-middle">
+        <% @church.photos.each do |photo| %>
+          <div class="col-md-4">
+            <%= image_tag photo.file_name_url(:thumb), class: 'church-photo-size' %>
+            <% if user_signed_in? %>
+              <div class="both-sides-section-small">
+                <%= link_to '削除', church_photo_path(church_id: @church.id, id: photo.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-secondary' %>
+              </div>
+            <% else %>
+              <div class="line-section-bottom-small"></div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
