@@ -47,4 +47,7 @@ $(document).on('turbolinks:load', function() {
 
   // 教会フォームのバリデーション
   validationChurchForm();
+
+  // カルーセルの起動
+  $('***REMOVED***carousel-example').carousel();
 });
