@@ -1,9 +1,30 @@
 @import "variables.scss";
 @import "mixins.scss";
 
+// 共通
 .church-photo-size {
-  width:  300px !important;
-  height: 250px !important;
   object-fit: cover;
   border-radius: 3%;
+}
+
+// スマホ用
+@media(max-width:768px) {
+  .church-photo-size {
+    width:  300px !important;
+    height: 200px !important;
+  }
+}
+
+// PC用
+@media(min-width:769px) {
+  .church-photo-size {
+    width:  600px !important;
+    height: 300px !important;
+  }
+  #church-photos {
+    .church-photo-size {
+      width:  300px !important;
+      height: 250px !important;
+    }
+  }
 }
