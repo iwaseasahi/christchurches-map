@@ -28,7 +28,8 @@ class Church < ApplicationRecord
 
   def display_email
     if email.present?
-      email
+      email_link = "<a href='mailto:#{email}'>メールはこちら</a>"
+      email_link.html_safe
     else
       '未設定'
     end
