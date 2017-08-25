@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>申し訳ございません。不具合が発生しました。 (500)</title>
+  <title>We're sorry, but something went wrong (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
   body {
@@ -58,9 +58,9 @@
   <!-- This file lives in public/500.html -->
   <div class="dialog">
     <div>
-      <h1>申し訳ございません。不具合が発生しました。</h1>
+      <h1>We're sorry, but something went wrong.</h1>
     </div>
-    <p>アプリケーションの所有者であれば、ログで詳細をご確認ください。</p>
+    <p>If you are the application owner check the logs for more information.</p>
   </div>
 </body>
 </html>
