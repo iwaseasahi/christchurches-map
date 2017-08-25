@@ -11,8 +11,8 @@ class Church < ApplicationRecord
 
   belongs_to :group
   belongs_to :prefecture
-  has_many :likes
-  has_many :comments, -> { order(created_at: :desc) }
+  has_many :likes, dependent: :destroy
+  has_many :comments, -> { order(created_at: :desc) }, dependent: :destroy
   has_many :photos, dependent: :destroy
 
   geocoded_by :address
