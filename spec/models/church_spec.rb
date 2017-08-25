@@ -73,7 +73,7 @@ RSpec.describe Church, :type => :model do
     expect(church.display_tel).to eq '未設定'
   end
 
-  it 'メールアドレスが入力されていれば表示すること' do
+  it 'メールアドレスが入力されていればaタグで表示すること' do
     church = Church.new(
       name: 'サランパン',
       group_id: 176,
@@ -81,7 +81,7 @@ RSpec.describe Church, :type => :model do
       address: '東京都新宿区百人町2-18-17',
       email: 'j.c.project153@gmail.com'
     )
-    expect(church.display_email).to eq 'j.c.project153@gmail.com'
+    expect(church.display_email).to eq "<a href='mailto:j.c.project153@gmail.com'>メールはこちら</a>"
   end
 
   it 'メールアドレスが未入力されていれば未設定を表示すること' do
