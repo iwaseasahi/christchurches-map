@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment.soft_destroy
+    @comment.destroy
   end
 
   private
