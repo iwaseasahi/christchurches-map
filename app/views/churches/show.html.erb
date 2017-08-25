@@ -157,22 +157,6 @@
   </div>
 </section>
 
-<!-- 教会地図 -->
-<section id="google-map">
-  <div class="container separation">
-    <div class='centering'></div>
-    <div id="church_map"></div>
-  </div>
-</section>
-<script type="text/javascript">
-  handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'church_map'}}, function(){
-    markers = handler.addMarkers(<%=raw @hash.to_json %>);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-  });
-</script>
-
 <!-- コメント投稿 -->
 <% if user_signed_in? %>
   <div class="comment-form">
@@ -240,3 +224,21 @@
     </div>
   </div>
 </div>
+
+<!-- 教会地図 -->
+<section id="google-map">
+  <div class="line-section-middle">
+    <div class="container separation">
+      <div class='centering'></div>
+      <div id="church_map"></div>
+    </div>
+  </div>
+</section>
+<script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'church_map'}}, function(){
+    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+</script>
