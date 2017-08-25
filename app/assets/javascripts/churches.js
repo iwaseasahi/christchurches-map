@@ -37,6 +37,13 @@ $(document).on('turbolinks:load', function() {
     $('html, body').animate({'scrollTop': position}, 'slow');
   });
 
+  // 地図へのスクロール
+  $('.movie-to-church-map').click(function() {
+    var id = $(this).attr('href');
+    var position = $(id).offset().top;
+    $('html, body').animate({'scrollTop': position}, 'slow');
+  });
+
   // トップ画像のアップロード
   $('#church_top_image').on('change', function (e) {
     if (e.target.files[0].size > 0) {
