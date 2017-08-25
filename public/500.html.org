@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ご希望の変更は拒否されました。 (422)</title>
+  <title>We're sorry, but something went wrong (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
   body {
@@ -55,13 +55,12 @@
 </head>
 
 <body>
-  <!-- This file lives in public/422.html -->
+  <!-- This file lives in public/500.html -->
   <div class="dialog">
     <div>
-      <h1>ご希望の変更は拒否されました。</h1>
-      <p>アクセスできないものを変更しようとした可能性があります。</p>
+      <h1>We're sorry, but something went wrong.</h1>
     </div>
-    <p>アプリケーションの所有者であれば、ログで詳細をご確認ください。</p>
+    <p>If you are the application owner check the logs for more information.</p>
   </div>
 </body>
 </html>
