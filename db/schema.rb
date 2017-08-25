@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170816122919) do
+ActiveRecord::Schema.define(version: 20170825115656) do
 
   create_table "churches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -96,7 +96,6 @@ ActiveRecord::Schema.define(version: 20170816122919) do
     t.integer  "gender"
     t.string   "icon"
     t.boolean  "is_test",                default: false, null: false
-    t.datetime "soft_destroyed_at"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
