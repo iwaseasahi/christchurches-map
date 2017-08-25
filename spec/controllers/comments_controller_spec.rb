@@ -102,16 +102,17 @@ RSpec.describe CommentsController, :type => :controller do
       @comment = FactoryGirl.create(:comment)
     end
 
-    it 'コメントを削除すること' do
-      delete :destroy, params: { id: @comment, comment: FactoryGirl.attributes_for(:comment) }, xhr: true
-      @comment.reload
-      expect(@comment.soft_destroyed_at).not_to eq(nil)
-    end
+    context '有効な属性の場合' do
+      it 'コメントを削除すること' do
+        expect {
+          delete :destroy, params: { id: @comment, comment: FactoryGirl.attributes_for(:comment) }, xhr: true
+        }.to change(Comment, :count).by(-1)
+      end
 
-    it ':destroyテンプレートを表示すること' do
-      delete :destroy, params: { id: @comment, comment: FactoryGirl.attributes_for(:comment) }, xhr: true
-      @comment.reload
-      expect(response).to render_template(:destroy)
+      it ':destroyテンプレートを表示すること' do
+        delete :destroy, params: { id: @comment, comment: FactoryGirl.attributes_for(:comment) }, xhr: true
+        expect(response).to render_template(:destroy)
+      end
     end
   end
 
