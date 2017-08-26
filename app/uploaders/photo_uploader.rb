@@ -7,8 +7,8 @@ class PhotoUploader < CarrierWave::Uploader::Base
 
   def fog_attributes
     {
-      'Content-Type'  => 'image/jpg',
-      'Cache-Control' => "max-age=#{1.week.to_i}"
+      'Content-Type':  'image/jpg',
+      'Cache-Control': "max-age=#{1.week.to_i}"
     }
   end
 
@@ -19,7 +19,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
 
   # 画像がアップロードされていない場合の対応
   # public/images/default_top_image.jpgを読み込む
-  def default_url(*args)
+  def default_url(*_args)
     ActionController::Base.helpers.asset_path('church_top_2.jpg')
   end
 
