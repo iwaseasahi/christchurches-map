@@ -8,6 +8,16 @@
 }
 
 .panel-heading-group {
+  .panel-heading {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+    height: 40px;
+    float: left;
+    p {
+      font-size: 10px;
+    }
+  }
   .user_profile {
     width: 50%;
     padding: 5px 5px;
@@ -26,17 +36,6 @@
   content: '';
   display: block;
   clear: both;
-}
-
-.panel-heading {
-  color: #31708f;
-  background-color: #d9edf7;
-  border-color: #bce8f1;
-  height: 40px;
-  float: left;
-  p {
-    font-size: 10px;
-  }
 }
 
 @media(max-width:320px) {

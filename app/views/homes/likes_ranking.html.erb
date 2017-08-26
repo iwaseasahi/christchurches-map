@@ -1,0 +1,45 @@
+<!-- meta -->
+<% content_for :title do %>
+  いいねランキング | キリスト教会マップ
+<% end %>
+<% content_for :keywords do %>
+  キリスト教,教会,church,プロテスタント,いいね,ランキング
+<% end %>
+<% content_for :description do %>
+  教会のいいねランキングです。
+<% end %>
+
+<div class="line-section-small">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2>いいねランキング</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 教会一覧 -->
+<div class="line-section-middle">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <% @churches.each do |church| %>
+          <h4 class="text-center"><%= church.likes.count %>いいね</h4>
+          <div class="church-ranking-info">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h3 class="panel-title"><%= church.name %></h3>
+              </div>
+              <div class="panel-body">
+                <p><%= church.group.name %></p>
+                <p><%= church.address %></p>
+                <%= link_to '詳細はこちら', church_path(church) %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
