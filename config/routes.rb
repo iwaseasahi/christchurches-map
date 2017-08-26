@@ -25,11 +25,12 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'homes#top'
-  get '/contact' => 'homes#contact'
+  get '/contact'       => 'homes#contact'
+  get '/likes_ranking' => 'homes#likes_ranking'
 
   resources :maps, only: :index do
     collection do
-      get '/search' => 'maps#search'
+      get '/search'          => 'maps#search'
       get '/search_from_top' => 'maps#search_from_top'
     end
   end
@@ -44,7 +45,7 @@ Rails.application.routes.draw do
     resources :photos, only: %i[index create destroy]
   end
 
-  post 'like/:church_id' => 'likes#like', as: 'like'
+  post 'like/:church_id'     => 'likes#like', as: 'like'
   delete 'unlike/:church_id' => 'likes#unlike', as: 'unlike'
 
   resources :comments, only: %i[edit update destroy] do
