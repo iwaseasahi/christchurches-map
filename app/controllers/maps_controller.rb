@@ -6,11 +6,22 @@ class MapsController < ApplicationController
   end
 
   def search
-    search_result(params)
+    case params_pattern(params)
+    when 'nothing'
+      redirect_to maps_path
+    when 'only_prefecture'
+      search_result(params)
+      prefecture = Prefecture.find(params[:q][:prefecture_id_eq])
+      @map_position = prefecture.set_position
+    when 'normal'
+      search_result(params)
+    else
+      set_map_position_basic
+    end
   end
 
   def search_from_top
-    if params[:q][:name_or_address_cont].blank?
+    if params[:q].blank? || params[:q][:name_or_address_cont].blank?
       redirect_to maps_path
     else
       search_result(params)
@@ -23,11 +34,10 @@ class MapsController < ApplicationController
     @q = Church.ransack(params[:q])
     @churches = @q.result(distinct: true)
     build_markers(@churches)
-    set_map_position_basic if @churches.blank? || params[:q].blank?
-    set_map_position(params)
   end
 
   def build_markers(churches)
+    return set_map_position_basic if churches.blank?
     @hash = Gmaps4rails.build_markers(churches) do |church, marker|
       marker.lat(church.latitude)
       marker.lng(church.longitude)
@@ -52,22 +62,18 @@ class MapsController < ApplicationController
     }
   end
 
-  def set_map_position(params)
-    return if params[:q].blank?
-    group_id = params[:q][:group_id_eq]
+  def params_pattern(params)
+    return 'nothing' if params[:q].blank?
+    group_id      = params[:q][:group_id_eq]
     prefecture_id = params[:q][:prefecture_id_eq]
-    name = params[:q][:name_cont]
-    # 検索が何もない場合
-    if group_id.blank? && prefecture_id.blank? && name.blank?
-      set_map_position_basic
-      # 都道府県検索の場合
-    elsif prefecture_id.present? && group_id.blank? && name.blank?
-      prefecture = Prefecture.find(prefecture_id)
-      @map_position = {
-        lat: prefecture.latitude,
-        lng: prefecture.longitude,
-        zoom: prefecture.zoom_level
-      }
+    name          = params[:q][:name_cont]
+    address       = params[:q][:address_cont]
+    if group_id.blank? && prefecture_id.blank? && name.blank? && address.blank?
+      'nothing'
+    elsif prefecture_id.present? && group_id.blank? && name.blank? && address.blank?
+      'only_prefecture'
+    else
+      'normal'
     end
   end
 end
