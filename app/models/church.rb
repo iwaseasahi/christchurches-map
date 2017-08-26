@@ -11,9 +11,9 @@ class Church < ApplicationRecord
 
   belongs_to :group
   belongs_to :prefecture
-  has_many :likes, dependent: :destroy
-  has_many :comments, -> { order(created_at: :desc) }, dependent: :destroy
-  has_many :photos, dependent: :destroy
+  has_many   :likes, dependent: :destroy
+  has_many   :comments, -> { order(created_at: :desc) }, dependent: :destroy
+  has_many   :photos, dependent: :destroy
 
   geocoded_by :address
   after_validation :geocode, if: Proc.new { |church| church.address_changed? }
