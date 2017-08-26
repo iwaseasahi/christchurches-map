@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i(show upload_icon)
+  before_action :set_user, only: %i[show upload_icon]
 
   def show; end
 

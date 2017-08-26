@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i(edit update destroy)
-  before_action :set_church, only: %i(create)
+  before_action :set_comment, only: %i[edit update destroy]
+  before_action :set_church, only: %i[create]
 
   def create
     @comment = current_user.comments.build(church_id: @church.id, comment: comment_params[:comment])

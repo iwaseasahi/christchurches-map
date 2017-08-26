@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170825121459) do
+ActiveRecord::Schema.define(version: 20170826080322) do
 
   create_table "churches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -43,9 +43,8 @@ ActiveRecord::Schema.define(version: 20170825121459) do
 
   create_table "groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.datetime "soft_destroyed_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -66,12 +65,11 @@ ActiveRecord::Schema.define(version: 20170825121459) do
 
   create_table "prefectures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.decimal  "latitude",          precision: 11, scale: 8
-    t.decimal  "longitude",         precision: 11, scale: 8
+    t.decimal  "latitude",   precision: 11, scale: 8
+    t.decimal  "longitude",  precision: 11, scale: 8
     t.integer  "zoom_level"
-    t.datetime "soft_destroyed_at"
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

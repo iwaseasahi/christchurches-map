@@ -16,7 +16,7 @@ class Church < ApplicationRecord
   has_many   :photos, dependent: :destroy
 
   geocoded_by :address
-  after_validation :geocode, if: Proc.new { |church| church.address_changed? }
+  after_validation :geocode, if: proc { |church| church.address_changed? }
 
   def display_tel
     if tel.present?
