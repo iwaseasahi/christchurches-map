@@ -19,7 +19,7 @@ class TopImageUploader < CarrierWave::Uploader::Base
 
   ***REMOVED*** 画像がアップロードされていない場合の対応
   ***REMOVED*** public/images/default_top_image.jpgを読み込む
-  def default_url(*args)
+  def default_url(*_args)
     ***REMOVED*** For Rails 3.1+ asset pipeline compatibility:
     ***REMOVED*** ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
     ***REMOVED*** "/images/fallback/" + [version_name, "default.png"].compact.join('_')
@@ -40,39 +40,38 @@ class TopImageUploader < CarrierWave::Uploader::Base
   end
 
   def crop
-   manipulate! do |img|
-     ***REMOVED*** 中央から切り取り
-     gravity = Magick::CenterGravity
-     crop_w = img.columns
-     crop_h = img.rows
-     img.crop!(gravity, crop_w, crop_h)
-     img = yield(img) if block_given?
-     img
-   end
+    manipulate! do |img|
+      ***REMOVED*** 中央から切り取り
+      gravity = Magick::CenterGravity
+      crop_w = img.columns
+      crop_h = img.rows
+      img.crop!(gravity, crop_w, crop_h)
+      img = yield(img) if block_given?
+      img
+    end
   end
 
   ***REMOVED*** 元画像の削除
-  def remove_original_file(original_file)
+  def remove_original_file(_original_file)
     return if version_name.present?
     file.delete if file.exists?
   end
 
   ***REMOVED*** アップロード可能な形式
   def extension_whitelist
-    %w(jpg jpeg gif png)
+    %w[jpg jpeg gif png]
   end
 
   ***REMOVED*** アップロード時のファイル名を指定
   def filename
-    if original_filename.present?
-      "***REMOVED***{model.id}_***REMOVED***{secure_token}.***REMOVED***{file.extension}"
-    end
+    return if original_filename.blank?
+    "***REMOVED***{model.id}_***REMOVED***{secure_token}.***REMOVED***{file.extension}"
   end
 
   protected
 
   def secure_token
     var = :"@***REMOVED***{mounted_as}_secure_token"
-    model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
+    model.instance_variable_get(var) || model.instance_variable_set(var, SecureRandom.uuid)
   end
 end
