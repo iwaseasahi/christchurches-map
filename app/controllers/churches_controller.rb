@@ -1,5 +1,5 @@
 class ChurchesController < ApplicationController
-  before_action :set_church, only: %i(show edit update destroy upload_top_image)
+  before_action :set_church, only: %i[show edit update destroy upload_top_image]
 
   def show
     build_marker(@church)
@@ -17,7 +17,7 @@ class ChurchesController < ApplicationController
     if @church.save
       redirect_to church_path(@church)
     else
-      flash.now[:alert] = "登録できませんでした。"
+      flash.now[:alert] = '登録できませんでした。'
       render 'new'
     end
   end
