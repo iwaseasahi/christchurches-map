@@ -9,6 +9,18 @@
     <meta name='description' content=<%= content_for?(:description) ? yield(:description) : 'キリスト教会マップは、日本全国にあるプロテスタント教会をマップに表示します。教団教派・グループ・都道府県・名前・住所で検索することができます。' %>/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Open Graph Protocol -->
+    <meta property="og:title" content="キリスト教会マップ" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://<%= request.host %><%= request.fullpath %>" />
+    <meta property="og:image" content="https://<%= request.host %><%= asset_path('ogp_image.jpg') %>" />
+    <meta property="og:description" content="キリスト教会マップは、日本全国にあるプロテスタント教会をマップに表示します。教団教派・グループ・都道府県・名前・住所で検索することができます。" />
+    <meta property="og:site_name" content="キリスト教会マップ" />
+
+    <!-- Facebook用 -->
+    <meta property="fb:app_id" content="709132479280197" />
+    <meta property="article:publisher" content="https://www.facebook.com/j.c.project153/" />
+
     <!-- favicon -->
     <%= favicon_link_tag 'favicon.ico' %>
 
