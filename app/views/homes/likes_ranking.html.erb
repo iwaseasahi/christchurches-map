@@ -34,7 +34,10 @@
               <div class="panel-body">
                 <p><%= church.group.name %></p>
                 <p><%= church.address %></p>
-                <%= link_to '詳細はこちら', church_path(church) %>
+                <p><%= link_to '詳細はこちら', church_path(church) %></p>
+                <% if church.url.present? %>
+                  <p><%= link_to 'ホームページはこちら', church.url, { target: '_blank' } %></p>
+                <% end %>
               </div>
             </div>
           </div>
