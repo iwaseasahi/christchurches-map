@@ -43,4 +43,14 @@ class Church < ApplicationRecord
       '未設定'
     end
   end
+
+  def church_info
+    info = ''
+    info += "<h4>#{name}</h4>"
+    info += "<p>#{group.name}</p>"
+    info += "<p>#{address}</p>"
+    info += "<p><a href='/churches/#{id}'>詳細はこちら</a></p>"
+    info += "<p><a href=#{url} target='_blank'>ホームページはこちら</a></p>" if url.present?
+    info.html_safe
+  end
 end
