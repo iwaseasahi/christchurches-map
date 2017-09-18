@@ -53,4 +53,10 @@ class Church < ApplicationRecord
     info += "<p><a href=***REMOVED***{url} target='_blank'>ホームページはこちら</a></p>" if url.present?
     info.html_safe
   end
+
+  def church_info_only_address
+    info = ''
+    info += "<h4>***REMOVED***{address}</h4>"
+    info.html_safe
+  end
 end
