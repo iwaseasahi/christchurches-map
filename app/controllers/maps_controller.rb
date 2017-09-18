@@ -41,17 +41,8 @@ class MapsController < ApplicationController
     @hash = Gmaps4rails.build_markers(churches) do |church, marker|
       marker.lat(church.latitude)
       marker.lng(church.longitude)
-      marker.infowindow church_info(church)
+      marker.infowindow(church.church_info)
     end
-  end
-
-  def church_info(church)
-    info = ''
-    info += "<h4>#{church.name}</h4>"
-    info += "<p>#{church.group.name}</p>"
-    info += "<p>#{church.address}</p>"
-    info += "<a href='/churches/#{church.id}'>詳細はこちら</a>"
-    info.html_safe
   end
 
   def set_map_position_basic
