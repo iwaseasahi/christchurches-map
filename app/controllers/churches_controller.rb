@@ -1,5 +1,6 @@
 class ChurchesController < ApplicationController
-  before_action :set_church, only: %i[show edit update destroy upload_top_image]
+  before_action :set_church,       only: %i[show edit update destroy upload_top_image]
+  before_action :check_user_login, only: %i[edit update destroy]
 
   def show
     build_marker(@church)
@@ -49,6 +50,10 @@ class ChurchesController < ApplicationController
 
   def set_church
     @church = Church.find(params[:id])
+  end
+
+  def check_user_login
+    redirect_to church_path(@church) unless user_signed_in?
   end
 
   def church_params
