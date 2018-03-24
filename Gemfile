@@ -32,9 +32,6 @@ gem 'jbuilder', '~> 2.5'
 ***REMOVED*** Use ActiveModel has_secure_password
 ***REMOVED*** gem 'bcrypt', '~> 3.1.7'
 
-***REMOVED*** Use Capistrano for deployment
-***REMOVED*** gem 'capistrano-rails', group: :development
-
 ***REMOVED*** .envファイルを使用
 gem 'dotenv-rails'
 ***REMOVED*** 論理削除
