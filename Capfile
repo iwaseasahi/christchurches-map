@@ -26,13 +26,10 @@ install_plugin Capistrano::SCM::Git
 ***REMOVED***   https://github.com/capistrano/rails
 ***REMOVED***   https://github.com/capistrano/passenger
 ***REMOVED***
-***REMOVED*** require "capistrano/rvm"
 require "capistrano/rbenv"
-***REMOVED*** require "capistrano/chruby"
 require "capistrano/bundler"
 require "capistrano/rails/assets"
 require "capistrano/rails/migrations"
-***REMOVED*** require "capistrano/passenger"
 require 'capistrano3/unicorn'
 require 'capistrano/sidekiq'
 
