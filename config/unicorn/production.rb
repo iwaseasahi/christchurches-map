@@ -21,7 +21,7 @@ before_fork do |server, _worker|
   old_pid = "#{server.config[:pid]}.oldbin"
   if old_pid != server.pid
     begin
-      Process.kill "QUIT", File.read(old_pid).to_i
+      Process.kill 'QUIT', File.read(old_pid).to_i
     rescue Errno::ENOENT, Errno::ESRCH
     end
   end
