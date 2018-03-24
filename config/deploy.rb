@@ -1,15 +1,15 @@
 ***REMOVED*** config valid only for current version of Capistrano
-lock "3.8.1"
+lock '3.8.1'
 
-set :application, "christchurches-map"
-set :repo_url, "git@github.com:iwaseasahi/christchurches-map.git"
+set :application, 'christchurches-map'
+set :repo_url, 'git@github.com:iwaseasahi/christchurches-map.git'
 
 ***REMOVED*** Default branch is :master
 set :branch, 'master'
 ***REMOVED*** ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 ***REMOVED*** Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/var/www/projects/christchurches-map"
+set :deploy_to, '/var/www/projects/christchurches-map'
 
 ***REMOVED*** Default value for :format is :airbrussh.
 ***REMOVED*** set :format, :airbrussh
@@ -47,26 +47,6 @@ namespace :deploy do
   desc 'Restart application'
   task :restart do
     invoke 'unicorn:restart'
-  end
-  desc 'Create database'
-  task :db_create do
-    on roles(:db) do |host|
-      with rails_env: fetch(:rails_env) do
-        within current_path do
-          execute :bundle, :exec, :rake, 'db:create'
-        end
-      end
-    end
-  end
-  desc 'Run seed'
-  task :seed do
-    on roles(:app) do
-      with rails_env: fetch(:rails_env) do
-        within current_path do
-          execute :bundle, :exec, :rake, 'db:seed'
-        end
-      end
-    end
   end
   after :publishing, :restart
   after :restart, :clear_cache do
