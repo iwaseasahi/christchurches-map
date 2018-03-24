@@ -27,8 +27,6 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 ***REMOVED*** Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
-***REMOVED*** Use Redis adapter to run Action Cable in production
-***REMOVED*** gem 'redis', '~> 3.0'
 ***REMOVED*** Use ActiveModel has_secure_password
 ***REMOVED*** gem 'bcrypt', '~> 3.1.7'
 
