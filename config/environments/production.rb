@@ -68,7 +68,7 @@ Rails.application.configure do
     domain: 'christchurches-map.com',
     authentication: 'plain',
     user_name: 'j.c.project153@gmail.com',
-    password: 'iwqkkakvfjeuxdts'
+    password: ENV['GMAIL_PASSWORD']
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
@@ -90,7 +90,7 @@ Rails.application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
   config.logger = Logger.new('log/production.log', 5, 10 * 1024 * 1024)
 
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
+  if ENV['RAILS_LOG_TO_STDOUT'].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
     config.logger = ActiveSupport::TaggedLogging.new(logger)
