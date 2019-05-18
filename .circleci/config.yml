@@ -9,7 +9,7 @@ jobs: # a collection of steps
           BUNDLE_PATH: vendor/bundle
           RAILS_ENV: test
           TZ: /usr/share/zoneinfo/Asia/Tokyo
-          DATABASE_SOCKET: '/var/run/mysqld/mysqld.sock'
+          DATABASE_SOCKET: '/tmp/mysqld.sock'
           AWS_ACCESS_KEY_ID: 'test'
           AWS_SECRET_ACCESS_KEY: 'test'
           SECRETS_PRODUCTION: 'test'
