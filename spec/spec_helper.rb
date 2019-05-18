@@ -14,6 +14,8 @@
 ***REMOVED*** users commonly want.
 ***REMOVED***
 ***REMOVED*** See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+require 'factory_girl_rails'
+
 RSpec.configure do |config|
   ***REMOVED*** rspec-expectations config goes here. You can use an alternate
   ***REMOVED*** assertion/expectation library such as wrong or the stdlib/minitest
@@ -37,6 +39,9 @@ RSpec.configure do |config|
     ***REMOVED*** `true` in RSpec 4.
     mocks.verify_partial_doubles = true
   end
+
+  ***REMOVED*** FactoryGirl を省略する
+  config.include FactoryGirl::Syntax::Methods
 
 ***REMOVED*** The settings below are suggested to provide a good initial experience
 ***REMOVED*** with RSpec, but feel free to customize to your heart's content.
