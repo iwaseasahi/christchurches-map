@@ -13,11 +13,11 @@ jobs: # a collection of steps
           AWS_SECRET_ACCESS_KEY: 'test'
           SECRETS_PRODUCTION: 'test'
           REDIS: 'redis:://localhost:0000'
+          DATABASE_SOCKET: '/var/lib/mysql/mysql.sock'
       - image: circleci/mysql:5.6.44 # database image
         environment: # environment variables for database
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
           MYSQL_ROOT_PASSWORD: ''
-          DATABASE_SOCKET: '/var/lib/mysql/mysql.sock'
           MYSQL_DATABASE: christchurches_map_aws_local
           TZ: /usr/share/zoneinfo/Asia/Tokyo
     working_directory: ~/christchurches-map
