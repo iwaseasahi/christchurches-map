@@ -16,6 +16,8 @@ jobs: # a collection of steps
           DATABASE_SOCKET: '/var/lib/mysql/mysql.sock'
           MYSQL_DATABASE: christchurches_map_aws_local
           TZ: /usr/share/zoneinfo/Asia/Tokyo
+          AWS_ACCESS_KEY_ID: ''
+          AWS_SECRET_ACCESS_KEY: ''
     working_directory: ~/christchurches-map
     steps: # a collection of executable commands
       - checkout # special step to check out source code to working directory
