@@ -115,26 +115,6 @@ RSpec.describe Church, :type => :model do
     expect(church.display_url).to eq '未設定'
   end
 
-  it '教会が新規登録された場合、緯度が入力されること' do
-    church = Church.create(
-      name: 'サランパン',
-      group_id: 176,
-      prefecture_id: 13,
-      address: '東京都新宿区百人町2-18-17'
-    )
-    expect(church.latitude).not_to eq nil
-  end
-
-  it '教会が新規登録された場合、経度が入力されること' do
-    church = Church.create(
-      name: 'サランパン',
-      group_id: 176,
-      prefecture_id: 13,
-      address: '東京都新宿区百人町2-18-17'
-    )
-    expect(church.longitude).not_to eq nil
-  end
-
   it '教会画像がアップロードされていない場合でも、church_top_2.jpgが表示されること' do
     church = Church.create(
       name: 'サランパン',
