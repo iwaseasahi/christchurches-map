@@ -18,7 +18,7 @@ require 'rspec/rails'
 ***REMOVED*** directory. Alternatively, in the individual `*_spec.rb` files, manually
 ***REMOVED*** require only the support files necessary.
 ***REMOVED***
-***REMOVED*** Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 ***REMOVED*** Checks for pending migrations before tests are run.
 ***REMOVED*** If you are not using ActiveRecord, you can remove this line.
