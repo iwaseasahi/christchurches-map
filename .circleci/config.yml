@@ -55,14 +55,13 @@ jobs: # a collection of steps
           name: Database setup
           command: bundle exec rake db:create db:migrate
 
-#      TODO: テストがすべて通ったら開始する
-#      - run:
-#          name: Run rspec in parallel
-#          command: |
-#            bundle exec rspec --profile 10 \
-#                              --out test_results/rspec.xml \
-#                              --format progress \
-#                              $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
+      - run:
+          name: Run rspec in parallel
+          command: |
+            bundle exec rspec --profile 10 \
+                              --out test_results/rspec.xml \
+                              --format progress \
+                              $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
 
       # Save test results for timing analysis
       - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
