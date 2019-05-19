@@ -103,6 +103,10 @@ group :development do
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
   gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq'
+  # ファイル変更を検知してイベント実行
+  gem 'guard'
+  # guard で RSpec を実行
+  gem 'guard-rspec', require: false
 end
 
 group :test do
