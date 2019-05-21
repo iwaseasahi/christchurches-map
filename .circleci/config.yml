@@ -1,8 +1,12 @@
+ruby_image: &ruby_image
+  circleci/ruby:2.3-jessie-node
+
+
 version: 2 # use CircleCI 2.0
 jobs: # a collection of steps
   build: # runs not using Workflows must have a `build` job as entry point
     docker: # run the steps with Docker
-      - image: circleci/ruby:2.3-jessie-node # ...with this image as the primary container; this is where all `steps` will run
+      - image: *ruby_image # ...with this image as the primary container; this is where all `steps` will run
         environment: # environment variables for primary container
           BUNDLE_JOBS: 4
           BUNDLE_RETRY: 3
@@ -65,9 +69,9 @@ jobs: # a collection of steps
       - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
           path: test_results
       # See https://circleci.com/docs/2.0/deployment-integrations/ for example deploy configs
-  deploy-job:
+  deploy:
     docker:
-      - image: circleci/ruby:2.3-jessie-node
+      - image: *ruby_image
     working_directory: ~/christchurches-map
     steps:
       - checkout
@@ -84,10 +88,10 @@ jobs: # a collection of steps
     version: 2
     build-deploy:
       jobs:
-        - build-job
-        - deploy-job:
+        - build
+        - deploy:
             requires:
-              - build-job
+              - build
             filters:
               branches:
                 only: master
