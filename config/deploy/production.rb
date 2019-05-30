@@ -46,7 +46,7 @@ server '52.192.101.190', user: 'IwaseAsahi', roles: %w{web app db}
 # Global options
 # --------------
 set :ssh_options, {
-  keys: ["#{ENV[CHRIST_CHURCHES_MAP_SSH_KEY]}"],
+  keys: ["#{ENV['CHRIST_CHURCHES_MAP_SSH_KEY']}"],
   forward_agent: true,
   auth_methods: %w(publickey),
   port: '37459'
