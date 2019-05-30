@@ -72,6 +72,8 @@ jobs: # a collection of steps
   deploy:
     docker:
       - image: *ruby_image
+        environment:
+          CHRIST_CHURCHES_MAP_SSH_KEY: ~/.ssh/id_rsa
     working_directory: ~/christchurches-map
     steps:
       - checkout
