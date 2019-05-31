@@ -45,12 +45,12 @@ server '52.192.101.190', user: 'IwaseAsahi', roles: %w{web app db}
 #
 # Global options
 # --------------
- set :ssh_options, {
-   keys: %w(~/.ssh/christchurches-map.pem),
-   forward_agent: true,
-   auth_methods: %w(publickey),
-   port: '37459'
- }
+set :ssh_options, {
+  keys: ["#{ENV['CHRIST_CHURCHES_MAP_SSH_KEY']}"],
+  forward_agent: true,
+  auth_methods: %w(publickey),
+  port: '37459'
+}
 #  }
 #
 # The server-based syntax can be used to override options:
