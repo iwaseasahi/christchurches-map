@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe ChurchesController, type: :controller do
+  before { geocoder_default_mock }
+
   describe 'GET #show' do
     let(:church) { create(:church) }
 
