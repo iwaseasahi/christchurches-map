@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Church, :type => :model do
+  before { geocoder_default_mock }
+
   # pending "add some examples to (or delete) #{__FILE__}"
   it '教会名・都道府県・住所・教団教派が入力されていれば有効な状態であること' do
     church = Church.new(
