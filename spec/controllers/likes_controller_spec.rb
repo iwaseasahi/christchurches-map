@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe LikesController, type: :controller do
+  before { geocoder_default_mock }
+
   describe 'POST #like' do
     include_context 'user_authorized'
 

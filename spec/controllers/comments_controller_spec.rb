@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe CommentsController, type: :controller do
+  before { geocoder_default_mock }
+
   describe 'GET #edit' do
     let(:comment) { create(:comment) }
 
