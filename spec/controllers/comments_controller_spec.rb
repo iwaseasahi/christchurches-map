@@ -25,7 +25,6 @@ RSpec.describe CommentsController, type: :controller do
 
     context '有効な属性の場合' do
       it 'データベースに新しいコメントを保存すること' do
-        binding.pry
         expect{
           post :create, params: { comment: attributes_for(:comment), church_id: comment.church_id }, xhr: true
         }.to change(Comment, :count).by(1)
