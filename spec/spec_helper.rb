@@ -15,6 +15,15 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'factory_girl_rails'
+require 'simplecov'
+
+SimpleCov.start 'rails' do
+  add_filter 'app/controllers/admin'
+  add_filter 'app/controllers/users'
+  add_filter 'app/channels'
+  add_filter 'app/dashboards'
+  add_filter 'app/jobs'
+end
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
