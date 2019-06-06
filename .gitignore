@@ -15,6 +15,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+coverage
 
 ***REMOVED*** Ignore Byebug command history file.
 .byebug_history
