@@ -65,9 +65,9 @@ gem 'geocoder'
 # 変更履歴を残す
 gem 'paper_trail'
 # 非同期処理
-gem 'sidekiq', '< 5'
 gem 'redis'
 gem 'redis-namespace'
+gem 'sidekiq', '< 5'
 gem 'sinatra', require: false
 # 管理画面
 gem 'administrate'
@@ -79,18 +79,18 @@ group :development, :test do
   gem 'byebug', platform: :mri
   # デバッグ用
   gem 'pry'
-  gem 'pry-rails'
   gem 'pry-byebug'
+  gem 'pry-rails'
   # テスト用
-  gem 'rspec-rails', '~> 3.1.0'
   gem 'factory_girl_rails', '~> 4.4.1'
   gem 'rails-controller-testing'
+  gem 'rspec-rails', '~> 3.1.0'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
+  gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
@@ -101,8 +101,8 @@ group :development do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
-  gem 'capistrano3-unicorn'
   gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq'
+  gem 'capistrano3-unicorn'
   # ファイル変更を検知してイベント実行
   gem 'guard'
   # guard で RSpec を実行
@@ -110,9 +110,9 @@ group :development do
 end
 
 group :test do
-  gem 'faker', '~> 1.4.3'
   gem 'capybara', '~> 2.4.3'
   gem 'database_cleaner', '~> 1.3.0'
+  gem 'faker', '~> 1.4.3'
   gem 'launchy', '~> 2.4.2'
   gem 'selenium-webdriver', '~> 2.43.0 '
   # テストカバレッジ
