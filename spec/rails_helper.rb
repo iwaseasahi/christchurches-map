@@ -49,7 +49,7 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 
   ***REMOVED*** ファクトリを簡単に呼び出せるよう、Factory Girlの構文をインクルードする
-  ***REMOVED*** config.include FactoryGirl::Syntax::Methods
+  ***REMOVED*** config.include FactoryBot::Syntax::Methods
 
   ***REMOVED*** RSpecでコントローラーのテストを実行
   config.include Devise::Test::ControllerHelpers, type: :controller
