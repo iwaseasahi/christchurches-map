@@ -10,9 +10,9 @@ FactoryBot.define do
   end
 
   factory :user_test, class: :user do
-    last_name '岩瀬'
-    first_name '旭'
-    password 'asahitest'
+    last_name { '岩瀬' }
+    first_name { '旭' }
+    password { 'asahitest' }
     sequence(:email) { |n| "eb50113#{n}@yahoo.co.jp" }
   end
 end
