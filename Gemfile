@@ -82,7 +82,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   # テスト用
-  gem 'factory_girl_rails', '~> 4.4.1'
+  gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 3.1.0'
 end
