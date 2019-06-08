@@ -49,9 +49,6 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
-  ***REMOVED*** FactoryBot を省略する
-  config.include FactoryBot::Syntax::Methods
-
 ***REMOVED*** The settings below are suggested to provide a good initial experience
 ***REMOVED*** with RSpec, but feel free to customize to your heart's content.
 =begin
