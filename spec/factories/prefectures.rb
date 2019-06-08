@@ -1,6 +1,6 @@
-***REMOVED*** Read about factories at https://github.com/thoughtbot/factory_girl
+***REMOVED*** Read about factories at https://github.com/thoughtbot/factory_bot
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :prefecture do
   end
 end

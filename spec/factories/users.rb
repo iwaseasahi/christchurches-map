@@ -1,6 +1,6 @@
-***REMOVED*** Read about factories at https://github.com/thoughtbot/factory_girl
+***REMOVED*** Read about factories at https://github.com/thoughtbot/factory_bot
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
     ***REMOVED*** Fakerによる自動生成
     last_name { Faker::Name.last_name }
@@ -10,9 +10,9 @@ FactoryGirl.define do
   end
 
   factory :user_test, class: :user do
-    last_name '岩瀬'
-    first_name '旭'
-    password 'asahitest'
+    last_name { '岩瀬' }
+    first_name { '旭' }
+    password { 'asahitest' }
     sequence(:email) { |n| "eb50113***REMOVED***{n}@yahoo.co.jp" }
   end
 end

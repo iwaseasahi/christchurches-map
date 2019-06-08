@@ -4,6 +4,7 @@ require 'spec_helper'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 ***REMOVED*** Add additional requires below this line. Rails is not loaded until this point!
+require 'support/factory_bot'
 
 ***REMOVED*** Requires supporting ruby files with custom matchers and macros, etc, in
 ***REMOVED*** spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -47,9 +48,6 @@ RSpec.configure do |config|
   ***REMOVED*** The different available types are documented in the features, such as in
   ***REMOVED*** https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
-
-  ***REMOVED*** ファクトリを簡単に呼び出せるよう、Factory Girlの構文をインクルードする
-  ***REMOVED*** config.include FactoryGirl::Syntax::Methods
 
   ***REMOVED*** RSpecでコントローラーのテストを実行
   config.include Devise::Test::ControllerHelpers, type: :controller
