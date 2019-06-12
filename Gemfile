@@ -84,7 +84,7 @@ group :development, :test do
   # テスト用
   gem 'factory_girl_rails', '~> 4.4.1'
   gem 'rails-controller-testing'
-  gem 'rspec-rails', '~> 3.1.0'
+  gem 'rspec-rails'
 end
 
 group :development do
