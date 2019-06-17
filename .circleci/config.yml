@@ -15,7 +15,7 @@ jobs: # a collection of steps
           TZ: /usr/share/zoneinfo/Asia/Tokyo
           DB_HOST: 127.0.0.1
           DATABASE_USERNAME: root
-          DATABASE_PASSWORD: test
+          DATABASE_PASSWORD: ''
           DATABASE_SOCKET: '/var/run/mysqld/mysqld.sock'
           AWS_ACCESS_KEY_ID: 'test'
           AWS_SECRET_ACCESS_KEY: 'test'
@@ -24,7 +24,7 @@ jobs: # a collection of steps
       - image: circleci/mysql:5.6.44 # database image
         environment: # environment variables for database
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
-          MYSQL_ROOT_PASSWORD: test
+          MYSQL_ROOT_PASSWORD: ''
           MYSQL_DATABASE: christchurches_map_aws_local
           TZ: /usr/share/zoneinfo/Asia/Tokyo
     working_directory: ~/christchurches-map
