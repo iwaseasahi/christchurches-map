@@ -2,8 +2,6 @@
 # ======================
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
-lock '3.11.0'
-
 set :stage, :production
 set :rails_env, :production
 # sidekiqをデーモンで動かす
