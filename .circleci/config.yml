@@ -22,6 +22,7 @@ jobs: # a collection of steps
           REDIS: 'redis:://localhost:0000'
       - image: circleci/mysql:5.6.44 # database image
         environment: # environment variables for database
+          MYSQL_USER: root
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
           MYSQL_ROOT_PASSWORD: ''
           MYSQL_DATABASE: christchurches_map_aws_local
