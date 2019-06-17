@@ -14,6 +14,7 @@ jobs: # a collection of steps
           RAILS_ENV: test
           TZ: /usr/share/zoneinfo/Asia/Tokyo
           DB_HOST: 127.0.0.1
+          DATABASE_USERNAME: root
           DATABASE_PASSWORD: test
           DATABASE_SOCKET: '/var/run/mysqld/mysqld.sock'
           AWS_ACCESS_KEY_ID: 'test'
