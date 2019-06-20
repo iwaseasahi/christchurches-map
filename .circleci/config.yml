@@ -34,7 +34,7 @@ jobs: # a collection of steps
       # Install the required dependencies
       - run:
           name: Install the required dependencies
-          command: sudo yum install libxml2-devel curl-devel
+          command: yum install libxml2-devel curl-devel
 
       # Which version of bundler?
       - run:
