@@ -59,7 +59,7 @@ gem 'carrierwave'
 ***REMOVED*** 画像トリミング
 gem 'rmagick'
 ***REMOVED*** S3にアップロードを簡単にするライブラリ
-gem 'fog'
+gem 'fog-aws'
 ***REMOVED*** 住所から緯度経度を算出
 gem 'geocoder'
 ***REMOVED*** 変更履歴を残す
