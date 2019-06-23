@@ -7,7 +7,7 @@ end
 
 
 ***REMOVED*** Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.1.7'
+gem 'rails', '5.2.3'
 ***REMOVED*** Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.3.18', '< 0.5'
 ***REMOVED*** Use Puma as the app server
@@ -55,11 +55,11 @@ gem 'exception_notification', github: 'smartinez87/exception_notification'
 ***REMOVED*** Slack
 gem 'slack-notifier'
 ***REMOVED*** 画像アップロード
-gem 'carrierwave'
+gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
 ***REMOVED*** 画像トリミング
 gem 'rmagick'
 ***REMOVED*** S3にアップロードを簡単にするライブラリ
-gem 'fog'
+gem 'fog-aws'
 ***REMOVED*** 住所から緯度経度を算出
 gem 'geocoder'
 ***REMOVED*** 変更履歴を残す
