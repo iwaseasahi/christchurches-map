@@ -55,7 +55,7 @@ gem 'exception_notification', github: 'smartinez87/exception_notification'
 ***REMOVED*** Slack
 gem 'slack-notifier'
 ***REMOVED*** 画像アップロード
-gem 'carrierwave'
+gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
 ***REMOVED*** 画像トリミング
 gem 'rmagick'
 ***REMOVED*** S3にアップロードを簡単にするライブラリ
