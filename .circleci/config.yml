@@ -1,6 +1,5 @@
 ruby_image: &ruby_image
-  circleci/ruby:2.3-jessie-node
-
+  circleci/ruby:2.5.5-node-browsers-legacy
 
 version: 2 # use CircleCI 2.0
 jobs: # a collection of steps
