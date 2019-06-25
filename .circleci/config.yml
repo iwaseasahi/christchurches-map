@@ -1,5 +1,5 @@
 ruby_image: &ruby_image
-  circleci/ruby:2.5.5-alpine3.8
+  circleci/ruby:2.5.5-jessie-node
 
 version: 2 # use CircleCI 2.0
 jobs: # a collection of steps
