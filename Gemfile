@@ -35,7 +35,7 @@ gem 'dotenv-rails'
 ***REMOVED*** 論理削除
 gem 'kakurenbo-puti'
 ***REMOVED*** rake
-gem 'rake', '< 11.0'
+gem 'rake'
 ***REMOVED*** font-awesome
 gem 'font-awesome-rails'
 ***REMOVED*** google-map
