@@ -12,7 +12,7 @@
 ***REMOVED******REMOVED******REMOVED*** Ruby
 
 ````
-2.3.1
+2.5.5
 ````
 
 ***REMOVED******REMOVED******REMOVED*** Ruby on Rails
