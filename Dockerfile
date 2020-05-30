@@ -10,7 +10,7 @@ RUN gem install bundler -v 1.17.3 -N
 
 RUN mkdir /usr/src/app/
 WORKDIR /usr/src/app/
-ADD Gemfile Gemfile
-ADD Gemfile.lock Gemfile.lock
+ADD Gemfile /usr/src/app/Gemfile
+ADD Gemfile.lock /usr/src/app/Gemfile.lock
 RUN bundle install --jobs=4
 COPY . /usr/src/app/
