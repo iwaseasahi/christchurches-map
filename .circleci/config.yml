@@ -1,9 +1,10 @@
+version: 2.1
+
 ruby_image: &ruby_image
   circleci/ruby:2.5.5-node-browsers-legacy
 
-version: 2
-jobs:
-  build:
+executors:
+  default_executor:
     docker:
       - image: *ruby_image
         environment:
@@ -20,13 +21,17 @@ jobs:
           AWS_SECRET_ACCESS_KEY: 'test'
           SECRETS_PRODUCTION: 'test'
           REDIS: 'redis:://localhost:0000'
-      - image: circleci/mysql:5.6.44 # database image
+      - image: circleci/mysql:5.6.44
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
           MYSQL_ROOT_PASSWORD: ''
           MYSQL_DATABASE: christchurches_map_aws_local
           TZ: /usr/share/zoneinfo/Asia/Tokyo
     working_directory: ~/christchurches-map
+
+jobs:
+  build:
+    executor: default_executor
     steps:
       - checkout
 
