@@ -17,10 +17,6 @@ executors:
           DATABASE_USERNAME: root
           DATABASE_PASSWORD: ''
           DATABASE_SOCKET: '/var/run/mysqld/mysqld.sock'
-          AWS_ACCESS_KEY_ID: 'test'
-          AWS_SECRET_ACCESS_KEY: 'test'
-          SECRETS_PRODUCTION: 'test'
-          REDIS: 'redis:://localhost:0000'
       - image: circleci/mysql:5.6.44
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
@@ -35,7 +31,6 @@ jobs:
     steps:
       - checkout
       - run: bundle -v
-      # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
       - restore_cache:
           keys:
             - rails-christchurches-map-bundle-v2-{{ checksum "Gemfile.lock" }}
