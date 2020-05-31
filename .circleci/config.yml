@@ -31,7 +31,6 @@ jobs:
     steps:
       - checkout
       - run: bundle -v
-      # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
       - restore_cache:
           keys:
             - rails-christchurches-map-bundle-v2-{{ checksum "Gemfile.lock" }}
