@@ -82,21 +82,21 @@ jobs:
               ./bin/send_coverage
             fi
   deploy:
-    docker:
-      - image: *ruby_image
-        environment:
-          CHRIST_CHURCHES_MAP_SSH_KEY: ~/.ssh/id_rsa_14a4f551a470797b5b63d0d7e924e2d7
-    working_directory: ~/christchurches-map
+    executor: default_executor
+    environment:
+      CHRIST_CHURCHES_MAP_SSH_KEY: ~/.ssh/id_rsa_14a4f551a470797b5b63d0d7e924e2d7
     steps:
       - checkout
       - add_ssh_keys:
           fingerprints:
             - "14:a4:f5:51:a4:70:79:7b:5b:63:d0:d7:e9:24:e2:d7"
+      - restore_cache:
+          keys:
+            - rails-christchurches-map-bundle-v2-{{ checksum "Gemfile.lock" }}
+            - rails-christchurches-map-bundle-v2-
+      - run: bundle
       - run:
-          name: Bundle Install
-          command: bundle check || bundle install
-      - run:
-          name: Deploy to AWS if tests pass and branch is Master
+          name: Deploy to AWS
           command: bundle exec cap production deploy
 workflows:
   version: 2
@@ -111,7 +111,7 @@ workflows:
             branches:
               ignore:
                 - master
-  build-deploy:
+  deploy:
     jobs:
       - build
       - deploy
