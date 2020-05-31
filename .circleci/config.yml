@@ -103,6 +103,7 @@ workflows:
   commit:
     jobs:
       - build
+      - test
       - test:
           requires:
             - build
