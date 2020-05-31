@@ -103,7 +103,6 @@ workflows:
   commit:
     jobs:
       - build
-      - test
       - test:
           requires:
             - build
@@ -114,7 +113,6 @@ workflows:
   deploy:
     jobs:
       - build
-      - deploy
       - deploy:
           requires:
             - build
