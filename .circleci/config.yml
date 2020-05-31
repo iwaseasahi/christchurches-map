@@ -63,12 +63,14 @@ jobs: # a collection of steps
       - run:
           name: Run rspec in parallel
           command: |
-            bundle exec rspec --profile 10 \
+            COVERAGE=true bundle exec rspec --profile 10 \
                               $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
 
       # Save test results for timing analysis
       - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
           path: test_results
+      - store_artifacts:
+          path: coverage
       # See https://circleci.com/docs/2.0/deployment-integrations/ for example deploy configs
   deploy:
     docker:
