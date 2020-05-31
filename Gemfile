@@ -85,6 +85,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
+  gem 'faker', '~> 1.4.3'
 end
 
 group :development do
@@ -112,7 +113,6 @@ end
 group :test do
   gem 'capybara', '~> 2.4.3'
   gem 'database_cleaner', '~> 1.3.0'
-  gem 'faker', '~> 1.4.3'
   gem 'launchy', '~> 2.4.2'
   gem 'selenium-webdriver', '~> 2.43.0 '
   # テストカバレッジ
