@@ -73,6 +73,7 @@ jobs: # a collection of steps
           path: coverage
 
       - run:
+          name: Send coverage to pull request
           command: |
             if [ "${CIRCLE_BRANCH}" != "master" ]; then
               ./bin/send_coverage
