@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+set -eu
+
+echo 'check pull request'
+
+if [ "$CIRCLE_PULL_REQUEST" == false ] || [ -z "$CIRCLE_PULL_REQUEST" ]; then
+  echo 'not pull request.'
+  exit 0
+fi
+
+echo 'get pull request number'
+
+if [[ $CIRCLE_PULL_REQUEST =~ ([0-9]*)$ ]]; then
+  PR_NUMBER=${BASH_REMATCH[1]}
+else
+  echo 'cannot get pull request number. maybe bug.'
+  exit 1
+fi
+
+echo "pull request number is $PR_NUMBER"
+
+echo 'Send status to github'
+
+ARTIFACATS_BASE_URL="https://$CIRCLE_BUILD_NUM-90445552-gh.circle-artifacts.com/0"
+COV_URL="$ARTIFACATS_BASE_URL/coverage/index.html"
+COV_PERCENTAGE=`cat ./coverage/.last_run.json | jq '.result.covered_percent' | awk -F '.' '{print $1}'`
+COV_DESC="$COV_PERCENTAGE% covered"
+[ $COV_PERCENTAGE -gt 60 ] && STATE=success || STATE=failure
+POST_BODY="{\"state\": \"$STATE\", \"target_url\": \"$COV_URL\", \"description\": \"$COV_DESC\", \"context\": \"coverage\"}"
+curl -XPOST \
+  -H "Authorization: token $GITHUB_ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d "$POST_BODY" \
+  https://api.github.com/repos/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/statuses/$CIRCLE_SHA1
