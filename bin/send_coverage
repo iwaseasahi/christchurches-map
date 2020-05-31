@@ -4,7 +4,7 @@ set -eu
 
 echo 'check pull request'
 
-if [ "$CIRCLE_PULL_REQUEST" == false ] || [ -z "$CIRCLE_PULL_REQUEST" ]; then
+if [ ! "${CIRCLE_PULL_REQUEST:+true}" ]; then
   echo 'not pull request.'
   exit 0
 fi
