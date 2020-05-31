@@ -34,45 +34,36 @@ jobs:
     executor: default_executor
     steps:
       - checkout
-
       - run:
           name: Which bundler?
           command: bundle -v
-
       # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
       - restore_cache:
           keys:
             - rails-christchurches-map-bundle-v2-{{ checksum "Gemfile.lock" }}
             - rails-christchurches-map-bundle-v2-
-
       - run:
           name: Bundle Install
           command: bundle check || bundle install
-
       - save_cache:
           key: rails-christchurches-map-bundle-v2-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
-
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
-
       - run:
           name: Database setup
           command: bundle exec rake db:create db:migrate
-
       - run:
           name: Run rspec in parallel
           command: |
             COVERAGE=true bundle exec rspec --profile 10 \
                               $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
-
       - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
           path: test_results
       - store_artifacts:
           path: coverage
-
       - run:
           name: Send coverage to pull request
           command: |
