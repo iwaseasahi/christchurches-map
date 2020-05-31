@@ -1,4 +1,4 @@
 ***REMOVED******REMOVED*** issue
 resolve 
 
-***REMOVED******REMOVED*** 対応したと
+***REMOVED******REMOVED*** 対応したこと
