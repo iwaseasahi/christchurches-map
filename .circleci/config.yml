@@ -97,7 +97,11 @@ workflows:
   version: 2
   commit:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              ignore:
+                - master
       - test:
           requires:
             - build
