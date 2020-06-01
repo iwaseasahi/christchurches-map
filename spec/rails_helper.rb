@@ -61,4 +61,11 @@ RSpec.configure do |config|
 
   # 共通の mack
   config.include DisableGeocoder
+
+  # cleanup uploads
+  config.after(:all) do
+    if Rails.env.test?
+      FileUtils.rm_rf(Dir["#{Rails.root}/public/uploads"])
+    end
+  end
 end
