@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :group do
-    name { SecureRandom.hex[1...10] }
+    name { Faker::Company.name }
   end
 end
