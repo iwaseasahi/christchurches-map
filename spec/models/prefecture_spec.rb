@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Prefecture, type: :model do
+  it '有効な状態であること' do
+    prefecture = build(:prefecture, :tokyo)
+
+    expect(prefecture).to be_valid
+  end
+
   describe '#set_position' do
     specify do
       prefecture = create(:prefecture, :tokyo)
