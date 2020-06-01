@@ -1,9 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Comment, :type => :model do
-  # pending "add some examples to (or delete) #{__FILE__}"
-  it '有効なファクトリを持つこと' do
-    expect(build(:comment)).to be_valid
+  it '有効であること' do
+    user = create(:user)
+    church = create(:church)
+
+    expect(build(:comment, user: user, church: church)).to be_valid
   end
 
   it 'コメントが未入力であれば、無効な状態であること' do
@@ -24,8 +26,16 @@ RSpec.describe Comment, :type => :model do
     expect(comment.errors[:church_id]).to include('を入力してください')
   end
 
-  it 'timeメソッドがnilにならないこと' do
-    comment = build(:comment)
-    expect(comment.time).not_to eq nil
+  context '#time' do
+    it 'timeメソッドが nil にならないこと' do
+      comment = create(:comment)
+      expect(comment.time).not_to eq nil
+    end
+
+    specify do
+      comment = create(:comment)
+
+      expect(comment.time).to eq comment.created_at.strftime('%Y-%m-%d %H:%M')
+    end
   end
 end
