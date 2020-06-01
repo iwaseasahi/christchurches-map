@@ -3,7 +3,8 @@
 FactoryBot.define do
   factory :photo do
     association :church
-    file_name { SecureRandom.hex[1...10] }
+
+    file_name { Rack::Test::UploadedFile.new(Rails.root.join('spec/support/logo_image.jpg'), 'image/jpeg') }
     sort_of_number { Random.rand(1...10) }
   end
 end
