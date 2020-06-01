@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :like do
-    user_id { 1 }
-    church_id { 1 }
+    association :user
+    association :church
   end
 end
