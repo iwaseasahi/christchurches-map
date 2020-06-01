@@ -6,7 +6,7 @@ FactoryBot.define do
     association :prefecture, factory: [:prefecture, :tokyo]
 
     name { Faker::Company.name }
-    address { Faker::Address }
+    address { Faker::Address.full_address }
 
     trait :with_info do
       tel { Faker::PhoneNumber.phone_number }
