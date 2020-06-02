@@ -96,6 +96,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # コーディングスタイル
   gem 'rubocop', require: false
+  gem 'rubocop-faker', require: false
   # capistrano関連
   gem 'capistrano'
   gem 'capistrano-bundler'
