@@ -7,7 +7,7 @@ RSpec.describe UserMailer, type: :mailer do
 
     it "renders the headers" do
       expect(mail.subject).to eq("ユーザーを登録しました。")
-      expect(mail.to.first).to include 'test@example'
+      expect(mail.to.first).to include current_user.email
       expect(mail.from).to eq(['j.c.project153@gmail.com'])
     end
   end
