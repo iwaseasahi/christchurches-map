@@ -23,6 +23,7 @@ executors:
           MYSQL_ROOT_PASSWORD: ''
           MYSQL_DATABASE: christchurches_map_aws_local
           TZ: /usr/share/zoneinfo/Asia/Tokyo
+      - image: selenium/standalone-chrome:3.141.59-zirconium
     working_directory: ~/christchurches-map
 
 jobs:
