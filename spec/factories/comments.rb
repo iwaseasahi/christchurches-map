@@ -2,10 +2,9 @@
 
 FactoryBot.define do
   factory :comment do
-    user_id { 1 }
-    church_id { 2324 }
-    comment { 'テスト' }
-    created_at { Time.zone.now }
-    updated_at { Time.zone.now }
+    association :user
+    association :church
+
+    comment { Faker::Lorem.word }
   end
 end

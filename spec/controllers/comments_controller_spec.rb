@@ -80,9 +80,12 @@ RSpec.describe CommentsController, type: :controller do
 
     context '無効な属性の場合' do
       it 'commentの属性を変更しないこと' do
+        comment_message = comment.comment
+
         patch :update, params: { id: comment, comment: attributes_for(:comment, comment: nil) }, xhr: true
         comment.reload
-        expect(comment.comment).to eq('テスト')
+
+        expect(comment.comment).to eq comment_message
       end
 
       it ':updateテンプレートを表示すること' do
