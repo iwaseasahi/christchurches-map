@@ -8,10 +8,4 @@ RSpec.describe HomesController, :type => :controller do
         action: 'top')
     end
   end
-  describe 'GET #contact' do
-    it 'contactテンプレートを表示すること' do
-      get :contact
-      expect(response).to render_template(:contact)
-    end
-  end
 end
