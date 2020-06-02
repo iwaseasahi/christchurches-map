@@ -5,7 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.2.3'
 # Use mysql as the database for Active Record
@@ -41,7 +40,7 @@ gem 'font-awesome-rails'
 # google-map
 gem 'gmaps4rails'
 # 検索用
-gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'ransack'
 # Googleアナリティクス
 gem 'google-analytics-rails'
 # サイトマップ
@@ -51,7 +50,7 @@ gem 'devise'
 # 開発環境をYAMLファイルで管理
 gem 'config'
 # 例外通知
-gem 'exception_notification', github: 'smartinez87/exception_notification'
+gem 'exception_notification'
 # Slack
 gem 'slack-notifier'
 # 画像アップロード
@@ -97,12 +96,13 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # コーディングスタイル
   gem 'rubocop', require: false
+  gem 'rubocop-faker', require: false
   # capistrano関連
   gem 'capistrano'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
-  gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq'
+  gem 'capistrano-sidekiq'
   gem 'capistrano3-unicorn'
   # ファイル変更を検知してイベント実行
   gem 'guard'
