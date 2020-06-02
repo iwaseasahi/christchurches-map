@@ -11,7 +11,8 @@ feature 'いいねRank', type: :system do
       click_link 'いいねRank'
     end
 
-    expect(page).to have_current_path likes_ranking_path
+    expect(page).to have_current_path like_rankings_path
+    expect(page).to have_text 'いいねランキング'
     expect(page).to have_text church.name
     expect(page).to have_text "#{church.likes.count}いいね"
   end
