@@ -29,6 +29,7 @@ services:
     depends_on:
       - db
       - redis
+      - chrome
     tty: true
     stdin_open: true
   redis:
@@ -39,6 +40,10 @@ services:
       - redis-data:/data
     depends_on:
       - db
+  chrome:
+    image: selenium/standalone-chrome:3.141.59-zirconium
+    volumes:
+      - /dev/shm:/dev/shm
 
 volumes:
   redis-data:
