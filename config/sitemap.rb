@@ -1,13 +1,14 @@
 require 'rubygems'
 require 'sitemap_generator'
 
-SitemapGenerator::Sitemap.default_host = 'http://www.christchurches-map.com/'
+SitemapGenerator::Sitemap.default_host = 'https://www.christchurches-map.com/'
 SitemapGenerator::Sitemap.create do
   current_time = Time.now
 
   # トップ画面
   add root_path, lastmod: current_time, changefreq: 'daily', priority: 1.0
-  add search_maps_path, priority: 0.9, changefreq: 'daily'
+  # マップ検索
+  add maps_search_index_path, priority: 0.9, changefreq: 'daily'
 
   # 動的ページ
   dynamic_page_options = { changefreq: 'weekly', priority: 0.75 }
