@@ -1,7 +1,7 @@
 <section id="google-map">
   <div class="container">
     <div class='centering'>
-      <%= search_form_for @q, url: search_maps_path do |f| %>
+      <%= search_form_for @q, url: maps_search_index_path do |f| %>
         <div class='form-custom'>
           <%= f.label :group_id_eq, '教団教派' %>
           <%= f.select :group_id_eq, options_from_collection_for_select(Group.all, :id, :name), { prompt: '選択できます', include_blank: '選択なし' }, class: 'form-control' %>
