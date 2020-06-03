@@ -20,14 +20,6 @@ class MapsController < ApplicationController
     end
   end
 
-  def search_from_top
-    if params[:q].blank? || params[:q][:name_or_address_cont].blank?
-      redirect_to maps_path
-    else
-      search_result(params)
-    end
-  end
-
   private
 
   def search_result(params)
