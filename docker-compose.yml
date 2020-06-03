@@ -26,6 +26,7 @@ services:
       DATABASE_SOCKET: /var/run/mysqld/mysqld.sock
       DB_HOST: db
       RAILS_ENV: development
+      SELENIUM_DRIVER_URL: 'http://chrome:4444/wd/hub'
     depends_on:
       - db
       - redis

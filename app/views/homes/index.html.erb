@@ -8,7 +8,7 @@
       </div>
       <div class="intro-heading"><span class="font-red">教会</span>を検索</div>
       <div class="text-center">
-        <%= search_form_for @q, url: search_from_top_maps_path do |f| %>
+        <%= search_form_for @q, url: maps_search_from_top_index_path do |f| %>
           <div class='form-custom'>
             <%= f.search_field :name_or_address_cont, class: 'form-control', placeholder: '名前や住所を入力してください' %>
           </div>
