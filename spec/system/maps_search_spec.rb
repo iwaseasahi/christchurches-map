@@ -106,4 +106,19 @@ feature 'マップ検索', type: :system do
 
     expect(page).to have_current_path maps_path
   end
+
+  scenario '該当の教会が見つからなかった場合でも閲覧できる' do
+    church = build(:church, :shinjuku_shalom)
+
+    visit root_path
+
+    within(:css, '#mainNav') do
+      click_link 'マップ検索'
+    end
+
+    fill_in 'q_name_cont', with: church.name
+    click_button '検索'
+
+    expect(page).to have_current_path maps_search_index_path, ignore_query: true
+  end
 end
