@@ -31,8 +31,11 @@ Rails.application.routes.draw do
   resources :maps, only: :index do
     collection do
       get '/search'          => 'maps#search'
-      get '/search_from_top' => 'maps#search_from_top'
     end
+  end
+
+  namespace 'maps' do
+    resources :search_from_top, only: :index
   end
 
   resources :churches, except: %i[index] do
