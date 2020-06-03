@@ -19,6 +19,17 @@ feature 'トップページから検索', type: :system do
     expect(lat_and_lng.last.to_f).to be_within(0.1).of(church.longitude)
   end
 
+  scenario '該当の教会が見つからなかった場合でも閲覧できる' do
+    create(:church, :shinjuku_shalom)
+
+    visit root_path
+
+    fill_in 'q_name_or_address_cont', with: '名無し教会'
+    click_button 'Search'
+
+    expect(page).to have_current_path maps_search_from_top_index_path, ignore_query: true
+  end
+
   scenario '空欄で検索した場合、マップ検索にリダイレクトする' do
     visit root_path
 
