@@ -1,29 +1,36 @@
 class Maps::SearchController < ApplicationController
+  before_action :empty_ransack_params?, only: :index
+  before_action :empty_ransack_params_values?, only: :index
+
   def index
-    case params_pattern(params)
-    when 'nothing'
-      redirect_to maps_path
-    when 'only_prefecture'
-      search_result(params)
-      prefecture = Prefecture.find(params[:q][:prefecture_id_eq])
-      @map_position = prefecture.set_position
-    when 'normal'
-      search_result(params)
-    else
-      set_map_position_basic
-    end
+    set_map_position_prefecture if only_prefecture?
+
+    search_result
   end
 
   private
 
-  def search_result(params)
-    @q = Church.ransack(params[:q])
+  def empty_ransack_params?
+    redirect_to maps_path if params[:q].blank?
+  end
+
+  def empty_ransack_params_values?
+    redirect_to maps_path if ransack_params.to_h.values.reject(&:empty?).blank?
+  end
+
+  def ransack_params
+    params.require(:q).permit(:group_id_eq, :prefecture_id_eq, :name_cont, :address_cont)
+  end
+
+  def search_result
+    @q = Church.ransack(ransack_params)
     @churches = @q.result(distinct: true)
     build_markers(@churches)
   end
 
   def build_markers(churches)
     return set_map_position_basic if churches.blank?
+
     @hash = Gmaps4rails.build_markers(churches) do |church, marker|
       marker.lat(church.latitude)
       marker.lng(church.longitude)
@@ -35,18 +42,14 @@ class Maps::SearchController < ApplicationController
     @map_position = { lat: 38.5, lng: 137.0, zoom: 5 }
   end
 
-  def params_pattern(params)
-    return 'nothing' if params[:q].blank?
-    group_id      = params[:q][:group_id_eq]
-    prefecture_id = params[:q][:prefecture_id_eq]
-    name          = params[:q][:name_cont]
-    address       = params[:q][:address_cont]
-    if group_id.blank? && prefecture_id.blank? && name.blank? && address.blank?
-      'nothing'
-    elsif prefecture_id.present? && group_id.blank? && name.blank? && address.blank?
-      'only_prefecture'
-    else
-      'normal'
-    end
+  def set_map_position_prefecture
+    @map_position = Prefecture.find(ransack_params[:prefecture_id_eq]).set_position
+  end
+
+  def only_prefecture?
+    ransack_params[:prefecture_id_eq].present? &&
+      ransack_params[:group_id_eq].empty? &&
+      ransack_params[:name_cont].empty? &&
+      ransack_params[:address_cont].empty?
   end
 end
