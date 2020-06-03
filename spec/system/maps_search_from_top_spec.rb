@@ -20,11 +20,11 @@ feature 'トップページから検索', type: :system do
   end
 
   scenario '該当の教会が見つからなかった場合でも閲覧できる' do
-    create(:church, :shinjuku_shalom)
+    church = build(:church, :shinjuku_shalom)
 
     visit root_path
 
-    fill_in 'q_name_or_address_cont', with: '名無し教会'
+    fill_in 'q_name_or_address_cont', with: church.name
     click_button 'Search'
 
     expect(page).to have_current_path maps_search_from_top_index_path, ignore_query: true
