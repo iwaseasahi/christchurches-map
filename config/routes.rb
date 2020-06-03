@@ -28,13 +28,10 @@ Rails.application.routes.draw do
   resources :contacts, only: :index
   resources :like_rankings, only: :index
 
-  resources :maps, only: :index do
-    collection do
-      get '/search'          => 'maps#search'
-    end
-  end
+  resources :maps, only: :index
 
   namespace 'maps' do
+    resources :search, only: :index
     resources :search_from_top, only: :index
   end
 
