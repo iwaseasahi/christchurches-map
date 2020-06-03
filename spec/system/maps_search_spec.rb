@@ -88,4 +88,22 @@ feature 'マップ検索', type: :system do
     expect(lat_and_lng.first.to_f).to be_within(0.1).of(church.latitude)
     expect(lat_and_lng.last.to_f).to be_within(0.1).of(church.longitude)
   end
+
+  scenario '空欄で検索した場合、マップ検索にリダイレクトする' do
+    visit root_path
+
+    within(:css, '#mainNav') do
+      click_link 'マップ検索'
+    end
+
+    click_button '検索'
+
+    expect(page).to have_current_path maps_path
+  end
+
+  scenario '直接アクセスした場合、マップ検索にリダイレクトする' do
+    visit maps_search_index_path
+
+    expect(page).to have_current_path maps_path
+  end
 end
