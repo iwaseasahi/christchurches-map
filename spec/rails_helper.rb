@@ -26,7 +26,7 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
 
 Capybara.register_driver :remote_chrome do |app|
-  url = 'http://chrome:4444/wd/hub'
+  url = ENV.fetch("SELENIUM_DRIVER_URL")
   caps = ::Selenium::WebDriver::Remote::Capabilities.chrome("goog:chromeOptions" => {
       "args" => ["no-sandbox", "headless", "disable-gpu", "window-size=1680,1050"]
     }
