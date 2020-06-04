@@ -18,6 +18,7 @@ executors:
           DATABASE_PASSWORD: ''
           DATABASE_SOCKET: '/var/run/mysqld/mysqld.sock'
           SELENIUM_DRIVER_URL: 'http://localhost:4444/wd/hub'
+          REDIS: 'redis://localhost:6379'
       - image: circleci/mysql:5.6.44
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
