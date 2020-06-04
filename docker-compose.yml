@@ -15,7 +15,10 @@ services:
   web:
     build: .
     image: jcproject153/christchurches-map-rails:1.4
-    command: bash -c "rm -rf tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    command: >
+      bash -c "rm -rf tmp/pids/server.pid &&
+      bundle exec sidekiq -C config/sidekiq.yml &&
+      bundle exec rails s -p 3000 -b '0.0.0.0'"
     ports:
       - "3000:3000"
     volumes:
@@ -27,6 +30,9 @@ services:
       DB_HOST: db
       RAILS_ENV: development
       SELENIUM_DRIVER_URL: 'http://chrome:4444/wd/hub'
+      REDIS: 'redis://redis:6379'
+      SIDEKIQ_DASHBOARD_USER: sidekiq_admin
+      SIDEKIQ_DASHBOARD_PASSWORD: password
     depends_on:
       - db
       - redis
