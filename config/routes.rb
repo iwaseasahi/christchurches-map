@@ -60,4 +60,7 @@ Rails.application.routes.draw do
     username == ENV['SIDEKIQ_DASHBOARD_USER'] && password == ENV['SIDEKIQ_DASHBOARD_PASSWORD']
   end
   mount Sidekiq::Web, at: '/sidekiq'
+
+  # メールをブラウザで確認
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end
