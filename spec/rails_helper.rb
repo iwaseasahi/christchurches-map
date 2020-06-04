@@ -70,6 +70,7 @@ RSpec.configure do |config|
 
   # test helper
   config.include ActiveJob::TestHelper
+  config.include SystemSpecHelpers, type: :system
 
   # 共通の mack
   config.include DisableGeocoder
