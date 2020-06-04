@@ -4,7 +4,7 @@
       <h2 class="section-heading">ユーザー登録</h2>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
+        <%= render partial: 'devise/shared/error_messages' %>
 
         <div class="field">
           <%= f.label :last_name, '姓' %><br />

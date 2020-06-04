@@ -68,6 +68,9 @@ RSpec.configure do |config|
     config.include ::Rails::Controller::Testing::Integration, type: :type
   end
 
+  ***REMOVED*** test helper
+  config.include ActiveJob::TestHelper
+
   ***REMOVED*** 共通の mack
   config.include DisableGeocoder
 

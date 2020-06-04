@@ -108,6 +108,8 @@ group :development do
   gem 'guard'
   ***REMOVED*** guard で RSpec を実行
   gem 'guard-rspec', require: false
+  ***REMOVED*** Preview mail
+  gem 'letter_opener_web'
 end
 
 group :test do
