@@ -14,6 +14,7 @@ CarrierWave.configure do |config|
       region: ENV['AWS_REGION'],
       path_style: true
     }
+    config.fog_attributes = { 'Content-Type': 'image/jpg', 'Cache-Control': "max-age=#{1.week.to_i}" }
     # public-read
     config.fog_public = true
     config.fog_directory = ENV['AWS_S3_BUCKET']
