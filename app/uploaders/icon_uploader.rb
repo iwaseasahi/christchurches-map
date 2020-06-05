@@ -17,13 +17,9 @@ class IconUploader < CarrierWave::Uploader::Base
     'user_icon'
   end
 
-  ***REMOVED*** 画像がアップロードされていない場合の対応
-  ***REMOVED*** public/images/default_icon.jpgを読み込む
+  ***REMOVED*** 画像がアップロードされていない場合
   def default_url(*_args)
-    ***REMOVED*** For Rails 3.1+ asset pipeline compatibility:
-    ***REMOVED*** ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-    ***REMOVED*** "/images/fallback/" + [version_name, "default_icon.png"].compact.join('_')
-    'default_icon.jpg'
+    ActionController::Base.helpers.asset_path('default_icon.jpg')
   end
 
   ***REMOVED*** Create different versions of your uploaded files:
