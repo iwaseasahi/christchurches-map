@@ -1,6 +1,6 @@
 class Churches::UploadTopImagesController < ApplicationController
-  before_action :set_church
   before_action :authenticate_user!
+  before_action :set_church
 
   def create
     if @church.update(top_image_params)
