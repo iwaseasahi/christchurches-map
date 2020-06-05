@@ -3,28 +3,17 @@ class TopImageUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::RMagick
 
-  storage :fog
+  storage Settings.uploader.storage.to_sym
 
   ***REMOVED*** ~/[バケット名]/[foldername] 配下に画像がアップロード
   def store_dir
     'top_image'
   end
 
-  ***REMOVED*** 画像がアップロードされていない場合の対応
-  ***REMOVED*** public/images/default_top_image.jpgを読み込む
+  ***REMOVED*** 画像がアップロードされていない場合
   def default_url(*_args)
-    ***REMOVED*** For Rails 3.1+ asset pipeline compatibility:
-    ***REMOVED*** ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-    ***REMOVED*** "/images/fallback/" + [version_name, "default.png"].compact.join('_')
     ActionController::Base.helpers.asset_path('church_top_2.jpg')
   end
-
-  ***REMOVED*** Process files as they are uploaded:
-  ***REMOVED*** process scale: [200, 300]
-  ***REMOVED***
-  ***REMOVED*** def scale(width, height)
-  ***REMOVED***   ***REMOVED*** do something
-  ***REMOVED*** end
 
   ***REMOVED*** Create different versions of your uploaded files:
   version :thumb do
@@ -47,6 +36,7 @@ class TopImageUploader < CarrierWave::Uploader::Base
   ***REMOVED*** 元画像の削除
   def remove_original_file(_original_file)
     return if version_name.present?
+
     file.delete if file.exists?
   end
 
@@ -58,6 +48,7 @@ class TopImageUploader < CarrierWave::Uploader::Base
   ***REMOVED*** アップロード時のファイル名を指定
   def filename
     return if original_filename.blank?
+
     "***REMOVED***{model.id}_***REMOVED***{secure_token}.***REMOVED***{file.extension}"
   end
 
