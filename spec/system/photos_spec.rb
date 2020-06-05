@@ -13,12 +13,12 @@ feature '教会画像', type: :system do
     expect(page).to have_current_path church_photos_path(church.id)
   end
 
-  scenario 'ログインしていなければ、教会ページにリダイレクトされる' do
+  scenario 'ログインしていなければ、アップロードできない' do
     church = create(:church, :shinjuku_shalom)
 
     visit church_photos_path(church)
 
-    expect(page).to have_current_path church_path(church)
+    expect(page).to have_current_path new_user_session_path
   end
 
   scenario 'ログインしていれば、アップロードできる', js: true do
