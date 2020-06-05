@@ -35,10 +35,11 @@ Rails.application.routes.draw do
     resources :search_from_top, only: :index
   end
 
+  namespace :churches do
+    resource :modal, only: :show
+  end
+
   resources :churches, except: %i[index] do
-    collection do
-      get '/modal' => 'churches#modal'
-    end
     scope module: :churches do
       resource :upload_top_image, only: :create
     end
