@@ -17,10 +17,6 @@ class IconUploader < CarrierWave::Uploader::Base
     'user_icon'
   end
 
-  # def store_dir
-  #   "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-  # end
-
   # 画像がアップロードされていない場合の対応
   # public/images/default_icon.jpgを読み込む
   def default_url(*_args)
@@ -29,13 +25,6 @@ class IconUploader < CarrierWave::Uploader::Base
     # "/images/fallback/" + [version_name, "default_icon.png"].compact.join('_')
     'default_icon.jpg'
   end
-
-  # Process files as they are uploaded:
-  # process scale: [200, 300]
-  #
-  # def scale(width, height)
-  #   # do something
-  # end
 
   # Create different versions of your uploaded files:
   version :thumb do
@@ -64,6 +53,7 @@ class IconUploader < CarrierWave::Uploader::Base
   # 元画像の削除
   def remove_original_file(_original_file)
     return if version_name.present?
+
     file.delete if file.exists?
   end
 
@@ -74,9 +64,7 @@ class IconUploader < CarrierWave::Uploader::Base
 
   # アップロード時のファイル名を指定
   def filename
-    if original_filename.present?
-      "#{model.id}_#{secure_token}.#{file.extension}"
-    end
+    "#{model.id}_#{secure_token}.#{file.extension}" if original_filename.present?
   end
 
   protected
