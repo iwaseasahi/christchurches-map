@@ -17,20 +17,7 @@ class TopImageUploader < CarrierWave::Uploader::Base
 
   ***REMOVED*** Create different versions of your uploaded files:
   version :thumb do
-    process :crop
     process resize_to_fit: [800, 400]
-  end
-
-  def crop
-    manipulate! do |img|
-      ***REMOVED*** 中央から切り取り
-      gravity = Magick::CenterGravity
-      crop_w = img.columns
-      crop_h = img.rows
-      img.crop!(gravity, crop_w, crop_h)
-      img = yield(img) if block_given?
-      img
-    end
   end
 
   ***REMOVED*** 元画像の削除
