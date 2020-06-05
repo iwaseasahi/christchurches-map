@@ -15,7 +15,7 @@
     <div class="intro-text">
       <div class="intro-heading"><%= @church.name %></div>
       <div id="top-image-link">
-        <%= form_for @church, url: upload_top_image_church_path(@church.id), method: :put do |f| %>
+        <%= form_for @church, url: church_upload_top_image_path(@church.id), method: :post do |f| %>
           <div class="field">
             <span class="page-scroll btn btn-xl btn-file">
               <i class="fa fa-file-image-o" aria-hidden="true"></i> トップ画像を変更 <%= f.file_field :top_image %>
