@@ -44,5 +44,9 @@ feature '教会', type: :system do
     page.attach_file('church_top_image', 'spec/support/church_top_image.jpg', make_visible: true)
 
     expect { church.reload }.to change { church.top_image_identifier }
+
+    click_button '更新する'
+
+    expect(page.find('.church-header')['style']).to include church.top_image_identifier
   end
 end
