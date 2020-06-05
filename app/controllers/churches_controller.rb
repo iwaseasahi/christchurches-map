@@ -1,6 +1,6 @@
 class ChurchesController < ApplicationController
-  before_action :set_church,       only: %i[show edit update destroy]
   before_action :authenticate_user!, only: %i[edit update destroy]
+  before_action :set_church, only: %i[show edit update destroy]
 
   def show
     build_marker(@church)

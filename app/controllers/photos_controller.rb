@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
-  before_action :set_church
   before_action :authenticate_user!
+  before_action :set_church
   before_action :set_photo, only: :destroy
 
   def index
