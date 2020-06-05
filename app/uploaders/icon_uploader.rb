@@ -3,7 +3,7 @@ class IconUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::RMagick
 
-  storage :fog
+  storage Settings.uploader.storage.to_sym
 
   def fog_attributes
     {
