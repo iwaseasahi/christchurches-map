@@ -15,7 +15,6 @@
       <h2><%= @church.name %></h2>
       <h3>フォト管理</h3>
       <div class="line-section-small">
-      <% if user_signed_in? %>
         <%= form_for @photo, url: church_photos_path(church_id: @church.id) do |f| %>
           <div class="field">
             <span class="page-scroll btn btn-xl btn-file">
@@ -24,13 +23,6 @@
             </span>
           </div>
         <% end %>
-      <% else %>
-        <div class="field">
-          <%= link_to churches_modal_path, remote: true, class: 'page-scroll btn btn-xl' do %>
-            <i class="fa fa-file-image-o" aria-hidden="true"></i> アップロード
-          <% end %>
-        </div>
-      <% end %>
       </div>
     </div>
   </div>
@@ -43,13 +35,9 @@
         <% @church.photos.each do |photo| %>
           <div class="col-md-4">
             <%= image_tag photo.file_name_url(:thumb), class: 'church-photo-size' %>
-            <% if user_signed_in? %>
-              <div class="both-sides-section-small">
-                <%= link_to '削除', church_photo_path(church_id: @church.id, id: photo.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-secondary' %>
-              </div>
-            <% else %>
-              <div class="line-section-bottom-small"></div>
-            <% end %>
+            <div class="both-sides-section-small">
+              <%= link_to '削除', church_photo_path(church_id: @church.id, id: photo.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-secondary' %>
+            </div>
           </div>
         <% end %>
       </div>
