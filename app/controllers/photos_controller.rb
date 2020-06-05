@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_church
-  before_action :check_user_login
   before_action :set_photo, only: :destroy
 
   def index
@@ -27,10 +27,6 @@ class PhotosController < ApplicationController
 
   def set_church
     @church = Church.find(params[:church_id])
-  end
-
-  def check_user_login
-    redirect_to church_path(@church) unless user_signed_in?
   end
 
   def set_photo
