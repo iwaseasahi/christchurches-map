@@ -18,8 +18,8 @@ Rails.application.routes.draw do
   }
 
   resources :users, only: %i[show] do
-    member do
-      put :upload_icon
+    scope module: :users do
+      resource :upload_icon, only: :create
     end
   end
 
