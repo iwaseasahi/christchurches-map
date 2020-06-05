@@ -5,13 +5,6 @@ class PhotoUploader < CarrierWave::Uploader::Base
 
   storage Settings.uploader.storage.to_sym
 
-  def fog_attributes
-    {
-      'Content-Type':  'image/jpg',
-      'Cache-Control': "max-age=***REMOVED***{1.week.to_i}"
-    }
-  end
-
   ***REMOVED*** ~/[バケット名]/[foldername] 配下に画像がアップロード
   def store_dir
     'photo'
