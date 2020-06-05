@@ -22,7 +22,7 @@
         <% if user_signed_in? %>
           <%= link_to '登録', new_church_path, class: 'btn btn-secondary' %>
         <% else %>
-          <%= link_to '登録', modal_churches_path, remote: true, class: 'btn btn-secondary' %>
+          <%= link_to '登録', churches_modal_path, remote: true, class: 'btn btn-secondary' %>
         <% end %>
       <% end %>
     </div>
