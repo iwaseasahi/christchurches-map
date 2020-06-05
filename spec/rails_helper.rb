@@ -70,6 +70,7 @@ RSpec.configure do |config|
 
   # test helper
   config.include ActiveJob::TestHelper
+  config.include SystemSpecHelpers, type: :system
 
   # 共通の mack
   config.include DisableGeocoder
@@ -78,6 +79,7 @@ RSpec.configure do |config|
   config.after(:all) do
     if Rails.env.test?
       FileUtils.rm_rf(Dir["#{Rails.root}/public/uploads"])
+      FileUtils.rm_rf(Dir["#{Rails.root}/public/user_icon"])
     end
   end
 

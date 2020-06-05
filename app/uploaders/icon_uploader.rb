@@ -3,39 +3,17 @@ class IconUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::RMagick
 
-  storage :fog
-
-  def fog_attributes
-    {
-      'Content-Type':  'image/jpg',
-      'Cache-Control': "max-age=#{1.week.to_i}"
-    }
-  end
+  storage Settings.uploader.storage.to_sym
 
   # ~/[バケット名]/[foldername] 配下に画像がアップロード
   def store_dir
     'user_icon'
   end
 
-  # def store_dir
-  #   "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-  # end
-
-  # 画像がアップロードされていない場合の対応
-  # public/images/default_icon.jpgを読み込む
+  # 画像がアップロードされていない場合
   def default_url(*_args)
-    # For Rails 3.1+ asset pipeline compatibility:
-    # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-    # "/images/fallback/" + [version_name, "default_icon.png"].compact.join('_')
-    'default_icon.jpg'
+    ActionController::Base.helpers.asset_path('default_icon.jpg')
   end
-
-  # Process files as they are uploaded:
-  # process scale: [200, 300]
-  #
-  # def scale(width, height)
-  #   # do something
-  # end
 
   # Create different versions of your uploaded files:
   version :thumb do
@@ -45,18 +23,11 @@ class IconUploader < CarrierWave::Uploader::Base
 
   def crop
     manipulate! do |img|
-      # 中央から切り取り
-      gravity = Magick::CenterGravity
-      crop_w = img.columns
-      crop_h = img.rows
-      # 画像のサイズが縦横違った場合は小さい方に合わせてトリミング
-      if img.rows <= img.columns
-        crop_w = img.rows
-      else
-        crop_h = img.columns
-      end
-      img.crop!(gravity, crop_w, crop_h)
+      # 中央から切り取り & 画像のサイズが縦横小さい方に合わせて正方形にトリミング
+      min_size = [img.columns, img.rows].min
+      img.crop!(Magick::CenterGravity, min_size, min_size)
       img = yield(img) if block_given?
+
       img
     end
   end
@@ -64,6 +35,7 @@ class IconUploader < CarrierWave::Uploader::Base
   # 元画像の削除
   def remove_original_file(_original_file)
     return if version_name.present?
+
     file.delete if file.exists?
   end
 
@@ -74,9 +46,7 @@ class IconUploader < CarrierWave::Uploader::Base
 
   # アップロード時のファイル名を指定
   def filename
-    if original_filename.present?
-      "#{model.id}_#{secure_token}.#{file.extension}"
-    end
+    "#{model.id}_#{secure_token}.#{file.extension}" if original_filename.present?
   end
 
   protected
