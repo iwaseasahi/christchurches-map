@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature '教会', type: :system do
-  scenario '閲覧できる' do
+  scenario 'ログインしていなくても、閲覧できる' do
     church = create(:church, :shinjuku_shalom)
 
     visit church_path(church)
