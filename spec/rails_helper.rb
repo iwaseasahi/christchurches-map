@@ -80,6 +80,7 @@ RSpec.configure do |config|
     if Rails.env.test?
       FileUtils.rm_rf(Dir["#{Rails.root}/public/uploads"])
       FileUtils.rm_rf(Dir["#{Rails.root}/public/user_icon"])
+      FileUtils.rm_rf(Dir["#{Rails.root}/public/top_image"])
     end
   end
 
