@@ -21,7 +21,7 @@
         </div>
       <% else %>
         <div id="like-link">
-          <%= link_to modal_churches_path, remote: true, class: 'page-scroll btn btn-xl' do %>
+          <%= link_to churches_modal_path, remote: true, class: 'page-scroll btn btn-xl' do %>
             <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> いいね
           <% end %>
         </div>
@@ -147,7 +147,7 @@
           </div>
         <% else %>
           <div id="edit-link">
-            <%= link_to modal_churches_path, remote: true, class: 'page-scroll btn btn-xl-secondary' do %>
+            <%= link_to churches_modal_path, remote: true, class: 'page-scroll btn btn-xl-secondary' do %>
               <i class="fa fa-pencil" aria-hidden="true"></i> 編集する
             <% end %>
           </div>
