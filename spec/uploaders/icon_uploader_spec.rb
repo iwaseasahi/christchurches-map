@@ -19,13 +19,18 @@ RSpec.describe IconUploader do
     described_class.enable_processing = false
   end
 
-  context '#crop' do
-    specify do
-      user.icon.thumb.crop
-
+  context 'thumb' do
+    it 'crop' do
       image = Magick::ImageList.new(Rails.root.join('public/user_icon', "thumb_#{user.icon_identifier}"))
 
       expect(image.columns).to eq image.rows
+    end
+
+    it 'resize_to_fit' do
+      image = Magick::ImageList.new(Rails.root.join('public/user_icon', "thumb_#{user.icon_identifier}"))
+
+      expect(image.columns).to eq 100
+      expect(image.rows).to eq 100
     end
   end
 end
