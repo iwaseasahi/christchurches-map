@@ -3,39 +3,17 @@ class IconUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::RMagick
 
-  storage :fog
-
-  def fog_attributes
-    {
-      'Content-Type':  'image/jpg',
-      'Cache-Control': "max-age=***REMOVED***{1.week.to_i}"
-    }
-  end
+  storage Settings.uploader.storage.to_sym
 
   ***REMOVED*** ~/[バケット名]/[foldername] 配下に画像がアップロード
   def store_dir
     'user_icon'
   end
 
-  ***REMOVED*** def store_dir
-  ***REMOVED***   "uploads/***REMOVED***{model.class.to_s.underscore}/***REMOVED***{mounted_as}/***REMOVED***{model.id}"
-  ***REMOVED*** end
-
-  ***REMOVED*** 画像がアップロードされていない場合の対応
-  ***REMOVED*** public/images/default_icon.jpgを読み込む
+  ***REMOVED*** 画像がアップロードされていない場合
   def default_url(*_args)
-    ***REMOVED*** For Rails 3.1+ asset pipeline compatibility:
-    ***REMOVED*** ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-    ***REMOVED*** "/images/fallback/" + [version_name, "default_icon.png"].compact.join('_')
-    'default_icon.jpg'
+    ActionController::Base.helpers.asset_path('default_icon.jpg')
   end
-
-  ***REMOVED*** Process files as they are uploaded:
-  ***REMOVED*** process scale: [200, 300]
-  ***REMOVED***
-  ***REMOVED*** def scale(width, height)
-  ***REMOVED***   ***REMOVED*** do something
-  ***REMOVED*** end
 
   ***REMOVED*** Create different versions of your uploaded files:
   version :thumb do
@@ -45,18 +23,11 @@ class IconUploader < CarrierWave::Uploader::Base
 
   def crop
     manipulate! do |img|
-      ***REMOVED*** 中央から切り取り
-      gravity = Magick::CenterGravity
-      crop_w = img.columns
-      crop_h = img.rows
-      ***REMOVED*** 画像のサイズが縦横違った場合は小さい方に合わせてトリミング
-      if img.rows <= img.columns
-        crop_w = img.rows
-      else
-        crop_h = img.columns
-      end
-      img.crop!(gravity, crop_w, crop_h)
+      ***REMOVED*** 中央から切り取り & 画像のサイズが縦横小さい方に合わせて正方形にトリミング
+      min_size = [img.columns, img.rows].min
+      img.crop!(Magick::CenterGravity, min_size, min_size)
       img = yield(img) if block_given?
+
       img
     end
   end
@@ -64,6 +35,7 @@ class IconUploader < CarrierWave::Uploader::Base
   ***REMOVED*** 元画像の削除
   def remove_original_file(_original_file)
     return if version_name.present?
+
     file.delete if file.exists?
   end
 
@@ -74,9 +46,7 @@ class IconUploader < CarrierWave::Uploader::Base
 
   ***REMOVED*** アップロード時のファイル名を指定
   def filename
-    if original_filename.present?
-      "***REMOVED***{model.id}_***REMOVED***{secure_token}.***REMOVED***{file.extension}"
-    end
+    "***REMOVED***{model.id}_***REMOVED***{secure_token}.***REMOVED***{file.extension}" if original_filename.present?
   end
 
   protected
