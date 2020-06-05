@@ -81,6 +81,7 @@ RSpec.configure do |config|
       FileUtils.rm_rf(Dir["#{Rails.root}/public/uploads"])
       FileUtils.rm_rf(Dir["#{Rails.root}/public/user_icon"])
       FileUtils.rm_rf(Dir["#{Rails.root}/public/top_image"])
+      FileUtils.rm_rf(Dir["#{Rails.root}/public/photo"])
     end
   end
 
