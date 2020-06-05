@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   resources :maps, only: :index
 
-  namespace 'maps' do
+  namespace :maps do
     resources :search, only: :index
     resources :search_from_top, only: :index
   end
