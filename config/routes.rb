@@ -39,8 +39,8 @@ Rails.application.routes.draw do
     collection do
       get '/modal' => 'churches#modal'
     end
-    member do
-      put :upload_top_image
+    scope module: :churches do
+      resource :upload_top_image, only: :create
     end
     resources :photos, only: %i[index create destroy]
   end
