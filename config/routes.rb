@@ -18,8 +18,8 @@ Rails.application.routes.draw do
   }
 
   resources :users, only: %i[show] do
-    member do
-      put :upload_icon
+    scope module: :users do
+      resource :upload_icon, only: :create
     end
   end
 
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   resources :maps, only: :index
 
-  namespace 'maps' do
+  namespace :maps do
     resources :search, only: :index
     resources :search_from_top, only: :index
   end
