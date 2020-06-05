@@ -36,8 +36,6 @@ class ChurchesController < ApplicationController
     redirect_to maps_path
   end
 
-  def modal; end
-
   private
 
   def set_church
