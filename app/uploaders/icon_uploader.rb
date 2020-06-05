@@ -23,18 +23,11 @@ class IconUploader < CarrierWave::Uploader::Base
 
   def crop
     manipulate! do |img|
-      # 中央から切り取り
-      gravity = Magick::CenterGravity
-      crop_w = img.columns
-      crop_h = img.rows
-      # 画像のサイズが縦横違った場合は小さい方に合わせてトリミング
-      if img.rows <= img.columns
-        crop_w = img.rows
-      else
-        crop_h = img.columns
-      end
-      img.crop!(gravity, crop_w, crop_h)
+      # 中央から切り取り & 画像のサイズが縦横小さい方に合わせて正方形にトリミング
+      min_size = [img.columns, img.rows].min
+      img.crop!(Magick::CenterGravity, min_size, min_size)
       img = yield(img) if block_given?
+
       img
     end
   end
