@@ -6,23 +6,27 @@ git_source(:github) do |repo_name|
 end
 
 ***REMOVED*** Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.4'
+gem 'rails', '~> 6.0.0'
 ***REMOVED*** Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.3.18', '< 0.5'
 ***REMOVED*** Use Puma as the app server
 gem 'puma'
 ***REMOVED*** Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
-***REMOVED*** Use Uglifier as compressor for JavaScript assets
-gem 'uglifier'
+gem 'sass-rails', '>= 6'
 ***REMOVED*** Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
+***REMOVED*** Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
+***REMOVED*** gem 'webpacker', '~> 4.0'
 ***REMOVED*** Use jquery as the JavaScript library
 gem 'jquery-rails'
 ***REMOVED*** Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 ***REMOVED*** Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
+gem 'jbuilder', '~> 2.7'
+***REMOVED*** Use Active Storage variant
+***REMOVED*** gem 'image_processing', '~> 1.2'
+***REMOVED*** Reduces boot times through caching; required in config/boot.rb
+gem 'bootsnap', '>= 1.4.2', require: false
 ***REMOVED*** .envファイルを使用
 gem 'dotenv-rails'
 ***REMOVED*** 論理削除
@@ -83,7 +87,7 @@ end
 
 group :development do
   ***REMOVED*** Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'listen', '~> 3.0.5'
+  gem 'listen', '~> 3.2'
   gem 'web-console'
   ***REMOVED*** Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
