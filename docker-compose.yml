@@ -33,6 +33,8 @@ services:
       REDIS: 'redis://redis:6379'
       SIDEKIQ_DASHBOARD_USER: sidekiq_admin
       SIDEKIQ_DASHBOARD_PASSWORD: password
+      ADMIN_USERNAME: admin
+      ADMIN_PASSWORD: password
     depends_on:
       - db
       - redis
