@@ -48,7 +48,7 @@ gem 'exception_notification'
 # Slack
 gem 'slack-notifier'
 # 画像アップロード
-gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
+gem 'carrierwave', '~> 2.0'
 # 画像トリミング
 gem 'rmagick'
 # S3にアップロードを簡単にするライブラリ
