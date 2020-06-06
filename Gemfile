@@ -12,17 +12,21 @@ gem 'mysql2', '>= 0.3.18', '< 0.5'
 # Use Puma as the app server
 gem 'puma'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier'
+gem 'sass-rails', '>= 6'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
+# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
+# gem 'webpacker', '~> 4.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
+gem 'jbuilder', '~> 2.7'
+# Use Active Storage variant
+# gem 'image_processing', '~> 1.2'
+# Reduces boot times through caching; required in config/boot.rb
+gem 'bootsnap', '>= 1.4.2', require: false
 # .envファイルを使用
 gem 'dotenv-rails'
 # 論理削除
@@ -83,7 +87,7 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'listen', '~> 3.0.5'
+  gem 'listen', '~> 3.2'
   gem 'web-console'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
