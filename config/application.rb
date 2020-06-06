@@ -8,6 +8,9 @@ Bundler.require(*Rails.groups)
 
 module ChristchurchesMap
   class Application < Rails::Application
+    ***REMOVED*** Initialize configuration defaults for originally generated Rails version.
+    config.load_defaults 6.0
+
     ***REMOVED*** Settings in config/environments/* take precedence over those specified here.
     ***REMOVED*** Application configuration should go into files in config/initializers
     ***REMOVED*** -- all .rb files in that directory are automatically loaded.
