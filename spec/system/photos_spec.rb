@@ -30,7 +30,7 @@ feature '教会画像', type: :system do
 
     click_link 'フォト管理'
 
-    page.attach_file('photo_file_name', 'spec/support/images/church_photo.png', make_visible: true)
+    page.attach_file('photo_file_name', 'spec/support/assets/church_photo.png', make_visible: true)
 
     expect(page).to have_css("img[src*='#{church.photos.first.file_name_identifier}']")
   end
@@ -44,7 +44,7 @@ feature '教会画像', type: :system do
 
     click_link 'フォト管理'
 
-    page.attach_file('photo_file_name', 'spec/support/images/church_photo.png', make_visible: true)
+    page.attach_file('photo_file_name', 'spec/support/assets/church_photo.png', make_visible: true)
 
     page.accept_confirm do
       click_on '削除'
