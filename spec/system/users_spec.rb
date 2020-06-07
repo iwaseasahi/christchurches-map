@@ -18,7 +18,7 @@ feature 'ユーザー', type: :system do
       click_link @user.full_name
     end
 
-    page.attach_file('user_icon', 'spec/support/profile_image.png', make_visible: true)
+    page.attach_file('user_icon', 'spec/support/images/profile_image.png', make_visible: true)
 
     expect { @user.reload }.to change { @user.icon_identifier }
   end
