@@ -9,7 +9,7 @@ RSpec.describe IconUploader do
 
   before do
     described_class.enable_processing = true
-    File.open('spec/support/images/profile_image.png') do |f|
+    File.open('spec/support/assets/profile_image.png') do |f|
       user.icon = f
       user.save!
     end
