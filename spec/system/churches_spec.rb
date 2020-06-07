@@ -41,7 +41,7 @@ feature '教会', type: :system do
     visit church_path(church)
     click_link '編集する'
 
-    page.attach_file('church_top_image', 'spec/support/church_top_image.jpg', make_visible: true)
+    page.attach_file('church_top_image', 'spec/support/images/church_top_image.jpg', make_visible: true)
 
     expect { church.reload }.to change { church.top_image_identifier }
 
