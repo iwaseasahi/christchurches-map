@@ -52,4 +52,18 @@ feature '教会画像', type: :system do
 
     expect(page).to have_text '削除しました。'
   end
+
+  scenario '許可していない拡張子はアップロードできない', js: true do
+    church = create(:church, :shinjuku_shalom)
+    sign_in
+
+    visit church_path(church)
+    click_link '編集する'
+
+    click_link 'フォト管理'
+
+    page.attach_file('photo_file_name', 'spec/support/assets/upload_not_allowed.csv', make_visible: true)
+
+    expect(page).to have_text '登録できませんでした。'
+  end
 end
