@@ -10,7 +10,7 @@ RSpec.describe PhotoUploader do
 
   before do
     described_class.enable_processing = true
-    File.open('spec/support/church_photo.png') do |f|
+    File.open('spec/support/images/church_photo.png') do |f|
       photo.file_name = f
       photo.save!
     end
