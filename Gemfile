@@ -15,8 +15,6 @@ gem 'puma'
 gem 'sass-rails', '>= 6'
 ***REMOVED*** Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
-***REMOVED*** Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-***REMOVED*** gem 'webpacker', '~> 4.0'
 ***REMOVED*** Use jquery as the JavaScript library
 gem 'jquery-rails'
 ***REMOVED*** Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
