@@ -9,7 +9,7 @@ RSpec.describe TopImageUploader do
 
   before do
     described_class.enable_processing = true
-    File.open('spec/support/church_top_image.jpg') do |f|
+    File.open('spec/support/images/church_top_image.jpg') do |f|
       church.top_image = f
       church.save!
     end
