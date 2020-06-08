@@ -17,7 +17,7 @@
       <div class="intro-heading"><%= @church.name %></div>
       <% if user_signed_in? %>
         <div id="like-link">
-          <%= render 'likes/like_links', church: @church %>
+          <%= render 'churches/likes/like_links', church: @church %>
         </div>
       <% else %>
         <div id="like-link">
