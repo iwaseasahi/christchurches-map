@@ -1,9 +1,9 @@
 <% if current_user.likes.find_by(church_id: church.id) %>
-  <%= link_to unlike_path(church.id), method: :delete, remote: true, class: 'page-scroll btn btn-xl-secondary' do %>
+  <%= link_to church_likes_path(church), method: :delete, remote: true, class: 'page-scroll btn btn-xl-secondary' do %>
     <i class="fa fa-check" aria-hidden="true"></i> いいね済み
   <% end %>
 <% else %>
-  <%= link_to like_path(church.id), method: :post, remote: true, class: 'page-scroll btn btn-xl' do %>
+  <%= link_to church_likes_path(church), method: :post, remote: true, class: 'page-scroll btn btn-xl' do %>
     <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> いいね
   <% end %>
 <% end %>
