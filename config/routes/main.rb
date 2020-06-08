@@ -31,6 +31,6 @@ resources :churches, except: %i[index] do
     resource :upload_top_image, only: :create
     resource :likes, only: %i[create destroy]
     resources :comments, only: %i[create edit update destroy]
+    resources :photos, only: %i[index create destroy]
   end
-  resources :photos, only: %i[index create destroy]
 end
