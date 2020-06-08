@@ -1,2 +1,0 @@
-$('.comment_id_<%= @comment.id %>').before('<%= escape_javascript(render('comments/form', comment: @comment, church: @comment.church)) %>');
-$('.comment_id_<%= @comment.id %>').remove();
