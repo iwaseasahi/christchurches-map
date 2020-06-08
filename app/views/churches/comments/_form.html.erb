@@ -1,6 +1,6 @@
 <div class="col-lg-12 comment_edit_<%= @comment.id %>">
   <div class="form-group">
-    <%= form_for @comment, url: comment_path(@comment.id), method: :put, remote: true do |f| %>
+    <%= form_for @comment, url: church_comment_path(@comment), method: :put, remote: true do |f| %>
 
       <div class="field">
         <%= f.label :comment, 'コメント編集' %>
