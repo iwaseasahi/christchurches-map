@@ -13,7 +13,7 @@
       </div>
       <div class="panel-heading comment_edit_or_delete">
         <p class="panel-title text-center">
-          <%= link_to '編集', edit_comment_path(comment.id), remote: true %> | <%= link_to '削除', comment_path(comment.id), method: :delete, remote: true, data: { confirm: "本当に削除しますか？" } %>
+          <%= link_to '編集', edit_church_comment_path(id: comment, church_id: comment.church), remote: true %> | <%= link_to '削除', church_comment_path(id: comment, church_id: comment.church), method: :delete, remote: true, data: { confirm: "本当に削除しますか？" } %>
         </p>
       </div>
       <div class="panel-heading created_at">

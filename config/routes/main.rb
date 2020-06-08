@@ -30,12 +30,7 @@ resources :churches, except: %i[index] do
   scope module: :churches do
     resource :upload_top_image, only: :create
     resource :likes, only: %i[create destroy]
+    resources :comments, only: %i[create edit update destroy]
   end
   resources :photos, only: %i[index create destroy]
-end
-
-resources :comments, only: %i[edit update destroy] do
-  collection do
-    post '/:church_id' => 'comments#create', as: 'create'
-  end
 end
