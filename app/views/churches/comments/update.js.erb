@@ -1,0 +1,2 @@
+$('.comment_edit_<%= @comment.id %>').before('<%= escape_javascript(render('comment', comment: @comment)) %>');
+$('.comment_edit_<%= @comment.id %>').remove();
