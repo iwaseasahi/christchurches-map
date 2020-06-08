@@ -345,7 +345,7 @@ GEM
       nio4r (~> 2.0)
     puma (4.3.5-java)
       nio4r (~> 2.0)
-    rack (2.2.2)
+    rack (2.0.9)
     rack-protection (2.0.8.1)
       rack
     rack-test (1.1.0)
@@ -456,11 +456,11 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     shellany (0.0.1)
-    sidekiq (4.2.10)
-      concurrent-ruby (~> 1.0)
-      connection_pool (~> 2.2, >= 2.2.0)
+    sidekiq (5.2.8)
+      connection_pool (~> 2.2, >= 2.2.2)
+      rack (< 2.1.0)
       rack-protection (>= 1.5.0)
-      redis (~> 3.2, >= 3.2.1)
+      redis (>= 3.3.5, < 5)
     simplecov (0.18.5)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -576,7 +576,7 @@ DEPENDENCIES
   rubocop-faker
   sass-rails (>= 6)
   selenium-webdriver
-  sidekiq (< 5)
+  sidekiq (< 6)
   simplecov
   sinatra
   sitemap_generator
