@@ -5,7 +5,7 @@ devise_for :users, controllers: {
   sessions: 'users/sessions'
 }
 
-resources :users, only: %i[show] do
+resources :users, only: :show do
   scope module: :users do
     resource :upload_icon, only: :create
   end
@@ -26,7 +26,7 @@ namespace :churches do
   resource :modal, only: :show
 end
 
-resources :churches, except: %i[index] do
+resources :churches, except: :index do
   scope module: :churches do
     resource :upload_top_image, only: :create
     resource :likes, only: %i[create destroy]
