@@ -111,7 +111,7 @@ end
 group :test do
   gem 'capybara'
   gem 'database_cleaner', '~> 1.8.5'
-  gem 'launchy', '~> 2.4.2'
+  gem 'launchy', '~> 2.5.0'
   gem 'selenium-webdriver'
   # テストカバレッジ
   gem 'simplecov', require: false
