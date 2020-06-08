@@ -164,8 +164,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="form-group">
-            <%= form_for @comment, url: create_comments_path(@church.id), remote: true do |f| %>
-
+            <%= form_for @comment, url: church_comments_path(@church), remote: true do |f| %>
               <div class="field">
                 <%= f.label :comment, 'コメント' %>
                 <%= f.text_area :comment, size: '10x5', class: 'form-control' %>
@@ -204,7 +203,7 @@
                 <div class="panel-heading comment_edit_or_delete">
                   <p class="panel-title text-center">
                     <% if user_signed_in? && comment.user_id == current_user.id %>
-                      <%= link_to '編集', edit_comment_path(comment.id), remote: true %> | <%= link_to '削除', comment_path(comment.id), method: :delete, remote: true, data: { confirm: "本当に削除しますか？" } %>
+                      <%= link_to '編集', edit_church_comment_path(id: comment, church_id: comment.church), remote: true %> | <%= link_to '削除', church_comment_path(id: comment, church_id: comment.church), method: :delete, remote: true, data: { confirm: "本当に削除しますか？" } %>
                     <% end %>
                   </p>
                 </div>
