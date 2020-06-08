@@ -1,18 +1,18 @@
 require 'rails_helper'
 
-RSpec.describe CommentsController, type: :controller do
+RSpec.describe Churches::CommentsController, type: :controller do
   before { geocoder_default_mock }
 
   describe 'GET #edit' do
     let(:comment) { create(:comment) }
 
     it '@commentに要求されたコメントを割り当てること' do
-      get :edit, params: { id: comment }, xhr: true
+      get :edit, params: { id: comment, church_id: comment.church }, xhr: true
       expect(assigns(:comment)).to eq(comment)
     end
 
     it ':editテンプレートを表示すること' do
-      get :edit, params: { id: comment }, xhr: true
+      get :edit, params: { id: comment, church_id: comment.church }, xhr: true
       expect(response).to render_template(:edit)
     end
   end
@@ -26,17 +26,17 @@ RSpec.describe CommentsController, type: :controller do
     context '有効な属性の場合' do
       it 'データベースに新しいコメントを保存すること' do
         expect{
-          post :create, params: { comment: attributes_for(:comment), church_id: comment.church_id }, xhr: true
+          post :create, params: { comment: attributes_for(:comment), church_id: comment.church }, xhr: true
         }.to change(Comment, :count).by(1)
       end
 
       it '@churchに要求された教会を割り当てること' do
-        post :create, params: { comment: attributes_for(:comment), church_id: comment.church_id }, xhr: true
-        expect(assigns(:church)).to eq(church)
+        post :create, params: { comment: attributes_for(:comment), church_id: comment.church }, xhr: true
+        expect(assigns(:church)).to eq church
       end
 
       it ':createテンプレートを表示すること' do
-        post :create, params: { comment: attributes_for(:comment), church_id: comment.church_id }, xhr: true
+        post :create, params: { comment: attributes_for(:comment), church_id: comment.church }, xhr: true
         expect(response).to render_template(:create)
       end
     end
@@ -44,12 +44,12 @@ RSpec.describe CommentsController, type: :controller do
     context '無効な属性の場合' do
       it 'データベースに新しいコメントを保存しないこと' do
         expect{
-          post :create, params: { comment: attributes_for(:comment, comment: nil), church_id: comment.church_id }, xhr: true
+          post :create, params: { comment: attributes_for(:comment, comment: nil), church_id: comment.church }, xhr: true
         }.not_to change(Comment, :count)
       end
 
       it ':createテンプレートを再表示すること' do
-        post :create, params: { comment: attributes_for(:comment, comment: nil), church_id: comment.church_id }, xhr:true
+        post :create, params: { comment: attributes_for(:comment, comment: nil), church_id: comment.church }, xhr:true
         expect(response).to render_template(:create)
       end
     end
@@ -62,18 +62,18 @@ RSpec.describe CommentsController, type: :controller do
 
     context '有効な属性の場合' do
       it '要求された@commentを取得すること' do
-        patch :update, params: { id: comment, comment: attributes_for(:comment) }, xhr: true
-        expect(assigns(:comment)).to eq(comment)
+        patch :update, params: { id: comment, church_id: comment.church, comment: attributes_for(:comment) }, xhr: true
+        expect(assigns(:comment)).to eq comment
       end
 
       it 'commentの属性を変更すること' do
-        patch :update, params: { id: comment, comment: attributes_for(:comment, comment: 'RSpecによるテスト') }, xhr: true
+        patch :update, params: { id: comment, church_id: comment.church, comment: attributes_for(:comment, comment: 'RSpecによるテスト') }, xhr: true
         comment.reload
-        expect(comment.comment).to eq('RSpecによるテスト')
+        expect(comment.comment).to eq 'RSpecによるテスト'
       end
 
       it ':updateテンプレートを表示すること' do
-        patch :update, params: { id: comment, comment: attributes_for(:comment) }, xhr: true
+        patch :update, params: { id: comment, church_id: comment.church, comment: attributes_for(:comment) }, xhr: true
         expect(response).to render_template(:update)
       end
     end
@@ -82,14 +82,14 @@ RSpec.describe CommentsController, type: :controller do
       it 'commentの属性を変更しないこと' do
         comment_message = comment.comment
 
-        patch :update, params: { id: comment, comment: attributes_for(:comment, comment: nil) }, xhr: true
+        patch :update, params: { id: comment, church_id: comment.church, comment: attributes_for(:comment, comment: nil) }, xhr: true
         comment.reload
 
         expect(comment.comment).to eq comment_message
       end
 
       it ':updateテンプレートを表示すること' do
-        patch :update, params: { id: comment, comment: attributes_for(:comment, comment: nil) }, xhr: true
+        patch :update, params: { id: comment, church_id: comment.church, comment: attributes_for(:comment, comment: nil) }, xhr: true
         expect(response).to render_template(:update)
       end
     end
@@ -103,12 +103,12 @@ RSpec.describe CommentsController, type: :controller do
     context '有効な属性の場合' do
       it 'コメントを削除すること' do
         expect {
-          delete :destroy, params: { id: comment, comment: attributes_for(:comment) }, xhr: true
+          delete :destroy, params: { id: comment, church_id: comment.church, comment: attributes_for(:comment) }, xhr: true
         }.to change(Comment, :count).by(-1)
       end
 
       it ':destroyテンプレートを表示すること' do
-        delete :destroy, params: { id: comment, comment: attributes_for(:comment) }, xhr: true
+        delete :destroy, params: { id: comment, church_id: comment.church, comment: attributes_for(:comment) }, xhr: true
         expect(response).to render_template(:destroy)
       end
     end
