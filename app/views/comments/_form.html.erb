@@ -3,8 +3,8 @@
     <%= form_for @comment, url: comment_path(@comment.id), method: :put, remote: true do |f| %>
 
       <div class="field">
-        <%= f.label :comment, 'コメント' %>
-        <%= f.text_area :comment, size: '10x5', class: 'form-control' %>
+        <%= f.label :comment, 'コメント編集' %>
+        <%= f.text_area :comment, size: '10x5', class: 'form-control', id: "edit_comment_id_#{@comment.id}" %>
       </div>
 
       <div class="actions text-right">
