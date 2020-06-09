@@ -13,6 +13,7 @@ feature 'ログイン', type: :system do
 
   scenario 'ログインできる' do
     user = create(:user)
+    decorated_user = ActiveDecorator::Decorator.instance.decorate(user)
 
     visit root_path
 
@@ -26,6 +27,6 @@ feature 'ログイン', type: :system do
     click_button 'ログイン'
 
     expect(page).to have_current_path root_path
-    expect(page).to have_text user.full_name
+    expect(page).to have_text decorated_user.full_name
   end
 end

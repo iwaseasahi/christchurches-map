@@ -22,6 +22,7 @@ FactoryBot.define do
       longitude { 139.6952906 }
       tel { '03-3371-7558' }
       url { 'http://shinjuku-shalom.com/' }
+      email { 'info@shop24-365.org' }
     end
   end
 end
