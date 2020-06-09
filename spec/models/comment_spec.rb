@@ -27,17 +27,4 @@ RSpec.describe Comment, :type => :model do
 
     expect(comment.errors[:church]).to include('を入力してください')
   end
-
-  context '#time' do
-    it 'timeメソッドが nil にならないこと' do
-      comment = create(:comment)
-      expect(comment.time).not_to eq nil
-    end
-
-    specify do
-      comment = create(:comment)
-
-      expect(comment.time).to eq comment.created_at.strftime('%Y-%m-%d %H:%M')
-    end
-  end
 end
