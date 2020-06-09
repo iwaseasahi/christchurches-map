@@ -19,45 +19,18 @@ class Church < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
-  def display_tel
-    if tel.present?
-      tel
-    else
-      '未設定'
-    end
+  # NOTE: controller で呼び出しているため、decorator にできない
+  def info_only_address
+    "<h4>#{address}</h4>".html_safe
   end
 
-  def display_email
-    if email.present?
-      email_link = "<a href='mailto:#{email}'>メールはこちら</a>"
-      email_link.html_safe
-    else
-      '未設定'
-    end
-  end
-
-  def display_url
-    if url.present?
-      url_link = "<a href=#{url} target='_blank'>ホームページはこちら</a>"
-      url_link.html_safe
-    else
-      '未設定'
-    end
-  end
-
-  def church_info
-    info = ''
-    info += "<h4>#{name}</h4>"
+  # NOTE: controller で呼び出しているため、decorator にできない
+  def infowindow
+    info = "<h4>#{name}</h4>"
     info += "<p>#{group.name}</p>"
     info += "<p>#{address}</p>"
     info += "<p><a href='/churches/#{id}'>詳細はこちら</a></p>"
     info += "<p><a href=#{url} target='_blank'>ホームページはこちら</a></p>" if url.present?
-    info.html_safe
-  end
-
-  def church_info_only_address
-    info = ''
-    info += "<h4>#{address}</h4>"
     info.html_safe
   end
 end
