@@ -18,11 +18,16 @@ require 'factory_bot_rails'
 require 'simplecov'
 
 SimpleCov.start 'rails' do
+  # filters
   add_filter 'app/controllers/admin'
   add_filter 'app/controllers/users'
   add_filter 'app/channels'
   add_filter 'app/dashboards'
   add_filter 'app/jobs'
+
+  # groups
+  add_group 'Decorators', 'app/decorators'
+  add_group 'Uploaders', 'app/uploaders'
 end
 
 RSpec.configure do |config|
