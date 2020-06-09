@@ -20,6 +20,11 @@ class Church < ApplicationRecord
   after_validation :geocode, if: :address_changed?
 
   ***REMOVED*** NOTE: controller で呼び出しているため、decorator にできない
+  def info_only_address
+    "<h4>***REMOVED***{address}</h4>".html_safe
+  end
+
+  ***REMOVED*** NOTE: controller で呼び出しているため、decorator にできない
   def infowindow
     info = "<h4>***REMOVED***{name}</h4>"
     info += "<p>***REMOVED***{group.name}</p>"

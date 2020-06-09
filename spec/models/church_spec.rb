@@ -14,4 +14,12 @@ RSpec.describe Church, type: :model do
 
     expect(church.top_image_url(:thumb)).to include('church_top_2')
   end
+
+  describe '***REMOVED***info_only_address' do
+    specify do
+      church = create(:church)
+
+      expect(church.info_only_address).to eq "<h4>***REMOVED***{church.address}</h4>"
+    end
+  end
 end
