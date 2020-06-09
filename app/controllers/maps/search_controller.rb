@@ -34,7 +34,7 @@ class Maps::SearchController < ApplicationController
     @hash = Gmaps4rails.build_markers(churches) do |church, marker|
       marker.lat(church.latitude)
       marker.lng(church.longitude)
-      marker.infowindow(church.infowindow)
+      marker.infowindow(ActiveDecorator::Decorator.instance.decorate(church).infowindow)
     end
   end
 
