@@ -11,8 +11,4 @@ class User < ApplicationRecord
 
   validates :last_name,  presence: true, length: { maximum: 50 }
   validates :first_name, presence: true, length: { maximum: 50 }
-
-  def full_name
-    "***REMOVED***{last_name} ***REMOVED***{first_name}"
-  end
 end
