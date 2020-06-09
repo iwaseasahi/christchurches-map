@@ -63,4 +63,17 @@ RSpec.describe ChurchDecorator do
       expect(decorated_church.info_only_address).to eq "<h4>***REMOVED***{church.address}</h4>"
     end
   end
+
+  describe '***REMOVED***infowindow' do
+    it '表示するべき情報が含まれていること' do
+      church = create(:church, :shinjuku_shalom)
+      decorated_church = ActiveDecorator::Decorator.instance.decorate(church)
+
+      expect(decorated_church.infowindow).to include "<h4>***REMOVED***{church.name}</h4>"
+      expect(decorated_church.infowindow).to include "<p>***REMOVED***{church.group.name}</p>"
+      expect(decorated_church.infowindow).to include "<p>***REMOVED***{church.address}</p>"
+      expect(decorated_church.infowindow).to include "<p><a href='/churches/***REMOVED***{church.id}'>詳細はこちら</a></p>"
+      expect(decorated_church.infowindow).to include "<p><a href=***REMOVED***{church.url} target='_blank'>ホームページはこちら</a></p>"
+    end
+  end
 end
