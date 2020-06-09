@@ -54,13 +54,4 @@ RSpec.describe ChurchDecorator do
       expect(decorated_church.display_url).to eq '未設定'
     end
   end
-
-  describe '#info_only_address' do
-    specify do
-      church = create(:church)
-      decorated_church = ActiveDecorator::Decorator.instance.decorate(church)
-
-      expect(decorated_church.info_only_address).to eq "<h4>#{church.address}</h4>"
-    end
-  end
 end
