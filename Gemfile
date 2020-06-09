@@ -68,6 +68,8 @@ gem 'sinatra', require: false
 gem 'administrate'
 ***REMOVED*** ファイル名にdigestが付く問題を解決
 gem 'non-stupid-digest-assets'
+***REMOVED*** decorator
+gem 'active_decorator'
 
 group :development, :test do
   ***REMOVED*** Call 'byebug' anywhere in the code to stop execution and get a debugger console
