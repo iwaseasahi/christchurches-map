@@ -31,6 +31,7 @@ feature 'ユーザー登録', type: :system do
     end.to change { ActionMailer::Base.deliveries.size }.by(1)
 
     expect(page).to have_current_path root_path
-    expect(page).to have_text User.last.full_name
+    expect(page).to have_text User.last.last_name
+    expect(page).to have_text User.last.first_name
   end
 end
