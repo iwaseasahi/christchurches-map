@@ -48,10 +48,4 @@ RSpec.describe User, :type => :model do
 
     expect(user.errors[:email]).to include('はすでに存在します')
   end
-
-  it 'フルネームを表示すること' do
-    user = create(:user)
-
-    expect(user.full_name).to eq "#{user.last_name} #{user.first_name}"
-  end
 end
