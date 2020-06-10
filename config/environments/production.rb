@@ -106,7 +106,7 @@ Rails.application.configure do
 
   # Googleアナリティクス
   # トラッキングIDを記載
-  GA.tracker = 'UA-100093465-1'
+  GA.tracker = Rails.application.credentials.google_analytics[:tracker_id]
 
   # Inserts middleware to perform automatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector

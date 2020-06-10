@@ -23,7 +23,7 @@ set :pty, true
 
 # Default value for :linked_files is []
 # set :linked_files, fetch(:linked_files, []).push('config/settings/production.yml')
-# append :linked_files, "config/database.yml", "config/secrets.yml"
+# append :linked_files, "config/database.yml"
 set :linked_files, fetch(:linked_files, []).push('.env')
 
 # Default value for linked_dirs is []
