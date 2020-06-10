@@ -114,16 +114,15 @@ workflows:
             branches:
               ignore:
                 - master
-# FIXME: https://github.com/iwaseasahi/christchurches-map/issues/382
-#  deploy:
-#    jobs:
-#      - build:
-#          filters:
-#            branches:
-#              only: master
-#      - deploy:
-#          requires:
-#            - build
-#          filters:
-#            branches:
-#              only: master
+  deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
