@@ -5,3 +5,4 @@ production:
   secret: 'f1438d6e5ccaa84e340cbbfb227e81f2f42f9d4ada73e178ea701d6d6534a77774c7b44a8c8520def7992e121c27de18b54478feff797b801889ec0b4a736166'
 uploader:
   storage: fog
+  cloud?: true

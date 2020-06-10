@@ -3,10 +3,7 @@ require 'carrierwave/storage/file'
 require 'carrierwave/storage/fog'
 
 CarrierWave.configure do |config|
-  if Rails.env.test?
-    config.storage = :file
-    config.enable_processing = false
-  else
+  if Settings.uploader.cloud?
     config.fog_credentials = {
       provider: 'AWS',
       aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'],
@@ -20,6 +17,9 @@ CarrierWave.configure do |config|
     config.fog_directory = ENV['AWS_S3_BUCKET']
     config.asset_host = ENV['AWS_S3_URL']
     config.remove_previously_stored_files_after_update = false
+  else
+    config.storage = :file
+    config.enable_processing = false
   end
 end
 CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
