@@ -16,7 +16,6 @@ ja:
         is_test: テストユーザー
         current_sign_in_at: アクセス日時
         last_sign_in_at: ログイン日時
-        soft_destroyed_at: 削除日
   helpers:
     label:
       user:
@@ -31,7 +30,6 @@ ja:
         sign_in_count: サインイン回数
         current_sign_in_at: アクセス日時
         last_sign_in_at: ログイン日時
-        soft_destroyed_at: 削除日
         likes: いいね
         like_ids: いいね
         like_ids-selectized: いいね

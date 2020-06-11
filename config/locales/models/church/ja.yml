@@ -14,7 +14,6 @@ ja:
         email: メールアドレス
         url: ホームページ
         top_image: トップ画像
-        soft_destroyed_at: 削除日
   helpers:
     label:
       church:
@@ -33,4 +32,3 @@ ja:
         url: ホームページ
         worshiping_time: 礼拝時間
         top_image: トップ画像
-        soft_destroyed_at: 削除日
