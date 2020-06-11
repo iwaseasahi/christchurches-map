@@ -1,0 +1,53 @@
+***REMOVED*** MySQL. Versions 5.0 and up are supported.
+***REMOVED***
+***REMOVED*** Install the MySQL driver
+***REMOVED***   gem install mysql2
+***REMOVED***
+***REMOVED*** Ensure the MySQL gem is defined in your Gemfile
+***REMOVED***   gem 'mysql2'
+***REMOVED***
+***REMOVED*** And be sure to use new-style password hashing:
+***REMOVED***   http://dev.mysql.com/doc/refman/5.7/en/old-client.html
+***REMOVED***
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: <%= ENV['DATABASE_SOCKET'] %>
+  host: <%= ENV['DB_HOST'] || 'localhost' %>
+
+***REMOVED***
+  <<: *default
+  database: christchurches_map_aws_local
+
+***REMOVED*** Warning: The database defined as "test" will be erased and
+***REMOVED*** re-generated from your development database when you run "rake".
+***REMOVED*** Do not set this db to the same as development or production.
+***REMOVED***
+  <<: *default
+  database: christchurches_map_test
+
+***REMOVED*** As with config/secrets.yml, you never want to store sensitive information,
+***REMOVED*** like your database password, in your source code. If your source code is
+***REMOVED*** ever seen by anyone, they now have access to your database.
+***REMOVED***
+***REMOVED*** Instead, provide the password as a unix environment variable when you boot
+***REMOVED*** the app. Read http://guides.rubyonrails.org/configuring.html***REMOVED***configuring-a-database
+***REMOVED*** for a full rundown on how to provide these environment variables in a
+***REMOVED*** production deployment.
+***REMOVED***
+***REMOVED*** On Heroku and other platform providers, you may have a full connection URL
+***REMOVED*** available as an environment variable. For example:
+***REMOVED***
+***REMOVED***   DATABASE_URL="mysql2://myuser:mypass@localhost/somedatabase"
+***REMOVED***
+***REMOVED*** You can use this database configuration with:
+***REMOVED***
+***REMOVED***   ***REMOVED***
+***REMOVED***     url: <%= ENV['DATABASE_URL'] %>
+***REMOVED***
+***REMOVED***
+  <<: *default
+  database: christchurches_map_aws_local

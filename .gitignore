@@ -31,11 +31,11 @@
  /public/assets
 .byebug_history
 
-***REMOVED*** Ignore master key for decrypting credentials and more.
- /config/master.key
-
 ***REMOVED*** Ignore environment variable
 .env
 
 ***REMOVED*** Ignore test environment
 coverage
+
+***REMOVED*** Ignore master key for decrypting credentials and more.
+/config/credentials/production.key

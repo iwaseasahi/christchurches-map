@@ -14,7 +14,6 @@ services:
       MYSQL_ROOT_PASSWORD: password
   web:
     build: .
-    image: jcproject153/christchurches-map-rails:1.4
     command: >
       bash -c "rm -rf tmp/pids/server.pid &&
       bundle exec sidekiq -C config/sidekiq.yml &&
