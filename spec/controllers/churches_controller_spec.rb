@@ -160,9 +160,8 @@ RSpec.describe ChurchesController, type: :controller do
 
     it '教会を削除すること' do
       delete :destroy, params: { id: church, church: attributes_for(:church) }
-      church.reload
 
-      expect(church.soft_destroyed_at).not_to be_nil
+      expect(Church.exists?(id: church)).to eq false
     end
 
     it 'maps#indexにリダイレクトすること' do
