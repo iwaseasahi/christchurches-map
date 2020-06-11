@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.14.0'
+lock '3.14.1'
 
 set :application, 'christchurches-map'
 set :repo_url, 'git@github.com:iwaseasahi/christchurches-map.git'
