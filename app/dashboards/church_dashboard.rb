@@ -27,7 +27,6 @@ class ChurchDashboard < Administrate::BaseDashboard
     top_image: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    soft_destroyed_at: Field::DateTime,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -62,7 +61,6 @@ class ChurchDashboard < Administrate::BaseDashboard
     :url,
     :worshiping_time,
     :top_image,
-    :soft_destroyed_at,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -82,7 +80,6 @@ class ChurchDashboard < Administrate::BaseDashboard
     :url,
     :worshiping_time,
     :top_image,
-    :soft_destroyed_at,
   ].freeze
 
   # Overwrite this method to customize how churches are displayed
