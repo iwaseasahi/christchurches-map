@@ -3,7 +3,7 @@
 <img width="1222" alt="christchurches-map-top-image" src="https://user-images.githubusercontent.com/17666221/84217927-56a58e80-ab08-11ea-9738-c2ac6cd2fb54.png">
 
 ## 概要
-@iwaseasahi が元々、キリスト教会の牧師をやっていた経験からあったら便利だと思ったアイディアをサービスにしたものです。
+[@iwaseasahi](https://github.com/iwaseasahi) が元々、キリスト教会の牧師をやっていた経験からあったら便利だと思ったアイディアをサービスにしたものです。
 以下のような特徴があります。
 
 * キリスト教会マップは、日本全国にあるプロテスタント教会をマップに表示します。
