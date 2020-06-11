@@ -13,7 +13,6 @@ class GroupDashboard < Administrate::BaseDashboard
     name: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    soft_destroyed_at: Field::DateTime,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -33,7 +32,6 @@ class GroupDashboard < Administrate::BaseDashboard
     :churches,
     :id,
     :name,
-    :soft_destroyed_at,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -42,7 +40,6 @@ class GroupDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :churches,
     :name,
-    :soft_destroyed_at,
   ].freeze
 
   # Overwrite this method to customize how groups are displayed
