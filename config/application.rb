@@ -24,16 +24,20 @@ module ChristchurchesMap
     # Active Job のキューアダプタとして Sidekiq を使用
     config.active_job.queue_adapter = :sidekiq
 
-    # テストの設定
     config.generators do |g|
+      # scss, coffee
+      g.assets false
+      # helper
+      g.helper false
+      # テストの設定
       g.test_framework :rspec,
         fixtures: true,
         view_specs: false,
         helper_specs: false,
         routing_specs: false,
-        controller_specs: true,
+        controller_specs: false,
         request_specs: false
-      g.fixture_replacement :factory_girl, dir: 'spec/factories'
+      g.fixture_replacement :factory_bot, dir: 'spec/factories'
     end
   end
 end
