@@ -81,6 +81,23 @@ jobs:
             if [ "${CIRCLE_BRANCH}" != "master" ]; then
               ./bin/send_coverage
             fi
+  deploy_check:
+    executor: default_executor
+    environment:
+      CHRIST_CHURCHES_MAP_SSH_KEY: CHRIST_CHURCHES_MAP_SSH_KEY
+    steps:
+      - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "14:a4:f5:51:a4:70:79:7b:5b:63:d0:d7:e9:24:e2:d7"
+      - restore_cache:
+          keys:
+            - rails-christchurches-map-bundle-v2-{{ checksum "Gemfile.lock" }}
+            - rails-christchurches-map-bundle-v2-
+      - run: bundle
+      - run:
+          name: Deploy Check to AWS
+          command: bundle exec cap production deploy:check
   deploy:
     executor: default_executor
     environment:
@@ -111,6 +128,14 @@ workflows:
       - test:
           requires:
             - build
+          filters:
+            branches:
+              ignore:
+                - master
+      - deploy_check:
+          requires:
+            - build
+            - test
           filters:
             branches:
               ignore:
