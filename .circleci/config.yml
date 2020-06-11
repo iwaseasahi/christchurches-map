@@ -1,7 +1,7 @@
 version: 2.1
 
 ruby_image: &ruby_image
-  circleci/ruby:2.5.5-node-browsers-legacy
+  circleci/ruby:2.7.1-node-browsers-legacy
 
 executors:
   default_executor:
