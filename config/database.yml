@@ -51,4 +51,4 @@ test:
 #
 production:
   <<: *default
-  database: christchurches_map_aws_local
+  database: christchurches_map_production
