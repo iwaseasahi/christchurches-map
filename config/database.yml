@@ -12,6 +12,7 @@
 default: &default
   adapter: mysql2
   encoding: utf8
+  collation: utf8_general_ci
   pool: 5
   username: <%= ENV['DATABASE_USERNAME'] %>
   password: <%= ENV['DATABASE_PASSWORD'] %>
@@ -20,7 +21,7 @@ default: &default
 
 development:
   <<: *default
-  database: christchurches_map_aws_local
+  database: christchurches_map_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
