@@ -33,7 +33,6 @@ class UserDashboard < Administrate::BaseDashboard
     gender: Field::Number,
     icon: Field::String,
     is_***REMOVED*** Field::Boolean,
-    soft_destroyed_at: Field::DateTime,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -70,8 +69,6 @@ class UserDashboard < Administrate::BaseDashboard
     :likes,
     ***REMOVED*** :like_churches,
     :comments,
-    ***REMOVED*** :comment_churches,
-    :soft_destroyed_at,
   ].freeze
 
   ***REMOVED*** FORM_ATTRIBUTES
@@ -91,7 +88,6 @@ class UserDashboard < Administrate::BaseDashboard
     :last_sign_in_at,
     :likes,
     :comments,
-    :soft_destroyed_at,
   ].freeze
 
   ***REMOVED*** Overwrite this method to customize how users are displayed
