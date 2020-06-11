@@ -27,8 +27,6 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 # .envファイルを使用
 gem 'dotenv-rails'
-# 論理削除
-gem 'kakurenbo-puti'
 # rake
 gem 'rake'
 # font-awesome

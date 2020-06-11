@@ -32,7 +32,7 @@ class ChurchesController < ApplicationController
   end
 
   def destroy
-    @church.soft_destroy
+    @church.destroy!
     redirect_to maps_path
   end
 
