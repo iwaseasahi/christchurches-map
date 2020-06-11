@@ -14,7 +14,6 @@ class CommentDashboard < Administrate::BaseDashboard
     comment: Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    soft_destroyed_at: Field::DateTime,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -38,7 +37,6 @@ class CommentDashboard < Administrate::BaseDashboard
     :comment,
     :created_at,
     :updated_at,
-    :soft_destroyed_at,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -48,7 +46,6 @@ class CommentDashboard < Administrate::BaseDashboard
     :user,
     :church,
     :comment,
-    :soft_destroyed_at,
   ].freeze
 
   # Overwrite this method to customize how comments are displayed
