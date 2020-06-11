@@ -5,10 +5,8 @@ ja:
       group:
         name: 教団教派名
         churches: 教会
-        soft_destroyed_at: 削除日
   helpers:
     label:
       group:
         name: 教団教派名
         churches: 教会
-        soft_destroyed_at: 削除日

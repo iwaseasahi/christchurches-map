@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_08_045450) do
+ActiveRecord::Schema.define(version: 2020_06_11_022148) do
 
   create_table "churches", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 2020_06_08_045450) do
     t.string "top_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "soft_destroyed_at"
   end
 
   create_table "comments", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

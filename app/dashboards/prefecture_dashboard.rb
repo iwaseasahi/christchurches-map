@@ -14,7 +14,6 @@ class PrefectureDashboard < Administrate::BaseDashboard
     latitude: Field::String.with_options(searchable: false),
     longitude: Field::String.with_options(searchable: false),
     zoom_level: Field::Number,
-    soft_destroyed_at: Field::DateTime,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -39,7 +38,6 @@ class PrefectureDashboard < Administrate::BaseDashboard
     :latitude,
     :longitude,
     :zoom_level,
-    :soft_destroyed_at,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -51,7 +49,6 @@ class PrefectureDashboard < Administrate::BaseDashboard
     :latitude,
     :longitude,
     :zoom_level,
-    :soft_destroyed_at,
   ].freeze
 
   # Overwrite this method to customize how prefectures are displayed
