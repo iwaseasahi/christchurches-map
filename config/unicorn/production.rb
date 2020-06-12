@@ -16,18 +16,13 @@ pid $pid
 ***REMOVED*** loading booster
 preload_app true
 ***REMOVED*** before starting processes
-before_fork do |server, worker|
+before_fork do |server, _worker|
   defined?(ActiveRecord::Base) && ActiveRecord::Base.connection.disconnect!
-  ***REMOVED*** This allows a new master process to incrementally
-  ***REMOVED*** phase out the old master process with SIGTTOU to avoid a
-  ***REMOVED*** thundering herd (especially in the "preload_app false" case)
-  ***REMOVED*** when doing a transparent upgrade.  The last worker spawned
-  ***REMOVED*** will then kill off the old master process with a SIGQUIT.
+  ***REMOVED*** NOTE: unicorn の切り替えを必ず行うよう QUIT する
   old_pid = "***REMOVED***{server.config[:pid]}.oldbin"
   if old_pid != server.pid
     begin
-      sig = (worker.nr + 1) >= server.worker_processes ? :QUIT : :TTOU
-      Process.kill(sig, File.read(old_pid).to_i)
+      Process.kill(:QUIT, File.read(old_pid).to_i)
     rescue Errno::ENOENT, Errno::ESRCH
     end
   end
