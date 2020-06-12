@@ -14,17 +14,11 @@ executors:
           RAILS_ENV: test
           TZ: /usr/share/zoneinfo/Asia/Tokyo
           DB_HOST: 127.0.0.1
-          DATABASE_USERNAME: root
-          DATABASE_PASSWORD: ''
-          DATABASE_SOCKET: '/var/run/mysqld/mysqld.sock'
           SELENIUM_DRIVER_URL: 'http://localhost:4444/wd/hub'
           REDIS: 'redis://localhost:6379'
-          ADMIN_USERNAME: admin
-          ADMIN_PASSWORD: password
       - image: circleci/mysql:5.6.44
         environment:
-          MYSQL_ALLOW_EMPTY_PASSWORD: yes
-          MYSQL_ROOT_PASSWORD: ''
+          MYSQL_ROOT_PASSWORD: password
           MYSQL_DATABASE: christchurches_map_test
           TZ: /usr/share/zoneinfo/Asia/Tokyo
       - image: selenium/standalone-chrome:3.141.59-zirconium
