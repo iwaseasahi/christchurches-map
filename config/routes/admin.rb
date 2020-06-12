@@ -3,7 +3,7 @@ require 'sidekiq/web'
 # Sidekiqのダッシュボード
 # Basic認証
 Sidekiq::Web.use Rack::Auth::Basic do |username, password|
-  username == ENV['SIDEKIQ_DASHBOARD_USER'] && password == ENV['SIDEKIQ_DASHBOARD_PASSWORD']
+  username == Rails.application.credentials.dig(:sidekiq, :dashboard_user) && password == Rails.application.credentials.dig(:sidekiq, :dashboard_password)
 end
 mount Sidekiq::Web, at: '/sidekiq'
 
