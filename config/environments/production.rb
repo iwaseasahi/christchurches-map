@@ -72,7 +72,7 @@ Rails.application.configure do
     domain: 'christchurches-map.com',
     authentication: 'plain',
     user_name: 'j.c.project153@gmail.com',
-    password: ENV['GMAIL_PASSWORD']
+    password: Rails.application.credentials.gmail[:password]
   }
   config.action_mailer.perform_caching = false
 
