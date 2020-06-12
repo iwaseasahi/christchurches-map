@@ -25,7 +25,7 @@ executors:
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
           MYSQL_ROOT_PASSWORD: ''
-          MYSQL_DATABASE: christchurches_map_aws_local
+          MYSQL_DATABASE: christchurches_map_test
           TZ: /usr/share/zoneinfo/Asia/Tokyo
       - image: selenium/standalone-chrome:3.141.59-zirconium
     working_directory: ~/christchurches-map
