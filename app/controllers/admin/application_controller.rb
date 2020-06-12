@@ -11,7 +11,7 @@ module Admin
     def authenticate_admin
       # BASIC認証
       authenticate_or_request_with_http_basic('Administration') do |name, password|
-        name == ENV['ADMIN_USERNAME'] && password == ENV['ADMIN_PASSWORD']
+        name == Rails.application.credentials.admin[:username] && password == Rails.application.credentials.admin[:password]
       end
     end
 

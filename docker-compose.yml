@@ -23,17 +23,10 @@ services:
     volumes:
       - .:/usr/src/app/:cached
     environment:
-      DATABASE_USERNAME: root
-      DATABASE_PASSWORD: password
-      DATABASE_SOCKET: /var/run/mysqld/mysqld.sock
       DB_HOST: db
       RAILS_ENV: development
       SELENIUM_DRIVER_URL: 'http://chrome:4444/wd/hub'
       REDIS: 'redis://redis:6379'
-      SIDEKIQ_DASHBOARD_USER: sidekiq_admin
-      SIDEKIQ_DASHBOARD_PASSWORD: password
-      ADMIN_USERNAME: admin
-      ADMIN_PASSWORD: password
     depends_on:
       - db
       - redis
