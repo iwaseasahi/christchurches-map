@@ -16,6 +16,11 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'factory_bot_rails'
 require 'simplecov'
+require 'coveralls'
+
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
+  [SimpleCov::Formatter::HTMLFormatter, Coveralls::SimpleCov::Formatter]
+)
 
 SimpleCov.start 'rails' do
   # filters
