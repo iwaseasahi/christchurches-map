@@ -68,6 +68,8 @@ gem 'administrate'
 gem 'non-stupid-digest-assets'
 ***REMOVED*** decorator
 gem 'active_decorator'
+***REMOVED*** テストカバレッジ計測
+gem 'coveralls', require: false
 
 group :development, :test do
   ***REMOVED*** Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -113,8 +115,8 @@ group :test do
   gem 'database_cleaner', '~> 1.8.5'
   gem 'launchy', '~> 2.5.0'
   gem 'selenium-webdriver'
-  ***REMOVED*** テストカバレッジ
-  gem 'simplecov', require: false
+  ***REMOVED*** NOTE: https://github.com/lemurheavy/coveralls-ruby/issues/161
+  gem 'simplecov', '< 0.18.0', require: false
 end
 
 group :production, :staging do
