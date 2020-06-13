@@ -1,3 +1,6 @@
+[![CircleCI](https://circleci.com/gh/iwaseasahi/christchurches-map.svg?style=svg&circle-token=edf49afb5c4771796b3a9387ef48761121ae34ff)](https://circleci.com/gh/iwaseasahi/christchurches-map)
+[![Coverage Status](https://coveralls.io/repos/github/iwaseasahi/christchurches-map/badge.svg?branch=420_coveralls)](https://coveralls.io/github/iwaseasahi/christchurches-map?branch=420_coveralls)
+
 ## [キリスト教会マップ](https://www.christchurches-map.com/)
 
 <img width="1222" alt="christchurches-map-top-image" src="https://user-images.githubusercontent.com/17666221/84217927-56a58e80-ab08-11ea-9738-c2ac6cd2fb54.png">
@@ -52,6 +55,3 @@ rails を起動します。
 ```
 $ docker-compose up
 ```
-
-## ステータス
-[![CircleCI](https://circleci.com/gh/iwaseasahi/christchurches-map.svg?style=svg&circle-token=edf49afb5c4771796b3a9387ef48761121ae34ff)](https://circleci.com/gh/iwaseasahi/christchurches-map)
