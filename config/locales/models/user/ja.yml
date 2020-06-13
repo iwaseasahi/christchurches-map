@@ -13,7 +13,7 @@ ja:
         church_id: 所属教会
         gender: 性別
         icon: アイコン画像
-        is_***REMOVED*** テストユーザー
+        is_test: テストユーザー
         current_sign_in_at: アクセス日時
         last_sign_in_at: ログイン日時
   helpers:
@@ -26,7 +26,7 @@ ja:
         church_id: 所属教会
         gender: 性別
         icon: アイコン画像
-        is_***REMOVED*** テストユーザー
+        is_test: テストユーザー
         sign_in_count: サインイン回数
         current_sign_in_at: アクセス日時
         last_sign_in_at: ログイン日時

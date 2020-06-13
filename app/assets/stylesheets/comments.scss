@@ -1,7 +1,7 @@
 @import "variables.scss";
 @import "mixins.scss";
 
-.comment-form, ***REMOVED***comments-list {
+.comment-form, #comments-list {
   .field {
     padding-bottom: 10px;
   }
@@ -9,9 +9,9 @@
 
 .panel-heading-group {
   .panel-heading {
-    color: ***REMOVED***31708f;
-    background-color: ***REMOVED***d9edf7;
-    border-color: ***REMOVED***bce8f1;
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
     height: 40px;
     float: left;
     p {

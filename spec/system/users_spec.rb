@@ -5,7 +5,7 @@ feature 'ユーザー', type: :system do
     sign_in
     decorated_user = ActiveDecorator::Decorator.instance.decorate(@user)
 
-    within(:css, '***REMOVED***mainNav') do
+    within(:css, '#mainNav') do
       click_link decorated_user.full_name
     end
 
@@ -16,7 +16,7 @@ feature 'ユーザー', type: :system do
     sign_in
     decorated_user = ActiveDecorator::Decorator.instance.decorate(@user)
 
-    within(:css, '***REMOVED***mainNav') do
+    within(:css, '#mainNav') do
       click_link decorated_user.full_name
     end
 

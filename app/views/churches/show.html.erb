@@ -40,7 +40,7 @@
             <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
             <span id="like-count"><%= @church.likes.count %></span> いいね
           </a>
-          <a href="***REMOVED***comments-list" class="btn btn-secondary comment-counts-custom" role="button">
+          <a href="#comments-list" class="btn btn-secondary comment-counts-custom" role="button">
             <i class="fa fa-comment-o" aria-hidden="true"></i>
             <span id="comment-count"><%= @church.comments.count %></span> コメント
           </a>
@@ -56,7 +56,7 @@
     <div id="carousel-example" class="carousel slide" data-ride="carousel" data-interval="4000">
       <ol class="carousel-indicators">
         <% @church.photos.each do |photo| %>
-          <li data-target="***REMOVED***carousel-example" data-slide-to=<%= photo.sort_of_number - 1 %> class=<%= 'active' if photo.sort_of_number == 1 %>></li>
+          <li data-target="#carousel-example" data-slide-to=<%= photo.sort_of_number - 1 %> class=<%= 'active' if photo.sort_of_number == 1 %>></li>
         <% end %>
       </ol>
 
@@ -68,10 +68,10 @@
         <% end %>
       </div>
 
-      <a class="left carousel-control" href="***REMOVED***carousel-example" data-slide="prev">
+      <a class="left carousel-control" href="#carousel-example" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
       </a>
-      <a class="right carousel-control" href="***REMOVED***carousel-example" data-slide="next">
+      <a class="right carousel-control" href="#carousel-example" data-slide="next">
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
       </a>
     </div>
@@ -93,7 +93,7 @@
     <div class="container">
       <div class="row text-center">
         <div class="col-md-6">
-          <span href="***REMOVED***google-map" class="fa-stack fa-4x movie-to-church-map">
+          <span href="#google-map" class="fa-stack fa-4x movie-to-church-map">
             <i class="fa fa-circle fa-stack-2x text-primary"></i>
             <i class="fa fa-map-marker fa-stack-1x fa-inverse"></i>
           </span>

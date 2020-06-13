@@ -2,34 +2,34 @@ require_relative 'boot'
 
 require 'rails/all'
 
-***REMOVED*** Require the gems listed in Gemfile, including any gems
-***REMOVED*** you've limited to :test, :development, or :production.
+# Require the gems listed in Gemfile, including any gems
+# you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
 module ChristchurchesMap
   class Application < Rails::Application
-    ***REMOVED*** Initialize configuration defaults for originally generated Rails version.
+    # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
-    ***REMOVED*** Settings in config/environments/* take precedence over those specified here.
-    ***REMOVED*** Application configuration should go into files in config/initializers
-    ***REMOVED*** -- all .rb files in that directory are automatically loaded.
+    # Settings in config/environments/* take precedence over those specified here.
+    # Application configuration should go into files in config/initializers
+    # -- all .rb files in that directory are automatically loaded.
 
-    ***REMOVED*** 時間表示を変更
+    # 時間表示を変更
     config.time_zone = 'Tokyo'
 
-    ***REMOVED*** データベースの保存時間を変更
+    # データベースの保存時間を変更
     config.active_record.default_timezone = :local
 
-    ***REMOVED*** Active Job のキューアダプタとして Sidekiq を使用
+    # Active Job のキューアダプタとして Sidekiq を使用
     config.active_job.queue_adapter = :sidekiq
 
     config.generators do |g|
-      ***REMOVED*** scss, coffee
+      # scss, coffee
       g.assets false
-      ***REMOVED*** helper
+      # helper
       g.helper false
-      ***REMOVED*** テストの設定
+      # テストの設定
       g.test_framework :rspec,
         fixtures: true,
         view_specs: false,

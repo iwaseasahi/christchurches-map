@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, :type => :controller do
-  describe 'GET ***REMOVED***show' do
+  describe 'GET #show' do
     it '@userに要求されたユーザーに割り当てること' do
       user = create(:user)
       get :show, params: { id: user }

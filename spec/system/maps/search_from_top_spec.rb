@@ -10,9 +10,9 @@ feature 'トップページから検索', type: :system do
     click_button 'Search'
 
     expect(page).to have_current_path maps_search_from_top_index_path, ignore_query: true
-    expect(page).to have_css '***REMOVED***map'
+    expect(page).to have_css '#map'
 
-    target_coordinates = Rack::Utils.parse_query(URI(page.first('***REMOVED***map').first('a')['href']).query)
+    target_coordinates = Rack::Utils.parse_query(URI(page.first('#map').first('a')['href']).query)
     lat_and_lng = target_coordinates['ll'].split(',')
 
     expect(lat_and_lng.first.to_f).to be_within(0.1).of(church.latitude)

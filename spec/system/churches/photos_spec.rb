@@ -32,7 +32,7 @@ feature '教会画像', type: :system do
 
     page.attach_file('photo_file_name', 'spec/support/assets/church_photo.png', make_visible: true)
 
-    expect(page).to have_css("img[src*='***REMOVED***{church.photos.first.file_name_identifier}']")
+    expect(page).to have_css("img[src*='#{church.photos.first.file_name_identifier}']")
   end
 
   scenario 'アップロード後に削除できる', js: true do

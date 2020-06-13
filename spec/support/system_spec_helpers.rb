@@ -4,7 +4,7 @@ module SystemSpecHelpers
 
     visit root_path
 
-    within(:css, '***REMOVED***mainNav') do
+    within(:css, '#mainNav') do
       click_link 'ログイン'
     end
 

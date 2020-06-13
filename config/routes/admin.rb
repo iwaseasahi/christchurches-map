@@ -1,7 +1,7 @@
 require 'sidekiq/web'
 
-***REMOVED*** Sidekiqのダッシュボード
-***REMOVED*** Basic認証
+# Sidekiqのダッシュボード
+# Basic認証
 Sidekiq::Web.use Rack::Auth::Basic do |username, password|
   username == Rails.application.credentials.dig(:sidekiq, :dashboard_user) && password == Rails.application.credentials.dig(:sidekiq, :dashboard_password)
 end
@@ -15,5 +15,5 @@ namespace :admin do
   resources :likes
   resources :prefectures
 
-  root to: 'users***REMOVED***index'
+  root to: 'users#index'
 end

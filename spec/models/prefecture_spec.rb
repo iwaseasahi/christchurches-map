@@ -7,7 +7,7 @@ RSpec.describe Prefecture, type: :model do
     expect(prefecture).to be_valid
   end
 
-  describe '***REMOVED***set_position' do
+  describe '#set_position' do
     specify do
       prefecture = create(:prefecture, :tokyo)
 

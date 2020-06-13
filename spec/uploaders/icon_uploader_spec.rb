@@ -21,13 +21,13 @@ RSpec.describe IconUploader do
 
   context 'thumb' do
     it 'crop' do
-      image = Magick::ImageList.new(Rails.root.join('public/user_icon', "thumb_***REMOVED***{user.icon_identifier}"))
+      image = Magick::ImageList.new(Rails.root.join('public/user_icon', "thumb_#{user.icon_identifier}"))
 
       expect(image.columns).to eq image.rows
     end
 
     it 'resize_to_fit' do
-      image = Magick::ImageList.new(Rails.root.join('public/user_icon', "thumb_***REMOVED***{user.icon_identifier}"))
+      image = Magick::ImageList.new(Rails.root.join('public/user_icon', "thumb_#{user.icon_identifier}"))
 
       expect(image.columns).to eq 100
       expect(image.rows).to eq 100

@@ -1,4 +1,4 @@
-***REMOVED*** Read about factories at https://github.com/thoughtbot/factory_bot
+# Read about factories at https://github.com/thoughtbot/factory_bot
 
 FactoryBot.define do
   factory :church do

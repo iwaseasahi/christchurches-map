@@ -9,12 +9,12 @@ function changeRegistrationBtn($last_name, $first_name, $email, $password, $pass
 
 // 登録フォームのバリデーション
 function validationUserForm() {
-  var $last_name = $('***REMOVED***user_last_name');
-  var $first_name = $('***REMOVED***user_first_name');
-  var $email = $('***REMOVED***user_email');
-  var $password = $('***REMOVED***user_password');
-  var $password_confirmation = $('***REMOVED***user_password_confirmation');
-  var $submit = $('***REMOVED***user-registration-submit');
+  var $last_name = $('#user_last_name');
+  var $first_name = $('#user_first_name');
+  var $email = $('#user_email');
+  var $password = $('#user_password');
+  var $password_confirmation = $('#user_password_confirmation');
+  var $submit = $('#user-registration-submit');
   changeRegistrationBtn($last_name, $first_name, $email, $password, $password_confirmation, $submit);
   $last_name.bind('keyup', function() {
     changeRegistrationBtn($last_name, $first_name, $email, $password, $password_confirmation, $submit);
@@ -34,7 +34,7 @@ function validationUserForm() {
 }
 
 $(document).on('turbolinks:load', function() {
-  $('***REMOVED***user_icon').on('change', function (e) {
+  $('#user_icon').on('change', function (e) {
     if (e.target.files[0].size > 0) {
       $(this).parents('form').submit();
       $('.loading').fadeIn();

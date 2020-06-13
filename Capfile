@@ -1,31 +1,31 @@
-***REMOVED*** Load DSL and set up stages
+# Load DSL and set up stages
 require 'capistrano/setup'
 
-***REMOVED*** Include default deployment tasks
+# Include default deployment tasks
 require 'capistrano/deploy'
 
-***REMOVED*** Load the SCM plugin appropriate to your project:
-***REMOVED***
-***REMOVED*** require "capistrano/scm/hg"
-***REMOVED*** install_plugin Capistrano::SCM::Hg
-***REMOVED*** or
-***REMOVED*** require "capistrano/scm/svn"
-***REMOVED*** install_plugin Capistrano::SCM::Svn
-***REMOVED*** or
+# Load the SCM plugin appropriate to your project:
+#
+# require "capistrano/scm/hg"
+# install_plugin Capistrano::SCM::Hg
+# or
+# require "capistrano/scm/svn"
+# install_plugin Capistrano::SCM::Svn
+# or
 require 'capistrano/scm/git'
 install_plugin Capistrano::SCM::Git
 
-***REMOVED*** Include tasks from other gems included in your Gemfile
-***REMOVED***
-***REMOVED*** For documentation on these, see for example:
-***REMOVED***
-***REMOVED***   https://github.com/capistrano/rvm
-***REMOVED***   https://github.com/capistrano/rbenv
-***REMOVED***   https://github.com/capistrano/chruby
-***REMOVED***   https://github.com/capistrano/bundler
-***REMOVED***   https://github.com/capistrano/rails
-***REMOVED***   https://github.com/capistrano/passenger
-***REMOVED***
+# Include tasks from other gems included in your Gemfile
+#
+# For documentation on these, see for example:
+#
+#   https://github.com/capistrano/rvm
+#   https://github.com/capistrano/rbenv
+#   https://github.com/capistrano/chruby
+#   https://github.com/capistrano/bundler
+#   https://github.com/capistrano/rails
+#   https://github.com/capistrano/passenger
+#
 require 'capistrano/rbenv'
 require 'capistrano/bundler'
 require 'capistrano/rails/assets'

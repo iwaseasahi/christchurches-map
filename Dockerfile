@@ -1,8 +1,8 @@
-***REMOVED*** Debian
+# Debian
 FROM ruby:2.7.1
 ENV LANG C.UTF-8
 
-***REMOVED*** install required libraries
+# install required libraries
 RUN apt-get update -qq && apt-get install -y build-essential nodejs vim
 
 RUN mkdir /usr/src/app/

@@ -1,11 +1,11 @@
-***REMOVED*** set lets
+# set lets
 $worker  = 2
 $timeout = 30
 $app_dir = '/var/www/projects/christchurches-map/current'
 $listen  = File.expand_path 'tmp/sockets/.unicorn.sock', $app_dir
 $pid     = File.expand_path 'tmp/pids/unicorn.pid', $app_dir
 $std_log = File.expand_path 'log/unicorn.log', $app_dir
-***REMOVED*** set config
+# set config
 worker_processes  $worker
 working_directory $app_dir
 stderr_path $std_log
@@ -13,13 +13,13 @@ stdout_path $std_log
 timeout $timeout
 listen  $listen
 pid $pid
-***REMOVED*** loading booster
+# loading booster
 preload_app true
-***REMOVED*** before starting processes
+# before starting processes
 before_fork do |server, _worker|
   defined?(ActiveRecord::Base) && ActiveRecord::Base.connection.disconnect!
-  ***REMOVED*** NOTE: unicorn の切り替えを必ず行うよう QUIT する
-  old_pid = "***REMOVED***{server.config[:pid]}.oldbin"
+  # NOTE: unicorn の切り替えを必ず行うよう QUIT する
+  old_pid = "#{server.config[:pid]}.oldbin"
   if old_pid != server.pid
     begin
       Process.kill(:QUIT, File.read(old_pid).to_i)
@@ -27,7 +27,7 @@ before_fork do |server, _worker|
     end
   end
 end
-***REMOVED*** after finishing processes
+# after finishing processes
 after_fork do |_server, _worker|
   defined?(ActiveRecord::Base) && ActiveRecord::Base.establish_connection
 end

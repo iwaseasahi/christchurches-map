@@ -1,4 +1,4 @@
-***REMOVED*** encoding: utf-8
+# encoding: utf-8
 
 namespace :churches_update do
   desc 'グループIDの入力'

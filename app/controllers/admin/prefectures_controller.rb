@@ -1,21 +1,21 @@
 module Admin
   class PrefecturesController < Admin::ApplicationController
-    ***REMOVED*** To customize the behavior of this controller,
-    ***REMOVED*** you can overwrite any of the RESTful actions. For example:
-    ***REMOVED***
-    ***REMOVED*** def index
-    ***REMOVED***   super
-    ***REMOVED***   @resources = Prefecture.
-    ***REMOVED***     page(params[:page]).
-    ***REMOVED***     per(10)
-    ***REMOVED*** end
+    # To customize the behavior of this controller,
+    # you can overwrite any of the RESTful actions. For example:
+    #
+    # def index
+    #   super
+    #   @resources = Prefecture.
+    #     page(params[:page]).
+    #     per(10)
+    # end
 
-    ***REMOVED*** Define a custom finder by overriding the `find_resource` method:
-    ***REMOVED*** def find_resource(param)
-    ***REMOVED***   Prefecture.find_by!(slug: param)
-    ***REMOVED*** end
+    # Define a custom finder by overriding the `find_resource` method:
+    # def find_resource(param)
+    #   Prefecture.find_by!(slug: param)
+    # end
 
-    ***REMOVED*** See https://administrate-prototype.herokuapp.com/customizing_controller_actions
-    ***REMOVED*** for more information
+    # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
+    # for more information
   end
 end

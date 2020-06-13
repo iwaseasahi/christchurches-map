@@ -1,10 +1,10 @@
-<%***REMOVED***
-***REMOVED*** Collection
+<%#
+# Collection
 
 This partial is used on the `index` and `show` pages
 to display a collection of resources in an HTML table.
 
-***REMOVED******REMOVED*** Local variables:
+## Local variables:
 
 - `collection_presenter`:
   An instance of [Administrate::Page::Collection][1].
@@ -32,13 +32,13 @@ to display a collection of resources in an HTML table.
           collection_presenter.order_params_for(attr_name, key: collection_field_name)
         )) do %>
         <%= t(
-          "helpers.label.***REMOVED***{collection_presenter.resource_name}.***REMOVED***{attr_name}",
+          "helpers.label.#{collection_presenter.resource_name}.#{attr_name}",
           default: attr_name.to_s,
         ).titleize %>
             <% if collection_presenter.ordered_by?(attr_name) %>
               <span class="cell-label__sort-indicator cell-label__sort-indicator--<%= collection_presenter.ordered_html_class(attr_name) %>">
                 <svg aria-hidden="true">
-                  <use xlink:href="***REMOVED***icon-up-caret" />
+                  <use xlink:href="#icon-up-caret" />
                 </svg>
               </span>
             <% end %>
@@ -57,7 +57,7 @@ to display a collection of resources in an HTML table.
       <tr class="js-table-row"
           tabindex="0"
           <% if valid_action? :show, collection_presenter.resource_name %>
-            <%= %(role=link data-url=***REMOVED***{polymorphic_path([namespace, resource])}) %>
+            <%= %(role=link data-url=#{polymorphic_path([namespace, resource])}) %>
           <% end %>
           >
         <% collection_presenter.attributes_for(resource).each do |attribute| %>

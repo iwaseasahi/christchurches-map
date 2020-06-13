@@ -9,11 +9,11 @@ function changeSubmitBtn($name, $prefecture_id, $address, $group_id, $submit) {
 
 // 教会フォームのバリデーション
 function validationChurchForm() {
-  var $name = $('***REMOVED***church_name');
-  var $prefecture_id = $('***REMOVED***church_prefecture_id');
-  var $address = $('***REMOVED***church_address');
-  var $group_id = $('***REMOVED***church_group_id');
-  var $submit = $('***REMOVED***church-submit');
+  var $name = $('#church_name');
+  var $prefecture_id = $('#church_prefecture_id');
+  var $address = $('#church_address');
+  var $group_id = $('#church_group_id');
+  var $submit = $('#church-submit');
   changeSubmitBtn($name, $prefecture_id, $address, $group_id, $submit);
   $name.bind('keyup', function() {
     changeSubmitBtn($name, $prefecture_id, $address, $group_id, $submit);
@@ -45,7 +45,7 @@ $(document).on('turbolinks:load', function() {
   });
 
   // トップ画像のアップロード
-  $('***REMOVED***church_top_image').on('change', function (e) {
+  $('#church_top_image').on('change', function (e) {
     if (e.target.files[0].size > 0) {
       $(this).parents('form').submit();
       $('.loading').fadeIn();
@@ -56,5 +56,5 @@ $(document).on('turbolinks:load', function() {
   validationChurchForm();
 
   // カルーセルの起動
-  $('***REMOVED***carousel-example').carousel();
+  $('#carousel-example').carousel();
 });

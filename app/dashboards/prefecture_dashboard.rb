@@ -1,12 +1,12 @@
 require "administrate/base_dashboard"
 
 class PrefectureDashboard < Administrate::BaseDashboard
-  ***REMOVED*** ATTRIBUTE_TYPES
-  ***REMOVED*** a hash that describes the type of each of the model's fields.
-  ***REMOVED***
-  ***REMOVED*** Each different type represents an Administrate::Field object,
-  ***REMOVED*** which determines how the attribute is displayed
-  ***REMOVED*** on pages throughout the dashboard.
+  # ATTRIBUTE_TYPES
+  # a hash that describes the type of each of the model's fields.
+  #
+  # Each different type represents an Administrate::Field object,
+  # which determines how the attribute is displayed
+  # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     churches: Field::HasMany,
     id: Field::Number,
@@ -18,19 +18,19 @@ class PrefectureDashboard < Administrate::BaseDashboard
     updated_at: Field::DateTime,
   }.freeze
 
-  ***REMOVED*** COLLECTION_ATTRIBUTES
-  ***REMOVED*** an array of attributes that will be displayed on the model's index page.
-  ***REMOVED***
-  ***REMOVED*** By default, it's limited to four items to reduce clutter on index pages.
-  ***REMOVED*** Feel free to add, remove, or rearrange items.
+  # COLLECTION_ATTRIBUTES
+  # an array of attributes that will be displayed on the model's index page.
+  #
+  # By default, it's limited to four items to reduce clutter on index pages.
+  # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :id,
     :name,
     :churches,
   ].freeze
 
-  ***REMOVED*** SHOW_PAGE_ATTRIBUTES
-  ***REMOVED*** an array of attributes that will be displayed on the model's show page.
+  # SHOW_PAGE_ATTRIBUTES
+  # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :churches,
     :id,
@@ -40,9 +40,9 @@ class PrefectureDashboard < Administrate::BaseDashboard
     :zoom_level,
   ].freeze
 
-  ***REMOVED*** FORM_ATTRIBUTES
-  ***REMOVED*** an array of attributes that will be displayed
-  ***REMOVED*** on the model's form (`new` and `edit`) pages.
+  # FORM_ATTRIBUTES
+  # an array of attributes that will be displayed
+  # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :churches,
     :name,
@@ -51,9 +51,9 @@ class PrefectureDashboard < Administrate::BaseDashboard
     :zoom_level,
   ].freeze
 
-  ***REMOVED*** Overwrite this method to customize how prefectures are displayed
-  ***REMOVED*** across all pages of the admin dashboard.
-  ***REMOVED***
+  # Overwrite this method to customize how prefectures are displayed
+  # across all pages of the admin dashboard.
+  #
   def display_resource(prefecture)
     prefecture.name
   end

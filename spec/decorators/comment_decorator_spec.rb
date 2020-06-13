@@ -1,4 +1,4 @@
-***REMOVED*** frozen_string_literal: true
+# frozen_string_literal: true
 
 require 'rails_helper'
 
@@ -7,7 +7,7 @@ RSpec.describe CommentDecorator do
   subject { comment }
   it { should be_a Comment }
 
-  describe '***REMOVED***time' do
+  describe '#time' do
     specify do
       current_time = Time.current
       comment = create(:comment, created_at: current_time)

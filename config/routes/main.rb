@@ -1,4 +1,4 @@
-root to: 'homes***REMOVED***index'
+root to: 'homes#index'
 
 devise_for :users, controllers: {
   registrations: 'users/registrations',

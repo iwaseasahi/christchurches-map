@@ -7,13 +7,13 @@ feature 'いいねRank', type: :system do
     create(:like, church: church, user: user)
 
     visit root_path
-    within(:css, '***REMOVED***mainNav') do
+    within(:css, '#mainNav') do
       click_link 'いいねRank'
     end
 
     expect(page).to have_current_path like_rankings_path
     expect(page).to have_text 'いいねランキング'
     expect(page).to have_text church.name
-    expect(page).to have_text "***REMOVED***{church.likes.count}いいね"
+    expect(page).to have_text "#{church.likes.count}いいね"
   end
 end

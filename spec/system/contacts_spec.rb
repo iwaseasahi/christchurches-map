@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'お問い合わせ', type: :system do
   scenario '閲覧できる' do
     visit root_path
-    within(:css, '***REMOVED***mainNav') do
+    within(:css, '#mainNav') do
       click_link 'お問い合わせ'
     end
 

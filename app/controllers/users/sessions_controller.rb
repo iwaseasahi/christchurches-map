@@ -1,25 +1,25 @@
 class Users::SessionsController < Devise::SessionsController
-  ***REMOVED*** before_action :configure_sign_in_params, only: [:create]
+  # before_action :configure_sign_in_params, only: [:create]
 
-  ***REMOVED*** GET /resource/sign_in
-  ***REMOVED*** def new
-  ***REMOVED***   super
-  ***REMOVED*** end
+  # GET /resource/sign_in
+  # def new
+  #   super
+  # end
 
-  ***REMOVED*** POST /resource/sign_in
-  ***REMOVED*** def create
-  ***REMOVED***   super
-  ***REMOVED*** end
+  # POST /resource/sign_in
+  # def create
+  #   super
+  # end
 
-  ***REMOVED*** DELETE /resource/sign_out
-  ***REMOVED*** def destroy
-  ***REMOVED***   super
-  ***REMOVED*** end
+  # DELETE /resource/sign_out
+  # def destroy
+  #   super
+  # end
 
-  ***REMOVED*** protected
+  # protected
 
-  ***REMOVED*** If you have extra params to permit, append them to the sanitizer.
-  ***REMOVED*** def configure_sign_in_params
-  ***REMOVED***   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
-  ***REMOVED*** end
+  # If you have extra params to permit, append them to the sanitizer.
+  # def configure_sign_in_params
+  #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
+  # end
 end

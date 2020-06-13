@@ -1,28 +1,28 @@
 class Users::ConfirmationsController < Devise::ConfirmationsController
-  ***REMOVED*** GET /resource/confirmation/new
-  ***REMOVED*** def new
-  ***REMOVED***   super
-  ***REMOVED*** end
+  # GET /resource/confirmation/new
+  # def new
+  #   super
+  # end
 
-  ***REMOVED*** POST /resource/confirmation
-  ***REMOVED*** def create
-  ***REMOVED***   super
-  ***REMOVED*** end
+  # POST /resource/confirmation
+  # def create
+  #   super
+  # end
 
-  ***REMOVED*** GET /resource/confirmation?confirmation_token=abcdef
-  ***REMOVED*** def show
-  ***REMOVED***   super
-  ***REMOVED*** end
+  # GET /resource/confirmation?confirmation_token=abcdef
+  # def show
+  #   super
+  # end
 
-  ***REMOVED*** protected
+  # protected
 
-  ***REMOVED*** The path used after resending confirmation instructions.
-  ***REMOVED*** def after_resending_confirmation_instructions_path_for(resource_name)
-  ***REMOVED***   super(resource_name)
-  ***REMOVED*** end
+  # The path used after resending confirmation instructions.
+  # def after_resending_confirmation_instructions_path_for(resource_name)
+  #   super(resource_name)
+  # end
 
-  ***REMOVED*** The path used after confirmation.
-  ***REMOVED*** def after_confirmation_path_for(resource_name, resource)
-  ***REMOVED***   super(resource_name, resource)
-  ***REMOVED*** end
+  # The path used after confirmation.
+  # def after_confirmation_path_for(resource_name, resource)
+  #   super(resource_name, resource)
+  # end
 end

@@ -21,7 +21,7 @@ feature 'コメント', type: :system do
       click_link '編集'
     end
 
-    fill_in "edit_comment_id_***REMOVED***{Comment.last.id}", with: edit_comment
+    fill_in "edit_comment_id_#{Comment.last.id}", with: edit_comment
     click_button '更新'
 
     expect(page).to have_text edit_comment

@@ -9,7 +9,7 @@
 
 // PC用
 @media(min-width:769px) {
-  ***REMOVED***top-page {
+  #top-page {
     .intro-text {
       padding-top: 120px;
     }
@@ -28,7 +28,7 @@
 
 // タブレット用
 @media(max-width:768px) {
-  ***REMOVED***top-page {
+  #top-page {
     .form-control {
       display: inline;
       width: 50%;
@@ -40,7 +40,7 @@
 
 // スマホ用
 @media(max-width:549px) {
-  ***REMOVED***top-page {
+  #top-page {
     .form-control {
       display: inline;
       width: 90%;

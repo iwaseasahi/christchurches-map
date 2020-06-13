@@ -22,7 +22,7 @@ RSpec.describe PhotoUploader do
 
   context 'thumb' do
     it 'resize_to_fit' do
-      image = Magick::ImageList.new(Rails.root.join('public/photo', "thumb_***REMOVED***{photo.file_name_identifier}"))
+      image = Magick::ImageList.new(Rails.root.join('public/photo', "thumb_#{photo.file_name_identifier}"))
 
       expect(image.columns).to be <= 600
       expect(image.rows).to be <= 300

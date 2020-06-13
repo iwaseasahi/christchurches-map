@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Churches::LikesController, type: :controller do
   before { geocoder_default_mock }
 
-  describe 'POST ***REMOVED***create' do
+  describe 'POST #create' do
     include_context 'user_authorized'
 
     let!(:church) { create(:church) }
@@ -27,7 +27,7 @@ RSpec.describe Churches::LikesController, type: :controller do
     end
   end
 
-  describe 'DELETE ***REMOVED***destroy' do
+  describe 'DELETE #destroy' do
     include_context 'user_authorized'
 
     let!(:church) { create(:church) }

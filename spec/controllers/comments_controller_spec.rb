@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Churches::CommentsController, type: :controller do
   before { geocoder_default_mock }
 
-  describe 'GET ***REMOVED***edit' do
+  describe 'GET #edit' do
     let(:comment) { create(:comment) }
 
     it '@commentに要求されたコメントを割り当てること' do
@@ -17,7 +17,7 @@ RSpec.describe Churches::CommentsController, type: :controller do
     end
   end
 
-  describe 'POST ***REMOVED***create' do
+  describe 'POST #create' do
     include_context 'user_authorized'
 
     let!(:church) { create(:church) }
@@ -55,7 +55,7 @@ RSpec.describe Churches::CommentsController, type: :controller do
     end
   end
 
-  describe 'PATCH ***REMOVED***update' do
+  describe 'PATCH #update' do
     include_context 'user_authorized'
 
     let!(:comment) { create(:comment) }
@@ -95,7 +95,7 @@ RSpec.describe Churches::CommentsController, type: :controller do
     end
   end
 
-  describe 'DELETE ***REMOVED***destroy' do
+  describe 'DELETE #destroy' do
     include_context 'user_authorized'
 
     let!(:comment) { create(:comment) }

@@ -21,7 +21,7 @@ RSpec.describe TopImageUploader do
 
   context 'thumb' do
     it 'resize_to_fit' do
-      image = Magick::ImageList.new(Rails.root.join('public/top_image', "thumb_***REMOVED***{church.top_image_identifier}"))
+      image = Magick::ImageList.new(Rails.root.join('public/top_image', "thumb_#{church.top_image_identifier}"))
 
       expect(image.columns).to be <= 800
       expect(image.rows).to be <= 400

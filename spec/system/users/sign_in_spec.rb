@@ -4,7 +4,7 @@ feature 'ログイン', type: :system do
   scenario '閲覧できる' do
     visit root_path
 
-    within(:css, '***REMOVED***mainNav') do
+    within(:css, '#mainNav') do
       click_link 'ログイン'
     end
 
@@ -17,7 +17,7 @@ feature 'ログイン', type: :system do
 
     visit root_path
 
-    within(:css, '***REMOVED***mainNav') do
+    within(:css, '#mainNav') do
       click_link 'ログイン'
     end
 

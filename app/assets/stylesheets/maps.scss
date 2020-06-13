@@ -3,8 +3,8 @@
 
 // Google Map
 // 共通
-***REMOVED***google-map {
-  ***REMOVED***map {
+#google-map {
+  #map {
     width: 100%;
     max-height: 100%;
   }
@@ -16,14 +16,14 @@
   }
 }
 
-***REMOVED***church_search {
+#church_search {
   padding-bottom: 10px;
 }
 
 // スマホ用
 @media(max-width:768px) {
-  ***REMOVED***google-map {
-    ***REMOVED***map {
+  #google-map {
+    #map {
       height: 600px;
     }
     padding: 10px 0;
@@ -46,9 +46,9 @@
 
 // PC用
 @media(min-width:769px) {
-  ***REMOVED***google-map {
+  #google-map {
     padding: 0;
-    ***REMOVED***map {
+    #map {
       height: 500px;
       max-height: 100%;
     }
@@ -62,7 +62,7 @@
     .centering {
       text-align: center;
     }
-    ***REMOVED***church_search {
+    #church_search {
       padding: 20px 0;
     }
   }

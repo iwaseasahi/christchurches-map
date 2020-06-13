@@ -11,8 +11,8 @@ CarrierWave.configure do |config|
       region: Rails.application.credentials.dig(:aws, :region),
       path_style: true
     }
-    config.fog_attributes = { 'Content-Type': 'image/jpg', 'Cache-Control': "max-age=***REMOVED***{1.week.to_i}" }
-    ***REMOVED*** public-read
+    config.fog_attributes = { 'Content-Type': 'image/jpg', 'Cache-Control': "max-age=#{1.week.to_i}" }
+    # public-read
     config.fog_public = true
     config.fog_directory = Rails.application.credentials.dig(:aws, :s3_bucket)
     config.asset_host = Rails.application.credentials.dig(:aws, :s3_url)

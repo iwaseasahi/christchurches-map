@@ -1,2 +1,2 @@
-$('***REMOVED***like-link').html('<%= escape_javascript(render('like_links', church: @church)) %>');
-$('***REMOVED***like-count').html('<%= @church.likes.count %>');
+$('#like-link').html('<%= escape_javascript(render('like_links', church: @church)) %>');
+$('#like-count').html('<%= @church.likes.count %>');

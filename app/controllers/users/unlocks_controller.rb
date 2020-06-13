@@ -1,28 +1,28 @@
 class Users::UnlocksController < Devise::UnlocksController
-  ***REMOVED*** GET /resource/unlock/new
-  ***REMOVED*** def new
-  ***REMOVED***   super
-  ***REMOVED*** end
+  # GET /resource/unlock/new
+  # def new
+  #   super
+  # end
 
-  ***REMOVED*** POST /resource/unlock
-  ***REMOVED*** def create
-  ***REMOVED***   super
-  ***REMOVED*** end
+  # POST /resource/unlock
+  # def create
+  #   super
+  # end
 
-  ***REMOVED*** GET /resource/unlock?unlock_token=abcdef
-  ***REMOVED*** def show
-  ***REMOVED***   super
-  ***REMOVED*** end
+  # GET /resource/unlock?unlock_token=abcdef
+  # def show
+  #   super
+  # end
 
-  ***REMOVED*** protected
+  # protected
 
-  ***REMOVED*** The path used after sending unlock password instructions
-  ***REMOVED*** def after_sending_unlock_instructions_path_for(resource)
-  ***REMOVED***   super(resource)
-  ***REMOVED*** end
+  # The path used after sending unlock password instructions
+  # def after_sending_unlock_instructions_path_for(resource)
+  #   super(resource)
+  # end
 
-  ***REMOVED*** The path used after unlocking the resource
-  ***REMOVED*** def after_unlock_path_for(resource)
-  ***REMOVED***   super(resource)
-  ***REMOVED*** end
+  # The path used after unlocking the resource
+  # def after_unlock_path_for(resource)
+  #   super(resource)
+  # end
 end

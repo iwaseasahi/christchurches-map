@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe ChurchesController, type: :controller do
   before { geocoder_default_mock }
 
-  describe 'GET ***REMOVED***show' do
+  describe 'GET #show' do
     let(:church) { create(:church) }
 
     it '@churchに要求された教会を割り当てること' do
@@ -31,7 +31,7 @@ RSpec.describe ChurchesController, type: :controller do
     end
   end
 
-  describe 'GET ***REMOVED***new' do
+  describe 'GET #new' do
     it '@churchに新しい教会を割り当てること' do
       get :new
 
@@ -45,7 +45,7 @@ RSpec.describe ChurchesController, type: :controller do
     end
   end
 
-  describe 'GET ***REMOVED***edit' do
+  describe 'GET #edit' do
     include_context 'user_authorized'
 
     let!(:church) { create(:church) }
@@ -65,7 +65,7 @@ RSpec.describe ChurchesController, type: :controller do
     end
   end
 
-  describe 'POST ***REMOVED***create' do
+  describe 'POST #create' do
     context '有効な属性の場合' do
       let!(:group) { create(:group) }
       let!(:prefecture) { create(:prefecture, :tokyo) }
@@ -78,7 +78,7 @@ RSpec.describe ChurchesController, type: :controller do
         }.to change(Church, :count).by(1)
       end
 
-      it 'churches***REMOVED***showにリダイレクトすること' do
+      it 'churches#showにリダイレクトすること' do
         church_params = build(:church, group: group, prefecture: prefecture).attributes
 
         post :create, params: { church: church_params }
@@ -109,7 +109,7 @@ RSpec.describe ChurchesController, type: :controller do
     end
   end
 
-  describe 'PATCH ***REMOVED***update' do
+  describe 'PATCH #update' do
     let!(:church) { create(:church) }
 
     include_context 'user_authorized'
@@ -153,7 +153,7 @@ RSpec.describe ChurchesController, type: :controller do
     end
   end
 
-  describe 'DELETE ***REMOVED***destroy' do
+  describe 'DELETE #destroy' do
     let!(:church) { create(:church) }
 
     include_context 'user_authorized'
@@ -164,7 +164,7 @@ RSpec.describe ChurchesController, type: :controller do
       expect(Church.exists?(id: church)).to eq false
     end
 
-    it 'maps***REMOVED***indexにリダイレクトすること' do
+    it 'maps#indexにリダイレクトすること' do
       delete :destroy, params: { id: church }
 
       expect(response).to redirect_to maps_url

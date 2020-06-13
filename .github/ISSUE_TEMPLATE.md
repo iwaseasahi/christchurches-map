@@ -1,3 +1,3 @@
-***REMOVED******REMOVED*** 目的
+## 目的
 
-***REMOVED******REMOVED*** 完成条件
+## 完成条件
