@@ -75,6 +75,26 @@ jobs:
             if [ "${CIRCLE_BRANCH}" != "master" ]; then
               ./bin/send_coverage
             fi
+  coveralls:
+    executor: default_executor
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - rails-christchurches-map-bundle-v2-{{ checksum "Gemfile.lock" }}
+            - rails-christchurches-map-bundle-v2-
+      - run: bundle
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
+      - run:
+          name: Database setup
+          command: bundle exec rake db:create db:migrate
+      - run:
+          name: Run rspec in parallel
+          command: |
+            COVERALLS_REPO_TOKEN=COVERALLS_REPO_TOKEN bundle exec rspec --profile 10 \
+              $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
   deploy_check:
     executor: default_executor
     environment:
@@ -146,3 +166,13 @@ workflows:
           filters:
             branches:
               only: master
+  coverage:
+    triggers:
+      - schedule:
+          cron: "0 23 * * *" # 8:00 (JST) daily
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - coveralls
