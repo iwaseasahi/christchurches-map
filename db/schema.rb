@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_13_235641) do
+ActiveRecord::Schema.define(version: 2020_06_14_000027) do
 
   create_table "churches", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -64,10 +64,10 @@ ActiveRecord::Schema.define(version: 2020_06_13_235641) do
   end
 
   create_table "prefectures", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.decimal "latitude", precision: 11, scale: 8
-    t.decimal "longitude", precision: 11, scale: 8
-    t.integer "zoom_level"
+    t.string "name", null: false
+    t.decimal "latitude", precision: 11, scale: 8, null: false
+    t.decimal "longitude", precision: 11, scale: 8, null: false
+    t.integer "zoom_level", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
