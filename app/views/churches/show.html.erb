@@ -55,14 +55,14 @@
   <div class="line-section-middle">
     <div id="carousel-example" class="carousel slide" data-ride="carousel" data-interval="4000">
       <ol class="carousel-indicators">
-        <% @church.photos.each do |photo| %>
-          <li data-target="#carousel-example" data-slide-to=<%= photo.sort_of_number - 1 %> class=<%= 'active' if photo.sort_of_number == 1 %>></li>
+        <% @church.photos.each_with_index do |_photo, index| %>
+          <li data-target="#carousel-example" data-slide-to=<%= index %> class=<%= 'active' if index.zero? %>></li>
         <% end %>
       </ol>
 
       <div class="carousel-inner">
-        <% @church.photos.each do |photo| %>
-          <div class="item <%= 'active' if photo.sort_of_number == 1 %>">
+        <% @church.photos.each_with_index do |photo, index| %>
+          <div class="item <%= 'active' if index.zero? %>">
             <%= image_tag photo.file_name_url(:thumb), class: 'church-photo-size center-block' %>
           </div>
         <% end %>
