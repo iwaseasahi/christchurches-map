@@ -15,7 +15,6 @@ class ChurchDashboard < Administrate::BaseDashboard
     comments: Field::HasMany,
     id: Field::Number,
     name: Field::String,
-    postal_code: Field::String,
     address: Field::String,
     latitude: Field::String.with_options(searchable: false),
     longitude: Field::String.with_options(searchable: false),
@@ -23,7 +22,6 @@ class ChurchDashboard < Administrate::BaseDashboard
     fax: Field::String,
     email: Field::String,
     url: Field::Text,
-    worshiping_time: Field::Text,
     top_image: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -51,7 +49,6 @@ class ChurchDashboard < Administrate::BaseDashboard
     :prefecture,
     :likes,
     :comments,
-    :postal_code,
     :address,
     :latitude,
     :longitude,
@@ -59,7 +56,6 @@ class ChurchDashboard < Administrate::BaseDashboard
     :fax,
     :email,
     :url,
-    :worshiping_time,
     :top_image,
   ].freeze
 
@@ -70,7 +66,6 @@ class ChurchDashboard < Administrate::BaseDashboard
     :group,
     :name,
     :prefecture,
-    :postal_code,
     :address,
     :latitude,
     :longitude,
@@ -78,7 +73,6 @@ class ChurchDashboard < Administrate::BaseDashboard
     :fax,
     :email,
     :url,
-    :worshiping_time,
     :top_image,
   ].freeze
 
