@@ -43,7 +43,7 @@ class ChurchesController < ApplicationController
   end
 
   def church_params
-    params.require(:church).permit(:name, :group_id, :postal_code, :prefecture_id, :address, :tel, :fax, :email, :url, :worshiping_time, :top_image)
+    params.require(:church).permit(:name, :group_id, :prefecture_id, :address, :tel, :fax, :email, :url, :top_image)
   end
 
   def build_marker(church)

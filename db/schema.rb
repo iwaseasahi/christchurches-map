@@ -10,21 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_14_001052) do
+ActiveRecord::Schema.define(version: 2020_06_14_114359) do
 
   create_table "churches", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.integer "group_id"
-    t.string "postal_code"
-    t.integer "prefecture_id"
-    t.string "address"
+    t.string "name", null: false
+    t.integer "group_id", null: false
+    t.integer "prefecture_id", null: false
+    t.string "address", null: false
     t.decimal "latitude", precision: 11, scale: 8
     t.decimal "longitude", precision: 11, scale: 8
     t.string "tel"
     t.string "fax"
     t.string "email"
     t.text "url"
-    t.text "worshiping_time"
     t.string "top_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

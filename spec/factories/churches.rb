@@ -17,7 +17,6 @@ FactoryBot.define do
     trait :shinjuku_shalom do
       name { '新宿シャローム教会' }
       address { '東京都新宿区百人町１丁目２３−２４ アミューズ大久保ビル 2F' }
-      postal_code { '169-0073' }
       latitude { 35.6992842 }
       longitude { 139.6952906 }
       tel { '03-3371-7558' }
