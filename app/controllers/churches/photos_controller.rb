@@ -4,11 +4,11 @@ class Churches::PhotosController < ApplicationController
   before_action :set_photo, only: :destroy
 
   def index
-    @photo = Photo.new(sort_of_number: @church.photos.count + 1)
+    @photo = Photo.new
   end
 
   def create
-    @photo = Photo.new(church_id: @church.id, file_name: photo_params[:file_name], sort_of_number: photo_params[:sort_of_number])
+    @photo = Photo.new(church_id: @church.id, file_name: photo_params[:file_name])
 
     if @photo.save
       redirect_to church_photos_path(church_id: @church.id), notice: 'アップロードが完了しました。'
@@ -34,6 +34,6 @@ class Churches::PhotosController < ApplicationController
   end
 
   def photo_params
-    params.require(:photo).permit(:file_name, :sort_of_number)
+    params.require(:photo).permit(:file_name)
   end
 end
