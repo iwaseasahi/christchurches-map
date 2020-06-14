@@ -116,7 +116,7 @@ group :test do
   gem 'launchy', '~> 2.5.0'
   gem 'selenium-webdriver'
   # NOTE: https://github.com/lemurheavy/coveralls-ruby/issues/161
-  gem 'simplecov', '< 0.18.0', require: false
+  gem 'simplecov', '< 0.19.0', require: false
 end
 
 group :production, :staging do
