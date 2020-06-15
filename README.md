@@ -50,6 +50,12 @@ $ docker-compose run --rm web rails db:migrate
 $ docker-compose run -e RAILS_ENV=test --rm web rails db:migrate
 ```
 
+seed を実行します。
+
+```
+$ docker-compose run --rm web rails db:seed_fu
+```
+
 rails を起動します。
 
 ```
