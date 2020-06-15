@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_14_234023) do
+ActiveRecord::Schema.define(version: 2020_06_15_001231) do
 
   create_table "churches", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -84,8 +84,8 @@ ActiveRecord::Schema.define(version: 2020_06_14_234023) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
-    t.string "last_name"
-    t.string "first_name"
+    t.string "last_name", null: false
+    t.string "first_name", null: false
     t.string "icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
