@@ -63,7 +63,7 @@ jobs:
       - run:
           name: Run rspec in parallel
           command: |
-            COVERALLS_REPO_TOKEN=COVERALLS_REPO_TOKEN bundle exec rspec --profile 10 \
+            COVERALLS_REPO_TOKEN=${COVERALLS_REPO_TOKEN} bundle exec rspec --profile 10 \
               $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
       - store_test_results:
           path: test_results
@@ -93,7 +93,7 @@ jobs:
       - run:
           name: Run rspec in parallel
           command: |
-            COVERALLS_REPO_TOKEN=COVERALLS_REPO_TOKEN bundle exec rspec --profile 10 \
+            COVERALLS_REPO_TOKEN=${COVERALLS_REPO_TOKEN} bundle exec rspec --profile 10 \
               $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
   deploy_check:
     executor: default_executor
