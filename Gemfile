@@ -108,6 +108,8 @@ group :development do
   gem 'guard-rspec', require: false
   # Preview mail
   gem 'letter_opener_web'
+  # seed
+  gem 'seed-fu'
 end
 
 group :test do
