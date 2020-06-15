@@ -29,10 +29,7 @@ class UserDashboard < Administrate::BaseDashboard
     unconfirmed_email: Field::String,
     last_name: Field::String,
     first_name: Field::String,
-    church_id: Field::Number,
-    gender: Field::Number,
     icon: Field::String,
-    is_test: Field::Boolean,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -46,9 +43,7 @@ class UserDashboard < Administrate::BaseDashboard
     :id,
     :email,
     :likes,
-    # :like_churches,
     :comments,
-    # :comment_churches,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -59,15 +54,11 @@ class UserDashboard < Administrate::BaseDashboard
     :last_name,
     :first_name,
     :encrypted_password,
-    :church_id,
-    :gender,
     :icon,
-    :is_test,
     :sign_in_count,
     :current_sign_in_at,
     :last_sign_in_at,
     :likes,
-    # :like_churches,
     :comments,
   ].freeze
 
@@ -79,10 +70,7 @@ class UserDashboard < Administrate::BaseDashboard
     :last_name,
     :first_name,
     :encrypted_password,
-    :church_id,
-    :gender,
     :icon,
-    :is_test,
     :sign_in_count,
     :current_sign_in_at,
     :last_sign_in_at,
