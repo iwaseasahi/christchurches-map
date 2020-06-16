@@ -78,11 +78,6 @@ group :development, :test do
   gem 'pry'
   gem 'pry-byebug'
   gem 'pry-rails'
-  # テスト用
-  gem 'factory_bot_rails'
-  gem 'rails-controller-testing'
-  gem 'rspec-rails'
-  gem 'faker'
 end
 
 group :development do
@@ -113,6 +108,10 @@ group :development do
 end
 
 group :test do
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
+  gem 'rspec-rails'
+  gem 'faker'
   gem 'capybara'
   gem 'database_cleaner', '~> 1.8.5'
   gem 'launchy', '~> 2.5.0'
