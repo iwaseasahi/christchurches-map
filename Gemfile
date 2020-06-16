@@ -69,7 +69,7 @@ gem 'active_decorator'
 # テストカバレッジ計測
 gem 'coveralls', require: false
 # エラー管理
-gem "sentry-raven"
+gem 'sentry-raven'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
