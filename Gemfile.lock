@@ -196,9 +196,6 @@ GEM
       dry-initializer (~> 3.0)
       dry-schema (~> 1.5)
     erubi (1.9.0)
-    exception_notification (4.4.0)
-      actionmailer (>= 4.0, < 7)
-      activesupport (>= 4.0, < 7)
     excon (0.73.0)
     execjs (2.7.0)
     factory_bot (5.2.0)
@@ -577,7 +574,6 @@ DEPENDENCIES
   database_cleaner (~> 1.8.5)
   devise
   dotenv-rails
-  exception_notification
   factory_bot_rails
   faker
   fog-aws
