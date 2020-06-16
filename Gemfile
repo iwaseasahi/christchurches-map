@@ -74,15 +74,9 @@ gem 'sentry-raven'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  # デバッグ用
   gem 'pry'
   gem 'pry-byebug'
   gem 'pry-rails'
-  # テスト用
-  gem 'factory_bot_rails'
-  gem 'rails-controller-testing'
-  gem 'rspec-rails'
-  gem 'faker'
 end
 
 group :development do
@@ -108,22 +102,21 @@ group :development do
   gem 'guard-rspec', require: false
   # Preview mail
   gem 'letter_opener_web'
-  # seed
   gem 'seed-fu'
 end
 
 group :test do
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
+  gem 'rspec-rails'
+  gem 'faker'
   gem 'capybara'
-  gem 'database_cleaner', '~> 1.8.5'
-  gem 'launchy', '~> 2.5.0'
   gem 'selenium-webdriver'
   # NOTE: https://github.com/lemurheavy/coveralls-ruby/issues/161
   gem 'simplecov', '< 0.18.0', require: false
 end
 
 group :production, :staging do
-  # Unicorn
   gem 'unicorn'
-  # New Relic
   gem 'newrelic_rpm'
 end
