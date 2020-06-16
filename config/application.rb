@@ -39,5 +39,8 @@ module ChristchurchesMap
         request_specs: false
       g.fixture_replacement :factory_bot, dir: 'spec/factories'
     end
+
+    # password のフィルター
+    config.filter_parameters << :password
   end
 end

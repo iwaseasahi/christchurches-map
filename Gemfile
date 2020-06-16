@@ -43,8 +43,6 @@ gem 'sitemap_generator'
 gem 'devise'
 # 開発環境をYAMLファイルで管理
 gem 'config'
-# 例外通知
-gem 'exception_notification'
 # Slack
 gem 'slack-notifier'
 # 画像アップロード
@@ -70,6 +68,8 @@ gem 'non-stupid-digest-assets'
 gem 'active_decorator'
 # テストカバレッジ計測
 gem 'coveralls', require: false
+# エラー管理
+gem 'sentry-raven'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
