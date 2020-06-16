@@ -74,7 +74,6 @@ gem 'sentry-raven'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  # デバッグ用
   gem 'pry'
   gem 'pry-byebug'
   gem 'pry-rails'
@@ -103,7 +102,6 @@ group :development do
   gem 'guard-rspec', require: false
   # Preview mail
   gem 'letter_opener_web'
-  # seed
   gem 'seed-fu'
 end
 
@@ -121,8 +119,6 @@ group :test do
 end
 
 group :production, :staging do
-  # Unicorn
   gem 'unicorn'
-  # New Relic
   gem 'newrelic_rpm'
 end
