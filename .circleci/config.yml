@@ -32,11 +32,11 @@ jobs:
       - run: bundle -v
       - restore_cache:
           keys:
-            - rails-christchurches-map-bundle-v2-{{ checksum "Gemfile.lock" }}
-            - rails-christchurches-map-bundle-v2-
+            - bundle-v2-{{ checksum "Gemfile.lock" }}
+            - bundle-v2-
       - run: bundle check || bundle install --clean
       - save_cache:
-          key: rails-christchurches-map-bundle-v2-{{ checksum "Gemfile.lock" }}
+          key: bundle-v2-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
       - run:
@@ -51,8 +51,8 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - rails-christchurches-map-bundle-v2-{{ checksum "Gemfile.lock" }}
-            - rails-christchurches-map-bundle-v2-
+            - bundle-v2-{{ checksum "Gemfile.lock" }}
+            - bundle-v2-
       - run: bundle
       - run:
           name: Wait for DB
@@ -73,8 +73,8 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - rails-christchurches-map-bundle-v2-{{ checksum "Gemfile.lock" }}
-            - rails-christchurches-map-bundle-v2-
+            - bundle-v2-{{ checksum "Gemfile.lock" }}
+            - bundle-v2-
       - run: bundle
       - run:
           name: Wait for DB
@@ -98,8 +98,8 @@ jobs:
             - "14:a4:f5:51:a4:70:79:7b:5b:63:d0:d7:e9:24:e2:d7"
       - restore_cache:
           keys:
-            - rails-christchurches-map-bundle-v2-{{ checksum "Gemfile.lock" }}
-            - rails-christchurches-map-bundle-v2-
+            - bundle-v2-{{ checksum "Gemfile.lock" }}
+            - bundle-v2-
       - run: bundle
       - run:
           name: Deploy Check to AWS
@@ -115,8 +115,8 @@ jobs:
             - "14:a4:f5:51:a4:70:79:7b:5b:63:d0:d7:e9:24:e2:d7"
       - restore_cache:
           keys:
-            - rails-christchurches-map-bundle-v2-{{ checksum "Gemfile.lock" }}
-            - rails-christchurches-map-bundle-v2-
+            - bundle-v2-{{ checksum "Gemfile.lock" }}
+            - bundle-v2-
       - run: bundle
       - run:
           name: Deploy to AWS
