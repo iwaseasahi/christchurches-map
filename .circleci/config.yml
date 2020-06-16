@@ -63,18 +63,10 @@ jobs:
       - run:
           name: Run rspec in parallel
           command: |
-            bundle exec rspec --profile 10 \
+            COVERALLS_REPO_TOKEN=${COVERALLS_REPO_TOKEN} bundle exec rspec --profile 10 \
               $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
       - store_test_results:
           path: test_results
-      - store_artifacts:
-          path: coverage
-      - run:
-          name: Send coverage to pull request
-          command: |
-            if [ "${CIRCLE_BRANCH}" != "master" ]; then
-              ./bin/send_coverage
-            fi
   coveralls:
     executor: default_executor
     steps:
