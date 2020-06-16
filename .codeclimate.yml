@@ -41,12 +41,10 @@ checks:
     config:
       threshold: #language-specific defaults. overrides affect all languages.
 exclude_patterns:
-- "config/"
-- "db/"
-- "dist/"
-- "features/"
-- "**/node_modules/"
-- "script/"
-- "**/spec/"
-- "**/vendor/"
-- "**/*.d.ts"
+  - 'app/assets/javascripts'
+  - 'app/assets/stylesheets'
+  - 'config/'
+  - 'db/'
+  - 'public/'
+  - 'spec/'
+  - 'vendor/'
