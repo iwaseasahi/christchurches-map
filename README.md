@@ -1,5 +1,5 @@
 [![CircleCI](https://circleci.com/gh/iwaseasahi/christchurches-map.svg?style=svg&circle-token=edf49afb5c4771796b3a9387ef48761121ae34ff)](https://circleci.com/gh/iwaseasahi/christchurches-map)
-[![Coverage Status](https://coveralls.io/repos/github/iwaseasahi/christchurches-map/badge.svg?branch=420_coveralls)](https://coveralls.io/github/iwaseasahi/christchurches-map?branch=420_coveralls)
+[![Coverage Status](https://coveralls.io/repos/github/iwaseasahi/christchurches-map/badge.svg?branch=master)](https://coveralls.io/github/iwaseasahi/christchurches-map?branch=master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/88e7953140c616fa1f51/maintainability)](https://codeclimate.com/github/iwaseasahi/christchurches-map/maintainability)
 
 ## [キリスト教会マップ](https://www.christchurches-map.com/)
