@@ -22,6 +22,7 @@ executors:
           MYSQL_DATABASE: christchurches_map_test
           TZ: /usr/share/zoneinfo/Asia/Tokyo
       - image: selenium/standalone-chrome:3.141.59-zirconium
+      - image: circleci/redis:5.0
     working_directory: ~/christchurches-map
 
 jobs:
