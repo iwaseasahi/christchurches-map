@@ -13,6 +13,8 @@ gem 'mysql2', '>= 0.3.18', '< 0.6'
 gem 'puma'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
+# webpacker
+gem 'webpacker'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 5.0.0'
 # Use jquery as the JavaScript library

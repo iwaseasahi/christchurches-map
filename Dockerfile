@@ -2,8 +2,12 @@
 FROM ruby:2.7.1
 ENV LANG C.UTF-8
 
+# ready to install yarn
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+  echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+
 # install required libraries
-RUN apt-get update -qq && apt-get install -y build-essential nodejs vim
+RUN apt-get update -qq && apt-get install -y build-essential nodejs vim yarn
 
 RUN mkdir /usr/src/app/
 WORKDIR /usr/src/app/
