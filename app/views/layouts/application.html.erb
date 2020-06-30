@@ -27,6 +27,7 @@
     <!-- assets -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application' %>
 
     <!-- Google Map API -->
     <script src="//maps.google.com/maps/api/js?v=3&key=<%= Rails.application.credentials.google_map[:api_key] %>"></script>

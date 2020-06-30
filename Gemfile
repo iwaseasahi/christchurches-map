@@ -15,6 +15,8 @@ gem 'puma'
 gem 'sass-rails', '>= 6'
 # webpacker
 gem 'webpacker'
+# React
+gem 'react-rails'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 5.0.0'
 # Use jquery as the JavaScript library
