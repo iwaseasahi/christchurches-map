@@ -43,6 +43,9 @@ set :nodenv_prefix, "NODENV_ROOT=#{fetch(:nodenv_path)} NODENV_VERSION=#{fetch(:
 set :nodenv_map_bins, %w[node npm yarn]
 set :nodenv_roles, :app
 
+# yarn
+set :yarn_roles, :app
+
 # rubyのバージョン
 set :rbenv_ruby, '2.7.1'
 
