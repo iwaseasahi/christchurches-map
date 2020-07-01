@@ -36,13 +36,6 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 # Default value for keep_releases is 5
 set :keep_releases, 2
 
-# node
-set :nodenv_type, :user
-set :nodenv_node, '14.5.0'
-set :nodenv_prefix, "NODENV_ROOT=#{fetch(:nodenv_path)} NODENV_VERSION=#{fetch(:nodenv_node)} #{fetch(:nodenv_path)}/bin/nodenv exec"
-set :nodenv_map_bins, %w[node npm yarn]
-set :nodenv_roles, :app
-
 # yarn
 set :yarn_roles, :app
 
