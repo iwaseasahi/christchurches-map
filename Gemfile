@@ -13,6 +13,10 @@ gem 'mysql2', '>= 0.3.18', '< 0.6'
 gem 'puma'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
+# webpacker
+gem 'webpacker'
+# React
+gem 'react-rails'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 5.0.0'
 # Use jquery as the JavaScript library
@@ -96,6 +100,7 @@ group :development do
   gem 'capistrano-rbenv'
   gem 'capistrano-sidekiq'
   gem 'capistrano3-unicorn'
+  gem 'capistrano-nodenv'
   # ファイル変更を検知してイベント実行
   gem 'guard'
   # guard で RSpec を実行

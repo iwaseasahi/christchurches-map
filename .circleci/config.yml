@@ -40,6 +40,17 @@ jobs:
           key: bundle-v2-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
+      - restore_cache:
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
+            - yarn-packages-
+      - run:
+          name: Yarn install
+          command: yarn install --frozen-lockfile
+      - save_cache:
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
@@ -61,6 +72,24 @@ jobs:
       - run:
           name: Database setup
           command: bundle exec rake db:create db:migrate
+      - restore_cache:
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
+            - yarn-packages-
+      - run:
+          name: Yarn install
+          command: yarn install --frozen-lockfile
+      - restore_cache:
+          keys:
+            - webpack-{{ .Revision }}
+            - webpack-
+      - run:
+          name: Compile webpacker assets
+          command: bundle exec rails webpacker:compile
+      - save_cache:
+          key: webpack-{{ .Revision }}
+          paths:
+            - /home/circleci/christchurches-map/public/packs-test/
       - run:
           name: Run rspec in parallel
           command: |
@@ -83,6 +112,24 @@ jobs:
       - run:
           name: Database setup
           command: bundle exec rake db:create db:migrate
+      - restore_cache:
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
+            - yarn-packages-
+      - run:
+          name: Yarn install
+          command: yarn install --frozen-lockfile
+      - restore_cache:
+          keys:
+            - webpack-{{ .Revision }}
+            - webpack-
+      - run:
+          name: Compile webpacker assets
+          command: bundle exec rails webpacker:compile
+      - save_cache:
+          key: webpack-{{ .Revision }}
+          paths:
+            - /home/circleci/christchurches-map/public/packs-test/
       - run:
           name: Run rspec in parallel
           command: |
