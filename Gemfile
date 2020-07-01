@@ -100,7 +100,6 @@ group :development do
   gem 'capistrano-rbenv'
   gem 'capistrano-sidekiq'
   gem 'capistrano3-unicorn'
-  gem 'capistrano-nodenv'
   gem 'capistrano-yarn'
   # ファイル変更を検知してイベント実行
   gem 'guard'
