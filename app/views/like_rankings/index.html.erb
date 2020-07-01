@@ -25,22 +25,15 @@
     <div class="row">
       <div class="col-lg-12">
         <% @churches.each do |church| %>
-          <h4 class="text-center"><%= church.likes.count %>いいね</h4>
-          <div class="church-ranking-info">
-            <div class="panel panel-info">
-              <div class="panel-heading">
-                <h3 class="panel-title"><%= church.name %></h3>
-              </div>
-              <div class="panel-body">
-                <p><%= church.group.name %></p>
-                <p><%= church.address %></p>
-                <p><%= link_to '詳細はこちら', church_path(church) %></p>
-                <% if church.url.present? %>
-                  <p><%= link_to 'ホームページはこちら', church.url, { target: '_blank' } %></p>
-                <% end %>
-              </div>
-            </div>
-          </div>
+          <%= react_component("like_rankings/Church",
+                              {
+                                likesCount: church.likes.count,
+                                name: church.name,
+                                groupName: church.group.name,
+                                address: church.address,
+                                churchPath: church_path(church),
+                                url: church.url
+                              }) %>
         <% end %>
       </div>
     </div>
