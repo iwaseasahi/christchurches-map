@@ -36,7 +36,7 @@ Church.propTypes = {
   groupName: PropTypes.string.isRequired,
   address: PropTypes.string.isRequired,
   churchPath: PropTypes.string.isRequired,
-  url: PropTypes.oneOfType([PropTypes.oneOf([null]), PropTypes.string]),
+  url: PropTypes.string,
 };
 
 export default Church
