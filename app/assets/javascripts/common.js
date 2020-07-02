@@ -1,2 +1,0 @@
-$(window).load(function() {
-});
