@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'いいねRank', type: :system do
-  scenario '閲覧できる' do
+  scenario '閲覧できる', js: true do
     church = create(:church)
     user = create(:user)
     create(:like, church: church, user: user)
