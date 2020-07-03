@@ -1,6 +1,6 @@
 // 登録フォームの判定を共通処理化
 function changeRegistrationBtn($last_name, $first_name, $email, $password, $password_confirmation, $submit) {
-  if ($last_name.val() == '' || $first_name.val() == '' || $email.val() == '' || $password.val() == '' || $password_confirmation.val() == '') {
+  if ($last_name.val() === '' || $first_name.val() === '' || $email.val() === '' || $password.val() === '' || $password_confirmation.val() === '') {
     $submit.attr('disabled', 'disabled');
   } else {
     $submit.removeAttr('disabled');

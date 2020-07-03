@@ -1,6 +1,6 @@
 // フォームの判定を共通処理化
 function changeSubmitBtn($name, $prefecture_id, $address, $group_id, $submit) {
-  if ($name.val() == '' || $prefecture_id.val() == '' || $address.val() == '' || $group_id.val() == '') {
+  if ($name.val() === '' || $prefecture_id.val() === '' || $address.val() === '' || $group_id.val() === '') {
     $submit.attr('disabled', 'disabled');
   } else {
     $submit.removeAttr('disabled');
