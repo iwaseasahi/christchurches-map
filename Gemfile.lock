@@ -616,7 +616,7 @@ DEPENDENCIES
   puma
   rails (~> 6.0.3)
   rails-controller-testing
-  rake
+  rake (>= 2.1.4)
   ransack
   react-rails
   redis

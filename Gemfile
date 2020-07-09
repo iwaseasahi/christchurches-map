@@ -32,7 +32,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # .envファイルを使用
 gem 'dotenv-rails'
 # rake
-gem 'rake'
+gem 'rake', '>= 2.1.4'
 # font-awesome
 gem 'font-awesome-rails'
 # google-map
