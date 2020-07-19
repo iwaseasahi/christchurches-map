@@ -62,7 +62,7 @@ gem 'paper_trail'
 # 非同期処理
 gem 'redis'
 gem 'redis-namespace'
-gem 'sidekiq', '< 6'
+gem 'sidekiq', '< 7'
 gem 'sinatra', require: false
 # 管理画面
 gem 'administrate'
@@ -74,6 +74,8 @@ gem 'active_decorator'
 gem 'coveralls', require: false
 # エラー管理
 gem 'sentry-raven'
+# rack
+gem 'rack', '>= 2.1.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
