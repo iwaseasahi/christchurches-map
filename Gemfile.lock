@@ -361,7 +361,7 @@ GEM
       nio4r (~> 2.0)
     puma (4.3.5-java)
       nio4r (~> 2.0)
-    rack (2.0.9)
+    rack (2.2.3)
     rack-protection (2.0.8.1)
       rack
     rack-proxy (0.6.5)
@@ -492,9 +492,9 @@ GEM
     sentry-raven (3.0.0)
       faraday (>= 1.0)
     shellany (0.0.1)
-    sidekiq (5.2.8)
+    sidekiq (5.2.7)
       connection_pool (~> 2.2, >= 2.2.2)
-      rack (< 2.1.0)
+      rack (>= 1.5.0)
       rack-protection (>= 1.5.0)
       redis (>= 3.3.5, < 5)
     simplecov (0.17.1)
@@ -614,6 +614,7 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   puma
+  rack (>= 2.1.4)
   rails (~> 6.0.3)
   rails-controller-testing
   rake (>= 2.1.4)
@@ -629,7 +630,7 @@ DEPENDENCIES
   seed-fu
   selenium-webdriver
   sentry-raven
-  sidekiq (< 6)
+  sidekiq (< 7)
   simplecov (< 0.18.0)
   sinatra
   sitemap_generator
