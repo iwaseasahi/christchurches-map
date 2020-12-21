@@ -400,7 +400,7 @@ GEM
     rainbow (3.0.0)
     raindrops (0.19.1)
     rake (13.0.1)
-    ransack (2.4.0)
+    ransack (2.4.1)
       activerecord (>= 5.2.4)
       activesupport (>= 5.2.4)
       i18n
@@ -627,7 +627,7 @@ DEPENDENCIES
   seed-fu
   selenium-webdriver
   sentry-raven
-  sidekiq (= 6.1.2)
+  sidekiq (< 7)
   simplecov (< 0.18.0)
   sinatra
   sitemap_generator
