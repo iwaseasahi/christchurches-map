@@ -542,7 +542,7 @@ GEM
     unf (0.1.4-java)
     unf_ext (0.0.7.7)
     unicode-display_width (1.7.0)
-    unicorn (5.7.0)
+    unicorn (5.8.0)
       kgio (~> 2.6)
       raindrops (~> 0.7)
     warden (1.2.9)
@@ -627,7 +627,7 @@ DEPENDENCIES
   seed-fu
   selenium-webdriver
   sentry-raven
-  sidekiq (= 6.1.2)
+  sidekiq (< 7)
   simplecov (< 0.18.0)
   sinatra
   sitemap_generator
