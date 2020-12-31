@@ -62,7 +62,7 @@ gem 'paper_trail'
 # 非同期処理
 gem 'redis'
 gem 'redis-namespace'
-gem 'sidekiq', '< 7'
+gem 'sidekiq', '6.1.2'
 gem 'sinatra', require: false
 # 管理画面
 gem 'administrate'
