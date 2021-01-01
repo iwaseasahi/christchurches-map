@@ -40,7 +40,7 @@ set :keep_releases, 2
 set :yarn_roles, :app
 
 # rubyのバージョン
-set :rbenv_ruby, '2.7.1'
+set :rbenv_ruby, '3.0.0'
 
 # Sidekiq
 # NOTE: https://github.com/seuros/capistrano-sidekiq/issues/124

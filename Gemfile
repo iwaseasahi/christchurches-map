@@ -61,7 +61,7 @@ gem 'geocoder'
 gem 'paper_trail'
 # 非同期処理
 gem 'redis'
-gem 'redis-namespace'
+gem 'redis-namespace', git: 'https://github.com/resque/redis-namespace.git', branch: 'master'
 gem 'sidekiq', '6.1.2'
 gem 'sinatra', require: false
 # 管理画面
@@ -120,7 +120,7 @@ group :test do
   gem 'rspec-rails'
   gem 'faker'
   gem 'capybara'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', git: 'https://github.com/SeleniumHQ/selenium.git', branch: 'rb-3.x'
   # NOTE: https://github.com/lemurheavy/coveralls-ruby/issues/161
   gem 'simplecov', '< 0.18.0', require: false
 end
