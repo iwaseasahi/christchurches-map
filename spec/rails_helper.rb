@@ -71,6 +71,9 @@ RSpec.configure do |config|
   # test helper
   config.include ActiveJob::TestHelper
   config.include SystemSpecHelpers, type: :system
+  # NOTE: work around
+  # https://github.com/rspec/rspec-rails/issues/2410
+  config.include ActiveSupport::Testing::Assertions
 
   # 共通の mack
   config.include DisableGeocoder
