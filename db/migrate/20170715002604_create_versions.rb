@@ -10,7 +10,7 @@ class CreateVersions < ActiveRecord::Migration[5.0]
 
   def change
     create_table :versions, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci" do |t|
-      t.string   :item_type, {:null=>false, :limit=>191}
+      t.string   :item_type, null: false, limit: 191
       t.integer  :item_id,   null: false
       t.string   :event,     null: false
       t.string   :whodunnit
