@@ -122,7 +122,7 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver', git: 'https://github.com/SeleniumHQ/selenium.git', branch: 'rb-3.x'
   # NOTE: https://github.com/lemurheavy/coveralls-ruby/issues/161
-  gem 'simplecov', '< 0.18.0', require: false
+  gem 'simplecov', '< 0.22.0', require: false
 end
 
 group :production, :staging do
