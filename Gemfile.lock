@@ -255,7 +255,7 @@ GEM
       activesupport (>= 4.2.0)
     gmaps4rails (2.1.2)
     google-analytics-rails (1.1.1)
-    guard (2.16.2)
+    guard (2.17.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
       lumberjack (>= 1.0.12, < 2.0)
@@ -422,7 +422,7 @@ GEM
       activerecord (>= 5.2.4)
       activesupport (>= 5.2.4)
       i18n
-    rb-fsevent (0.10.4)
+    rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     react-rails (2.6.1)
