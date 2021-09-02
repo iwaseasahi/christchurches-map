@@ -16,7 +16,6 @@ services:
     build: .
     command: >
       bash -c "rm -rf tmp/pids/server.pid &&
-      bundle exec sidekiq -C config/sidekiq.yml &&
       bundle exec rails s -p 3000 -b '0.0.0.0'"
     ports:
       - "3000:3000"
@@ -30,6 +29,7 @@ services:
     depends_on:
       - db
       - redis
+      - worker
       - chrome
     tty: true
     stdin_open: true
@@ -41,6 +41,17 @@ services:
       - redis-data:/data
     depends_on:
       - db
+  worker:
+    build: .
+    command: bundle exec sidekiq -C config/sidekiq.yml
+    volumes:
+      - .:/usr/src/app/:cached
+    environment:
+      DB_HOST: db
+      RAILS_ENV: development
+      REDIS: 'redis://redis:6379'
+    depends_on:
+      - redis
   chrome:
     image: selenium/standalone-chrome:3.141.59-zirconium
     volumes:
