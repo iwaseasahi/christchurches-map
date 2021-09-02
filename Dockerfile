@@ -7,7 +7,10 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
 # install required libraries
-RUN apt-get update -qq && apt-get install -y build-essential nodejs vim yarn
+RUN apt-get update -qq && apt-get install -y build-essential vim yarn
+
+# install node
+RUN apt-get install -y nodejs && yarn global add n && n 14.17.6
 
 RUN mkdir /usr/src/app/
 WORKDIR /usr/src/app/
