@@ -2,8 +2,8 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# This file is the source Rails uses to define your schema when running `rails
-# db:schema:load`. When creating a new database, `rails db:schema:load` tends to
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
 # be faster and is potentially less error prone than running all of your
 # migrations from scratch. Old migrations may fail to apply correctly if those
 # migrations use external dependencies or application code.
@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_06_15_001231) do
 
-  create_table "churches", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "churches", id: :integer, charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.integer "group_id", null: false
     t.integer "prefecture_id", null: false
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2020_06_15_001231) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "comments", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "comments", id: :integer, charset: "utf8", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "church_id", null: false
     t.text "comment", null: false
@@ -38,13 +38,13 @@ ActiveRecord::Schema.define(version: 2020_06_15_001231) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "groups", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "groups", id: :integer, charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "likes", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "likes", id: :integer, charset: "utf8", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "church_id", null: false
     t.datetime "created_at", null: false
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2020_06_15_001231) do
     t.index ["user_id", "church_id"], name: "index_likes_on_user_id_and_church_id", unique: true
   end
 
-  create_table "photos", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "photos", id: :integer, charset: "utf8", force: :cascade do |t|
     t.integer "church_id", null: false
     t.string "file_name", null: false
     t.datetime "created_at", null: false
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2020_06_15_001231) do
     t.index ["church_id"], name: "index_photos_on_church_id"
   end
 
-  create_table "prefectures", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "prefectures", id: :integer, charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.decimal "latitude", precision: 11, scale: 8, null: false
     t.decimal "longitude", precision: 11, scale: 8, null: false
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2020_06_15_001231) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", id: :integer, charset: "utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(version: 2020_06_15_001231) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "versions", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "versions", id: :integer, charset: "utf8mb4", force: :cascade do |t|
     t.string "item_type", limit: 191, null: false
     t.integer "item_id", null: false
     t.string "event", null: false
