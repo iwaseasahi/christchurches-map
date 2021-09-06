@@ -51,13 +51,6 @@ $ docker-compose run --rm web rails db:migrate
 $ docker-compose run -e RAILS_ENV=test --rm web rails db:migrate
 ```
 
-webpaker でインストールとコンパイルします。
-
-```
-$ docker-compose run --rm web rails webpacker:install
-$ docker-compose run --rm web rails webpacker:compile
-```
-
 seed を実行します。
 
 ```
