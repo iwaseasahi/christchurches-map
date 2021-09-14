@@ -111,7 +111,6 @@ group :development do
   gem 'guard-rspec', require: false
   # Preview mail
   gem 'letter_opener_web'
-  gem 'seed-fu'
 end
 
 group :test do
@@ -123,6 +122,12 @@ group :test do
   gem 'selenium-webdriver', git: 'https://github.com/SeleniumHQ/selenium.git', branch: 'rb-3.x'
   # NOTE: https://github.com/lemurheavy/coveralls-ruby/issues/161
   gem 'simplecov', '< 0.18.0', require: false
+end
+
+group :development, :staging do
+  # 初期でデータの投入
+  # NOTE: staging の RDS に向けて実行できるよう使用可能にする
+  gem 'seed-fu'
 end
 
 group :production do
