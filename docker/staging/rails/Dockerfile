@@ -35,4 +35,4 @@ COPY . /usr/src/app/
 VOLUME /usr/src/app/public /usr/src/app/tmp
 
 # rails server
-CMD bash -c "rm -f tmp/pids/server.pid && puma"
+CMD bash -c "rm -f tmp/pids/server.pid && bundle exec puma"
