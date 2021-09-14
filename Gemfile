@@ -125,7 +125,10 @@ group :test do
   gem 'simplecov', '< 0.18.0', require: false
 end
 
-group :production, :staging do
+group :production do
   gem 'unicorn'
+end
+
+group :production, :staging do
   gem 'newrelic_rpm'
 end
