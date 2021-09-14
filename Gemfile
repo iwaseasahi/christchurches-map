@@ -125,7 +125,7 @@ group :test do
 end
 
 group :development, :staging do
-  # 初期でデータの投入
+  # 初期データの投入
   # NOTE: staging の RDS に向けて実行できるよう使用可能にする
   gem 'seed-fu'
 end
