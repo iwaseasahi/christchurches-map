@@ -111,7 +111,6 @@ group :development do
   gem 'guard-rspec', require: false
   # Preview mail
   gem 'letter_opener_web'
-  gem 'seed-fu'
 end
 
 group :test do
@@ -125,7 +124,16 @@ group :test do
   gem 'simplecov', '< 0.18.0', require: false
 end
 
-group :production, :staging do
+group :development, :staging do
+  # 初期データの投入
+  # NOTE: staging の RDS に向けて実行できるよう使用可能にする
+  gem 'seed-fu'
+end
+
+group :production do
   gem 'unicorn'
+end
+
+group :production, :staging do
   gem 'newrelic_rpm'
 end

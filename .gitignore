@@ -39,6 +39,7 @@ coverage
 
 # Ignore master key for decrypting credentials and more.
 /config/credentials/production.key
+/config/credentials/staging.key
 
 # webpack
 /public/packs

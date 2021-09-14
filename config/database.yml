@@ -49,6 +49,10 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+staging:
+  <<: *default
+  database: christchurches_map_staging
+
 production:
   <<: *default
   database: christchurches_map_production
