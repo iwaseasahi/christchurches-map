@@ -12,20 +12,27 @@ RUN apt-get update -qq && apt-get install -y build-essential vim yarn
 # install node
 RUN apt-get install -y nodejs && yarn global add n && n 14.17.6
 
-ENV RAILS_ENV=production
+ENV RAILS_ENV=staging
+# gemfile の変更を禁止する
 ENV BUNDLE_DEPLOYMENT=true
-ENV BUNDLE_PATH=vendor/bundle
 ENV BUNDLE_WITHOUT=development:test
 
-RUN mkdir -p /var/www/projects/christchurches-map/current/
-WORKDIR /var/www/projects/christchurches-map/current/
+RUN mkdir /usr/src/app/
+WORKDIR /usr/src/app/
 
-ADD Gemfile /var/www/projects/christchurches-map/current/Gemfile
-ADD Gemfile.lock /var/www/projects/christchurches-map/current/Gemfile.lock
-COPY package.json /var/www/projects/christchurches-map/current/package.json
-COPY yarn.lock /var/www/projects/christchurches-map/current/yarn.lock
+ADD Gemfile /usr/src/app/Gemfile
+ADD Gemfile.lock /usr/src/app/Gemfile.lock
+ADD package.json /usr/src/app/package.json
+ADD yarn.lock /usr/src/app/yarn.lock
 RUN bundle install --jobs=4
 RUN yarn install
-RUN bundle exec rails webpacker:compile
+RUN rails webpacker:compile
 
-COPY . /var/www/projects/christchurches-map/current/
+COPY . /usr/src/app/
+
+# volume を作成することで nginx から読み取るができる
+# https://docs.docker.jp/engine/reference/builder.html#volume
+VOLUME /usr/src/app/public /usr/src/app/tmp
+
+# rails server
+CMD bash -c "rm -f tmp/pids/server.pid && puma"
