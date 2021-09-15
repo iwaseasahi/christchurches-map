@@ -13,8 +13,6 @@ RUN apt-get update -qq && apt-get install -y build-essential vim yarn
 RUN apt-get install -y nodejs && yarn global add n && n 14.17.6
 
 ENV RAILS_ENV=staging
-# gemfile の変更を禁止する
-ENV BUNDLE_DEPLOYMENT=true
 ENV BUNDLE_WITHOUT=development:test
 
 RUN mkdir /usr/src/app/

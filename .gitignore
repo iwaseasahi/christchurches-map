@@ -33,6 +33,7 @@
 
 # Ignore environment variable
 .env
+.env.staging
 
 # Ignore test environment
 coverage
