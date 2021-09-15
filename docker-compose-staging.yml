@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  ecs_app:
+    build:
+      context: .
+      dockerfile: ./docker/staging/rails/Dockerfile
+    volumes:
+      - .:/usr/src/app/:cached
+      # nginx から sockets を扱えるようにマウントする
+      - web-sockets-data:/usr/src/app/tmp/sockets
+    environment:
+      DB_HOST: "${DB_HOST}"
+      REDIS: "${REDIS}"
+    tty: true
+    stdin_open: true
+  ecs_web:
+    build:
+      context: .
+      dockerfile: ./docker/staging/nginx/Dockerfile
+    volumes:
+      - web-sockets-data:/usr/src/app/tmp/sockets
+    ports:
+      - "80:80"
+    depends_on:
+      - ecs_app
+
+volumes:
+  web-sockets-data:
