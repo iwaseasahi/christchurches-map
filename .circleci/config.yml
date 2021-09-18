@@ -1,5 +1,9 @@
 version: 2.1
 
+orbs:
+  aws-ecr: circleci/aws-ecr@7.2.0
+  aws-ecs: circleci/aws-ecs@2.2.1
+
 ruby_image: &ruby_image
   circleci/ruby:3.0.2-node-browsers-legacy
 
@@ -170,6 +174,34 @@ jobs:
           name: Deploy to AWS
           command: bundle exec cap production deploy
           no_output_timeout: 30m
+  build-ecr-rails:
+    executor: default_executor
+    steps:
+      - aws-ecr/build-and-push-image:
+          account-url: AWS_ECR_ACCOUNT_URL
+          aws-access-key-id: AWS_ECS_ACCESS_KEY_ID
+          aws-secret-access-key: AWS_ECS_SECRET_ACCESS_KEY
+          no-output-timeout: 20m
+          dockerfile: ./docker/staging/rails/Dockerfile
+          path: .
+          region: AWS_REGION
+          repo: "christchurches-map-rails"
+          skip-when-tags-exist: false
+          tag: "latest"
+  build-ecr-nginx:
+    executor: default_executor
+    steps:
+      - aws-ecr/build-and-push-image:
+          account-url: AWS_ECR_ACCOUNT_URL
+          aws-access-key-id: AWS_ECS_ACCESS_KEY_ID
+          aws-secret-access-key: AWS_ECS_SECRET_ACCESS_KEY
+          no-output-timeout: 20m
+          dockerfile: ./docker/staging/nginx/Dockerfile
+          path: .
+          region: AWS_REGION
+          repo: "christchurches-map-nginx"
+          skip-when-tags-exist: false
+          tag: "latest"
 workflows:
   version: 2
   commit:
@@ -216,3 +248,27 @@ workflows:
                 - master
     jobs:
       - coveralls
+
+  build-and-deploy-to-ecs:
+    jobs:
+      - build-ecr-rails:
+          filters:
+            branches:
+              only: master
+      - build-ecr-nginx:
+          filters:
+            branches:
+              only: master
+      - aws-ecs/deploy-service-update:
+          aws-access-key-id: AWS_ECS_ACCESS_KEY_ID
+          aws-secret-access-key: AWS_ECS_SECRET_ACCESS_KEY
+          aws-region: AWS_REGION
+          cluster-name: "christchurches-map-cluster"
+          container-image-name-updates: "container=christchurches-map-rails,image-and-tag=${AWS_ECR_ACCOUNT_URL}/christchurches-map-rails:latest,container=christchurches-map-nginx,image-and-tag=${AWS_ECR_ACCOUNT_URL}/christchurches-map-nginx:latest"
+          family: "christchurches-map--service"
+          requires:
+            - build-ecr-rails
+            - build-ecr-nginx
+          filters:
+            branches:
+              only: master
