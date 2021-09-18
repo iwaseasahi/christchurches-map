@@ -224,13 +224,13 @@ workflows:
   build-and-deploy-to-ecs:
     jobs:
       - aws-ecr/build-and-push-image:
-          account-url: "${AWS_ECR_ACCOUNT_URL}"
-          aws-access-key-id: "${AWS_ECS_ACCESS_KEY_ID}"
-          aws-secret-access-key: "${AWS_ECS_SECRET_ACCESS_KEY}"
+          account-url: AWS_ECR_ACCOUNT_URL
+          aws-access-key-id: AWS_ECS_ACCESS_KEY_ID
+          aws-secret-access-key: AWS_ECS_SECRET_ACCESS_KEY
           context: .
           no-output-timeout: 20m
           path: ./docker/staging/rails/
-          region: "${AWS_REGION}"
+          region: AWS_REGION
           repo: "christchurches-map-rails"
           skip-when-tags-exist: false
           tag: "latest"
@@ -238,13 +238,13 @@ workflows:
             branches:
               only: master
       - aws-ecr/build-and-push-image:
-          account-url: "${AWS_ECR_ACCOUNT_URL}"
-          aws-access-key-id: "${AWS_ECS_ACCESS_KEY_ID}"
-          aws-secret-access-key: "${AWS_ECS_SECRET_ACCESS_KEY}"
+          account-url: AWS_ECR_ACCOUNT_URL
+          aws-access-key-id: AWS_ECS_ACCESS_KEY_ID
+          aws-secret-access-key: AWS_ECS_SECRET_ACCESS_KEY
           context: .
           no-output-timeout: 20m
           path: ./docker/staging/nginx/
-          region: "${AWS_REGION}"
+          region: AWS_REGION
           repo: "christchurches-map-nginx"
           skip-when-tags-exist: false
           tag: "latest"
@@ -252,9 +252,9 @@ workflows:
             branches:
               only: master
       - aws-ecs/deploy-service-update:
-          aws-access-key-id: "${AWS_ECS_ACCESS_KEY_ID}"
-          aws-secret-access-key: "${AWS_ECS_SECRET_ACCESS_KEY}"
-          aws-region: "${AWS_REGION}"
+          aws-access-key-id: AWS_ECS_ACCESS_KEY_ID
+          aws-secret-access-key: AWS_ECS_SECRET_ACCESS_KEY
+          aws-region: AWS_REGION
           cluster-name: "christchurches-map-cluster"
           container-image-name-updates: "container=christchurches-map-rails,image-and-tag=${AWS_ECR_ACCOUNT_URL}/christchurches-map-rails:latest,container=christchurches-map-nginx,image-and-tag=${AWS_ECR_ACCOUNT_URL}/christchurches-map-nginx:latest,"
           family: "christchurches-map--service"
