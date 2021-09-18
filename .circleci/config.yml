@@ -251,11 +251,11 @@ workflows:
 
   build-and-deploy-to-ecs:
     jobs:
-      - build-ecr-rails
+      - build-ecr-rails:
           filters:
             branches:
               only: master
-      - build-ecr-nginx
+      - build-ecr-nginx:
           filters:
             branches:
               only: master
