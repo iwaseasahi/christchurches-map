@@ -174,6 +174,34 @@ jobs:
           name: Deploy to AWS
           command: bundle exec cap production deploy
           no_output_timeout: 30m
+  build-ecr-rails:
+    executor: default_executor
+    steps:
+      - aws-ecr/build-and-push-image:
+          account-url: AWS_ECR_ACCOUNT_URL
+          aws-access-key-id: AWS_ECS_ACCESS_KEY_ID
+          aws-secret-access-key: AWS_ECS_SECRET_ACCESS_KEY
+          context: .
+          no-output-timeout: 20m
+          path: ./docker/staging/rails/
+          region: AWS_REGION
+          repo: "christchurches-map-rails"
+          skip-when-tags-exist: false
+          tag: "latest"
+  build-ecr-nginx:
+    executor: default_executor
+    steps:
+      - aws-ecr/build-and-push-image:
+          account-url: AWS_ECR_ACCOUNT_URL
+          aws-access-key-id: AWS_ECS_ACCESS_KEY_ID
+          aws-secret-access-key: AWS_ECS_SECRET_ACCESS_KEY
+          context: .
+          no-output-timeout: 20m
+          path: ./docker/staging/nginx/
+          region: AWS_REGION
+          repo: "christchurches-map-nginx"
+          skip-when-tags-exist: false
+          tag: "latest"
 workflows:
   version: 2
   commit:
@@ -223,31 +251,11 @@ workflows:
 
   build-and-deploy-to-ecs:
     jobs:
-      - aws-ecr/build-and-push-image:
-          account-url: AWS_ECR_ACCOUNT_URL
-          aws-access-key-id: AWS_ECS_ACCESS_KEY_ID
-          aws-secret-access-key: AWS_ECS_SECRET_ACCESS_KEY
-          context: .
-          no-output-timeout: 20m
-          path: ./docker/staging/rails/
-          region: AWS_REGION
-          repo: "christchurches-map-rails"
-          skip-when-tags-exist: false
-          tag: "latest"
+      - build-ecr-rails
           filters:
             branches:
               only: master
-      - aws-ecr/build-and-push-image:
-          account-url: AWS_ECR_ACCOUNT_URL
-          aws-access-key-id: AWS_ECS_ACCESS_KEY_ID
-          aws-secret-access-key: AWS_ECS_SECRET_ACCESS_KEY
-          context: .
-          no-output-timeout: 20m
-          path: ./docker/staging/nginx/
-          region: AWS_REGION
-          repo: "christchurches-map-nginx"
-          skip-when-tags-exist: false
-          tag: "latest"
+      - build-ecr-nginx
           filters:
             branches:
               only: master
@@ -259,7 +267,8 @@ workflows:
           container-image-name-updates: "container=christchurches-map-rails,image-and-tag=${AWS_ECR_ACCOUNT_URL}/christchurches-map-rails:latest,container=christchurches-map-nginx,image-and-tag=${AWS_ECR_ACCOUNT_URL}/christchurches-map-nginx:latest,"
           family: "christchurches-map--service"
           requires:
-            - aws-ecr/build-and-push-image
+            - build-ecr-rails
+            - build-ecr-nginx
           filters:
             branches:
               only: master
