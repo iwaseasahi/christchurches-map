@@ -274,6 +274,7 @@ workflows:
           cluster-name: "christchurches-map-cluster"
           container-image-name-updates: "container=christchurches-map-rails,image-and-tag=${AWS_ECR_ACCOUNT_URL}/christchurches-map-rails:latest,container=christchurches-map-nginx,image-and-tag=${AWS_ECR_ACCOUNT_URL}/christchurches-map-nginx:latest"
           family: "christchurches-map--service"
+          skip-task-definition-registration: true
           requires:
             - build-ecr-rails
             - build-ecr-nginx
