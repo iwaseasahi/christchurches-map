@@ -276,3 +276,9 @@ workflows:
           family: "christchurches-map-task"
           service-name: "christchurches-map-service"
           skip-task-definition-registration: true
+          requires:
+            - build-ecr-rails
+            - build-ecr-nginx
+          filters:
+            branches:
+              only: master
