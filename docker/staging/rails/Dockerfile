@@ -23,6 +23,7 @@ ADD Gemfile.lock /usr/src/app/Gemfile.lock
 ADD package.json /usr/src/app/package.json
 ADD yarn.lock /usr/src/app/yarn.lock
 
+# docker image を circleci から作成する場合、ディレクトリがないので作成する必要がある
 RUN mkdir -p tmp/sockets
 RUN mkdir -p tmp/pids
 
