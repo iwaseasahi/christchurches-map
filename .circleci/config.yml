@@ -177,6 +177,9 @@ jobs:
   build-ecr-rails:
     executor: default_executor
     steps:
+      - setup_remote_docker:
+          version: 19.03.13
+          docker_layer_caching: true
       - aws-ecr/build-and-push-image:
           account-url: AWS_ECR_ACCOUNT_URL
           aws-access-key-id: AWS_ECS_ACCESS_KEY_ID
@@ -191,6 +194,9 @@ jobs:
   build-ecr-nginx:
     executor: default_executor
     steps:
+      - setup_remote_docker:
+          version: 19.03.13
+          docker_layer_caching: true
       - aws-ecr/build-and-push-image:
           account-url: AWS_ECR_ACCOUNT_URL
           aws-access-key-id: AWS_ECS_ACCESS_KEY_ID
@@ -265,7 +271,9 @@ workflows:
           aws-region: AWS_REGION
           cluster-name: "christchurches-map-cluster"
           container-image-name-updates: "container=christchurches-map-rails,image-and-tag=${AWS_ECR_ACCOUNT_URL}/christchurches-map-rails:latest,container=christchurches-map-nginx,image-and-tag=${AWS_ECR_ACCOUNT_URL}/christchurches-map-nginx:latest"
-          family: "christchurches-map--service"
+          family: "christchurches-map-task"
+          service-name: "christchurches-map-service"
+          skip-task-definition-registration: true
           requires:
             - build-ecr-rails
             - build-ecr-nginx
