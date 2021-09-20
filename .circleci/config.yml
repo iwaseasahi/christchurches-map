@@ -275,9 +275,3 @@ workflows:
           service-name: "christchurches-map-service"
           skip-task-definition-registration: true
           force-new-deployment: true
-          requires:
-            - build-ecr-rails
-            - build-ecr-nginx
-          filters:
-            branches:
-              only: master
