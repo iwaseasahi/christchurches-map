@@ -177,6 +177,9 @@ jobs:
   build-ecr-rails:
     executor: default_executor
     steps:
+      - setup_remote_docker:
+          version: 19.03.13
+          docker_layer_caching: true
       - aws-ecr/build-and-push-image:
           account-url: AWS_ECR_ACCOUNT_URL
           aws-access-key-id: AWS_ECS_ACCESS_KEY_ID
@@ -191,6 +194,9 @@ jobs:
   build-ecr-nginx:
     executor: default_executor
     steps:
+      - setup_remote_docker:
+          version: 19.03.13
+          docker_layer_caching: true
       - aws-ecr/build-and-push-image:
           account-url: AWS_ECR_ACCOUNT_URL
           aws-access-key-id: AWS_ECS_ACCESS_KEY_ID
