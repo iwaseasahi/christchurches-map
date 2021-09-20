@@ -176,8 +176,6 @@ jobs:
           no_output_timeout: 30m
   build-ecr-rails:
     executor: default_executor
-    environment:
-      RAILS_MASTER_KEY: CHRISTCHURCHES_MAP_STAGING_MASTER_KEY
     steps:
       - setup_remote_docker:
           version: 19.03.13
