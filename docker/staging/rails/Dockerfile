@@ -26,7 +26,6 @@ ADD yarn.lock /usr/src/app/yarn.lock
 # docker image を circleci から作成する場合、ディレクトリがないので作成する必要がある
 RUN mkdir -p tmp/sockets
 RUN mkdir -p tmp/pids
-RUN mkdir -p public/packs
 
 RUN bundle install --jobs=4
 RUN yarn install
