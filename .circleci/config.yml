@@ -208,6 +208,7 @@ jobs:
           repo: "christchurches-map-nginx"
           skip-when-tags-exist: false
           tag: "latest"
+
 workflows:
   version: 2
   commit:
@@ -254,7 +255,6 @@ workflows:
                 - master
     jobs:
       - coveralls
-
   build-and-deploy-to-ecs:
     jobs:
       - build-ecr-rails:
