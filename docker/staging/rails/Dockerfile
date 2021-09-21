@@ -29,7 +29,6 @@ RUN mkdir -p tmp/pids
 
 RUN bundle install --jobs=4
 RUN yarn install
-RUN bundle exec rails webpacker:compile
 
 COPY . /usr/src/app/
 
