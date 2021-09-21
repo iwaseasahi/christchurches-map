@@ -257,7 +257,10 @@ workflows:
 
   build-and-deploy-to-ecs:
     jobs:
-      - build-ecr-rails
+      - build-ecr-rails:
+          filters:
+            branches:
+              only: master
       - build-ecr-nginx:
           filters:
             branches:
@@ -274,3 +277,7 @@ workflows:
           force-new-deployment: true
           requires:
             - build-ecr-rails
+            - build-ecr-nginx
+          filters:
+            branches:
+              only: master
