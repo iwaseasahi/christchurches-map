@@ -276,3 +276,9 @@ workflows:
           codedeploy-load-balanced-container-name: "christchurches-map-nginx"
           codedeploy-load-balanced-container-port: 80
           deployment-controller: "CODE_DEPLOY"
+          requires:
+            - build-ecr-rails
+            - build-ecr-nginx
+          filters:
+            branches:
+              only: master
