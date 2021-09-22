@@ -277,9 +277,3 @@ workflows:
           codedeploy-deployment-group-name: "DgpECS-cc-map-bg-deploy-group"
           codedeploy-load-balanced-container-name: "christchurches-map-nginx"
           codedeploy-load-balanced-container-port: 80
-          requires:
-            - build-ecr-rails
-            - build-ecr-nginx
-          filters:
-            branches:
-              only: master
