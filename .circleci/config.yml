@@ -208,6 +208,23 @@ jobs:
           repo: "christchurches-map-nginx"
           skip-when-tags-exist: false
           tag: "latest"
+  build-ecr-sidekiq:
+    executor: default_executor
+    steps:
+      - setup_remote_docker:
+          version: 19.03.13
+          docker_layer_caching: true
+      - aws-ecr/build-and-push-image:
+          account-url: AWS_ECR_ACCOUNT_URL
+          aws-access-key-id: AWS_ECS_ACCESS_KEY_ID
+          aws-secret-access-key: AWS_ECS_SECRET_ACCESS_KEY
+          no-output-timeout: 20m
+          dockerfile: docker/staging/sidekiq/Dockerfile
+          path: .
+          region: AWS_REGION
+          repo: "christchurches-map-sidekiq"
+          skip-when-tags-exist: false
+          tag: "latest"
 
 workflows:
   version: 2
@@ -265,6 +282,10 @@ workflows:
           filters:
             branches:
               only: master
+      - build-ecr-sidekiq:
+          filters:
+            branches:
+              only: master
       - aws-ecs/deploy-service-update:
           aws-access-key-id: AWS_ECS_ACCESS_KEY_ID
           aws-secret-access-key: AWS_ECS_SECRET_ACCESS_KEY
@@ -279,6 +300,7 @@ workflows:
           requires:
             - build-ecr-rails
             - build-ecr-nginx
+            - build-ecr-sidekiq
           filters:
             branches:
               only: master
