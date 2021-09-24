@@ -15,7 +15,6 @@ CarrierWave.configure do |config|
     # public-read
     config.fog_public = true
     config.fog_directory = Rails.application.credentials.dig(:aws, :s3_bucket)
-    config.asset_host = Rails.application.credentials.dig(:aws, :s3_url)
     config.remove_previously_stored_files_after_update = false
   else
     config.storage = :file
