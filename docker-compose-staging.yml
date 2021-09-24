@@ -24,6 +24,20 @@ services:
       - "80:80"
     depends_on:
       - ecs_app
+  ecs_worker:
+    build:
+      context: .
+      dockerfile: ./docker/staging/sidekiq/Dockerfile
+    volumes:
+      - .:/usr/src/app/:cached
+    environment:
+      DB_HOST: "${DB_HOST}"
+      REDIS: "${REDIS}"
+    # コンテナ永続させる
+    # https://zenn.dev/hohner/articles/43a0da20181d34
+    tty: true
+    # 標準入出力とエラー出力をコンテナに結びつける
+    stdin_open: true
 
 volumes:
   web-sockets-data:
