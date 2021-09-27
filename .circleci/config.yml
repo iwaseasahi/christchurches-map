@@ -171,9 +171,6 @@ jobs:
             - bundle-v3-
       - run: bundle
       - run:
-          name: Set puma systemd config
-          command: bundle exec cap production puma:systemd:config puma:systemd:enable
-      - run:
           name: Deploy to AWS
           command: bundle exec cap production deploy
           no_output_timeout: 30m
