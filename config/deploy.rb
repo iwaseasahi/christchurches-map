@@ -46,5 +46,10 @@ set :rbenv_ruby, '3.0.0'
 # NOTE: https://github.com/seuros/capistrano-sidekiq/issues/124
 set :rbenv_map_bins, %w{rake gem bundle ruby rails sidekiq sidekiqctl}
 
-# Puma
-set :puma_phased_restart, true
+namespace :deploy do
+  desc 'Restart application'
+  task :restart do
+    invoke 'unicorn:restart'
+  end
+  after :publishing, :restart
+end
