@@ -27,7 +27,7 @@ set :pty, true
 set :linked_files, fetch(:linked_files, []).push('.env')
 
 # Default value for linked_dirs is []
-set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'node_modules')
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'node_modules', 'unicorn_pid')
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 
 # Default value for default_env is {}
@@ -46,10 +46,9 @@ set :rbenv_ruby, '3.0.0'
 # NOTE: https://github.com/seuros/capistrano-sidekiq/issues/124
 set :rbenv_map_bins, %w{rake gem bundle ruby rails sidekiq sidekiqctl}
 
+after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
-  desc 'Restart application'
   task :restart do
     invoke 'unicorn:restart'
   end
-  after :publishing, :restart
 end
