@@ -8,13 +8,13 @@ CarrierWave.configure do |config|
       provider: 'AWS',
       aws_access_key_id: Rails.application.credentials.dig(:aws, :access_key_id),
       aws_secret_access_key: Rails.application.credentials.dig(:aws, :secret_access_key),
-      region: Rails.application.credentials.dig(:aws, :region),
-      path_style: true
+      region: Rails.application.credentials.dig(:aws, :region)
     }
-    config.fog_attributes = { 'Content-Type': 'image/jpg', 'Cache-Control': "max-age=#{1.week.to_i}" }
+    config.fog_attributes = { cache_control: "public, max-age=#{1.week.to_i}" }
     # public-read
-    config.fog_public = true
+    config.fog_public = false
     config.fog_directory = Rails.application.credentials.dig(:aws, :s3_bucket)
+    config.asset_host = Rails.application.credentials.dig(:aws, :s3_url)
     config.remove_previously_stored_files_after_update = false
   else
     config.storage = :file
