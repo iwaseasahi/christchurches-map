@@ -172,7 +172,10 @@ jobs:
       - run: bundle
       - run:
           name: Set puma config
-          command: bundle exec cap puma:systemd:config puma:systemd:enable
+          command: bundle exec cap production puma:config
+      - run:
+          name: Set puma systemd config puma:systemd:config puma:systemd:enable
+          command: bundle exec cap production
       - run:
           name: Deploy to AWS
           command: bundle exec cap production deploy
