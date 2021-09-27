@@ -215,7 +215,7 @@ jobs:
       - aws-ecs/run-task:
           aws-access-key-id: AWS_ECS_ACCESS_KEY_ID
           aws-secret-access-key: AWS_ECS_SECRET_ACCESS_KEY
-          region: AWS_REGION
+          aws-region: AWS_REGION
           cluster: "christchurches-map-cluster"
           security-group-ids: AWS_ECS_SECURITY_GROUP_IDS
           subnet-ids: AWS_ECS_SUBNET_IDS
