@@ -35,6 +35,3 @@ COPY . /usr/src/app/
 # volume を作成することで nginx から読み取るができる
 # https://docs.docker.jp/engine/reference/builder.html#volume
 VOLUME /usr/src/app/public /usr/src/app/tmp
-
-# rails server
-CMD bash -c "rm -f tmp/pids/server.pid && bundle exec puma"

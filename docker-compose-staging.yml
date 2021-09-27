@@ -5,6 +5,9 @@ services:
     build:
       context: .
       dockerfile: ./docker/staging/rails/Dockerfile
+    command: >
+      bash -c "rm -rf tmp/pids/server.pid &&
+      bundle exec puma"
     volumes:
       - .:/usr/src/app/:cached
       # nginx から sockets を扱えるようにマウントする
@@ -27,7 +30,8 @@ services:
   ecs_worker:
     build:
       context: .
-      dockerfile: ./docker/staging/sidekiq/Dockerfile
+      dockerfile: ./docker/staging/rails/Dockerfile
+    command: bundle exec sidekiq
     volumes:
       - .:/usr/src/app/:cached
     environment:
