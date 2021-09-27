@@ -271,7 +271,7 @@ workflows:
           aws-region: AWS_REGION
           cluster: "christchurches-map-cluster"
           security-group-ids: AWS_ECS_SECURITY_GROUP_IDS
-          subnet-ids: AWS_ECS_SUBNET_IDS
+          subnet-ids: SUBNET_IDS
           task-definition: "christchurches-map-db-migrate-task"
       - aws-ecs/deploy-service-update:
           aws-access-key-id: AWS_ECS_ACCESS_KEY_ID
