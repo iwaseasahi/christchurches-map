@@ -273,6 +273,7 @@ workflows:
           security-group-ids: $AWS_ECS_SECURITY_GROUP_IDS
           subnet-ids: $AWS_ECS_SUBNET_IDS
           task-definition: "christchurches-map-db-migrate-task"
+          assign-public-ip: 'ENABLED'
           requires:
             - build-ecr-rails
             - build-ecr-nginx
