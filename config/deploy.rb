@@ -48,8 +48,11 @@ set :rbenv_map_bins, %w{rake gem bundle ruby rails sidekiq sidekiqctl}
 
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
+  # unicorn:restart だと同じ環境から連続で deploy した場合に切り替わりません。
+  # 回避策として stop & start に変更します。
   task :restart do
     invoke 'unicorn:stop'
+    sleep 3
     invoke 'unicorn:start'
   end
 end
