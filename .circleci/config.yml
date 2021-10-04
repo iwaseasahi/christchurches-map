@@ -255,44 +255,46 @@ workflows:
                 - master
     jobs:
       - coveralls
-  build-and-deploy-to-ecs:
-    jobs:
-      - build-ecr-rails:
-          filters:
-            branches:
-              only: master
-      - build-ecr-nginx:
-          filters:
-            branches:
-              only: master
-      - aws-ecs/run-task:
-          aws-access-key-id: AWS_ECS_ACCESS_KEY_ID
-          aws-secret-access-key: AWS_ECS_SECRET_ACCESS_KEY
-          aws-region: AWS_REGION
-          cluster: "christchurches-map-cluster"
-          security-group-ids: $AWS_ECS_SECURITY_GROUP_IDS
-          subnet-ids: $AWS_ECS_SUBNET_IDS
-          task-definition: "christchurches-map-db-migrate-task"
-          assign-public-ip: 'ENABLED'
-          requires:
-            - build-ecr-rails
-            - build-ecr-nginx
-          filters:
-            branches:
-              only: master
-      - aws-ecs/deploy-service-update:
-          aws-access-key-id: AWS_ECS_ACCESS_KEY_ID
-          aws-secret-access-key: AWS_ECS_SECRET_ACCESS_KEY
-          aws-region: AWS_REGION
-          cluster-name: "christchurches-map-cluster"
-          family: "christchurches-map-task"
-          codedeploy-application-name: "AppECS-christchurches-map-cluster-cc-map-service-bg-deploy"
-          codedeploy-deployment-group-name: "DgpECS-cc-map-bg-deploy-group"
-          codedeploy-load-balanced-container-name: "christchurches-map-nginx"
-          codedeploy-load-balanced-container-port: 80
-          deployment-controller: "CODE_DEPLOY"
-          requires:
-            - aws-ecs/run-task
-          filters:
-            branches:
-              only: master
+# ECS は使用料が高額なので停止
+# https://github.com/iwaseasahi/christchurches-map/issues/854
+#  build-and-deploy-to-ecs:
+#    jobs:
+#      - build-ecr-rails:
+#          filters:
+#            branches:
+#              only: master
+#      - build-ecr-nginx:
+#          filters:
+#            branches:
+#              only: master
+#      - aws-ecs/run-task:
+#          aws-access-key-id: AWS_ECS_ACCESS_KEY_ID
+#          aws-secret-access-key: AWS_ECS_SECRET_ACCESS_KEY
+#          aws-region: AWS_REGION
+#          cluster: "christchurches-map-cluster"
+#          security-group-ids: $AWS_ECS_SECURITY_GROUP_IDS
+#          subnet-ids: $AWS_ECS_SUBNET_IDS
+#          task-definition: "christchurches-map-db-migrate-task"
+#          assign-public-ip: 'ENABLED'
+#          requires:
+#            - build-ecr-rails
+#            - build-ecr-nginx
+#          filters:
+#            branches:
+#              only: master
+#      - aws-ecs/deploy-service-update:
+#          aws-access-key-id: AWS_ECS_ACCESS_KEY_ID
+#          aws-secret-access-key: AWS_ECS_SECRET_ACCESS_KEY
+#          aws-region: AWS_REGION
+#          cluster-name: "christchurches-map-cluster"
+#          family: "christchurches-map-task"
+#          codedeploy-application-name: "AppECS-christchurches-map-cluster-cc-map-service-bg-deploy"
+#          codedeploy-deployment-group-name: "DgpECS-cc-map-bg-deploy-group"
+#          codedeploy-load-balanced-container-name: "christchurches-map-nginx"
+#          codedeploy-load-balanced-container-port: 80
+#          deployment-controller: "CODE_DEPLOY"
+#          requires:
+#            - aws-ecs/run-task
+#          filters:
+#            branches:
+#              only: master
