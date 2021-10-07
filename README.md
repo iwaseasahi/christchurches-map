@@ -16,7 +16,18 @@
 
 ## アーキテクチャ
 
+### production
+
+本番環境はクラウドの料金を抑えるため、AWS EC2 で運用しています。
+
 ![christchurches-map-architect](https://user-images.githubusercontent.com/17666221/84221371-09c5b600-ab10-11ea-92f5-c89952397258.png)
+
+### staging
+
+staging 環境でコンテナ化にチャレンジしました。 AWS の ECS を使っています。
+
+![#786_ECS構成図 drawio](https://user-images.githubusercontent.com/17666221/136304712-ac920bf7-2eae-4569-a333-11fb49e0ad92.png)
+
 
 ## バージョン
 
