@@ -26,6 +26,8 @@
 
 staging 環境でコンテナ化にチャレンジしました。 AWS の ECS を使っています。
 
+<https://github.com/iwaseasahi/christchurches-map-infra> リポジトリで Terraform 管理しています。
+
 ![#786_ECS構成図 drawio](https://user-images.githubusercontent.com/17666221/136304712-ac920bf7-2eae-4569-a333-11fb49e0ad92.png)
 
 
