@@ -52,7 +52,7 @@ namespace :deploy do
   # 回避策として stop & start に変更します。
   task :restart do
     invoke 'unicorn:stop'
-    sleep 5
+    sleep 10
     invoke 'unicorn:start'
   end
 end
