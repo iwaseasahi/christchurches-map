@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/resque/redis-namespace.git
-  revision: f95dcb968b4b2ef41d604cbdc2e22a1f79ae23e6
+  revision: 7e43f2d1e64747955f9e6dd0ded9e37661bd7100
   branch: master
   specs:
     redis-namespace (1.8.1)
@@ -505,7 +505,7 @@ GEM
     sentry-raven (3.1.2)
       faraday (>= 1.0)
     shellany (0.0.1)
-    sidekiq (6.3.1)
+    sidekiq (6.4.0)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
@@ -642,7 +642,7 @@ DEPENDENCIES
   seed-fu
   selenium-webdriver!
   sentry-raven
-  sidekiq (= 6.3.1)
+  sidekiq (= 6.4.0)
   simplecov (< 0.18.0)
   sinatra
   sitemap_generator
