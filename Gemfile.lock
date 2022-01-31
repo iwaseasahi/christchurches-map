@@ -355,7 +355,7 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     orm_adapter (0.5.0)
-    paper_trail (12.1.0)
+    paper_trail (12.2.0)
       activerecord (>= 5.2)
       request_store (~> 1.1)
     parallel (1.21.0)
@@ -435,7 +435,7 @@ GEM
       tilt
     redis (4.5.1)
     regexp_parser (2.2.0)
-    request_store (1.5.0)
+    request_store (1.5.1)
       rack (>= 1.4)
     responders (3.0.1)
       actionpack (>= 5.0)
