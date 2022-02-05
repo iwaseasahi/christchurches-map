@@ -27,6 +27,7 @@ executors:
           TZ: /usr/share/zoneinfo/Asia/Tokyo
       - image: selenium/standalone-chrome:3.141.59-zirconium
       - image: circleci/redis:5.0
+      - image: dpokidov/imagemagick:7.1.0-22-ubuntu
     working_directory: ~/christchurches-map
 
 jobs:
