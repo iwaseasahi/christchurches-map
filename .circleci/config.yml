@@ -5,7 +5,7 @@ orbs:
   aws-ecs: circleci/aws-ecs@2.2.1
 
 ruby_image: &ruby_image
-  circleci/ruby:3-node-browsers-legacy
+  cimg/ruby:3.1.0-browsers
 
 executors:
   default_executor:
@@ -27,12 +27,15 @@ executors:
           TZ: /usr/share/zoneinfo/Asia/Tokyo
       - image: selenium/standalone-chrome:3.141.59-zirconium
       - image: circleci/redis:5.0
+      - image: dpokidov/imagemagick:7.1.0-22-ubuntu
     working_directory: ~/christchurches-map
 
 jobs:
   build:
     executor: default_executor
     steps:
+      - run: sudo apt-get update
+      - run: sudo apt-get install libmagickwand-dev
       - checkout
       - run: bundle -v
       - restore_cache:
@@ -64,6 +67,8 @@ jobs:
   test:
     executor: default_executor
     steps:
+      - run: sudo apt-get update
+      - run: sudo apt-get install libmagickwand-dev
       - checkout
       - restore_cache:
           keys:
@@ -104,6 +109,8 @@ jobs:
   coveralls:
     executor: default_executor
     steps:
+      - run: sudo apt-get update
+      - run: sudo apt-get install libmagickwand-dev
       - checkout
       - restore_cache:
           keys:
@@ -144,6 +151,8 @@ jobs:
     environment:
       CHRIST_CHURCHES_MAP_SSH_KEY: CHRIST_CHURCHES_MAP_SSH_KEY
     steps:
+      - run: sudo apt-get update
+      - run: sudo apt-get install libmagickwand-dev
       - checkout
       - add_ssh_keys:
           fingerprints:
@@ -161,6 +170,8 @@ jobs:
     environment:
       CHRIST_CHURCHES_MAP_SSH_KEY: CHRIST_CHURCHES_MAP_SSH_KEY
     steps:
+      - run: sudo apt-get update
+      - run: sudo apt-get install libmagickwand-dev
       - checkout
       - add_ssh_keys:
           fingerprints:
