@@ -5,7 +5,7 @@ orbs:
   aws-ecs: circleci/aws-ecs@2.2.1
 
 ruby_image: &ruby_image
-  circleci/ruby:3.0.2-node-browsers-legacy
+  circleci/ruby:3-node-browsers-legacy
 
 executors:
   default_executor:
