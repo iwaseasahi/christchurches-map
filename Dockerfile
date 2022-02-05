@@ -1,5 +1,5 @@
 # Debian
-FROM ruby:3.0.0
+FROM ruby:3.1.0
 ENV LANG C.UTF-8
 
 # ready to install yarn
