@@ -237,6 +237,7 @@ GEM
     faraday-net_http (2.0.1)
     ffi (1.15.5)
     ffi (1.15.5-java)
+    ffi (1.15.5-x64-mingw-ucrt)
     fog-aws (3.12.0)
       fog-core (~> 2.1)
       fog-json (~> 1.1)
@@ -368,8 +369,6 @@ GEM
     nio4r (2.5.8-java)
     nokogiri (1.13.1)
       mini_portile2 (~> 2.7.0)
-      racc (~> 1.4)
-    nokogiri (1.13.1-java)
       racc (~> 1.4)
     non-stupid-digest-assets (1.0.9)
       sprockets (>= 2.0)
@@ -527,7 +526,7 @@ GEM
     sentry-raven (3.1.2)
       faraday (>= 1.0)
     shellany (0.0.1)
-    sidekiq (6.4.0)
+    sidekiq (6.4.1)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
@@ -662,7 +661,7 @@ DEPENDENCIES
   seed-fu
   selenium-webdriver!
   sentry-raven
-  sidekiq (= 6.4.0)
+  sidekiq (= 6.4.1)
   simplecov (< 0.18.0)
   sinatra
   sitemap_generator
