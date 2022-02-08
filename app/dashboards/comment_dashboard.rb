@@ -34,9 +34,6 @@ class CommentDashboard < Administrate::BaseDashboard
     :id,
     :user,
     :church,
-    :comment,
-    :created_at,
-    :updated_at,
   ].freeze
 
   # FORM_ATTRIBUTES

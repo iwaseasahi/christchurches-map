@@ -41,41 +41,18 @@ class UserDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :id,
-    :email,
-    :likes,
-    :comments,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :id,
-    :email,
-    :last_name,
-    :first_name,
-    :encrypted_password,
-    :icon,
-    :sign_in_count,
-    :current_sign_in_at,
-    :last_sign_in_at,
-    :likes,
-    :comments,
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :email,
-    :last_name,
-    :first_name,
-    :encrypted_password,
-    :icon,
-    :sign_in_count,
-    :current_sign_in_at,
-    :last_sign_in_at,
-    :likes,
-    :comments,
   ].freeze
 
   # Overwrite this method to customize how users are displayed
