@@ -8,12 +8,12 @@ end
 mount Sidekiq::Web, at: '/sidekiq'
 
 namespace :admin do
-  resources :users
   resources :churches
-  resources :comments
-  resources :groups
-  resources :likes
-  resources :prefectures
+  resources :comments, only: [:show]
+  resources :groups, only: [:index, :show]
+  resources :likes, only: [:show]
+  resources :prefectures, only: [:index, :show]
+  resources :users, only: [:index, :show]
 
   root to: 'users#index'
 end
