@@ -10,7 +10,7 @@ mount Sidekiq::Web, at: '/sidekiq'
 namespace :admin do
   resources :churches
   resources :comments, only: [:show]
-  resources :groups, only: [:index, :show]
+  resources :groups
   resources :likes, only: [:show]
   resources :prefectures, only: [:index, :show]
   resources :users, only: [:index, :show]
