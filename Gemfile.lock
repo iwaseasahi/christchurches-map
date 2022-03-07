@@ -9,10 +9,10 @@ GIT
 
 GIT
   remote: https://github.com/resque/redis-namespace.git
-  revision: 7e43f2d1e64747955f9e6dd0ded9e37661bd7100
+  revision: 7ff35f331fedaee5db53b525d355b5ba587c122f
   branch: master
   specs:
-    redis-namespace (1.8.1)
+    redis-namespace (1.8.2)
       redis (>= 3.0.4)
 
 GEM
