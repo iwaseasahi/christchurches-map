@@ -9,10 +9,10 @@ GIT
 
 GIT
   remote: https://github.com/resque/redis-namespace.git
-  revision: 7e43f2d1e64747955f9e6dd0ded9e37661bd7100
+  revision: de6c3b9b01658b37e3ea776c52cf2eec3a89dcb3
   branch: master
   specs:
-    redis-namespace (1.8.1)
+    redis-namespace (1.8.2)
       redis (>= 3.0.4)
 
 GEM
@@ -238,6 +238,7 @@ GEM
     ffi (1.15.5)
     ffi (1.15.5-java)
     ffi (1.15.5-x64-mingw-ucrt)
+    ffi (1.15.5-x64-unknown)
     fog-aws (3.13.0)
       fog-core (~> 2.1)
       fog-json (~> 1.1)
