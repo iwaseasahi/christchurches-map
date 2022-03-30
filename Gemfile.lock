@@ -158,7 +158,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.1.9)
+    concurrent-ruby (1.1.10)
     config (4.0.0)
       deep_merge (~> 1.2, >= 1.2.1)
       dry-validation (~> 1.0, >= 1.0.0)
@@ -238,6 +238,7 @@ GEM
     ffi (1.15.5)
     ffi (1.15.5-java)
     ffi (1.15.5-x64-mingw-ucrt)
+    ffi (1.15.5-x64-unknown)
     fog-aws (3.13.0)
       fog-core (~> 2.1)
       fog-json (~> 1.1)
@@ -439,9 +440,9 @@ GEM
     rainbow (3.1.1)
     raindrops (0.20.0)
     rake (13.0.6)
-    ransack (2.5.0)
-      activerecord (>= 5.2.4)
-      activesupport (>= 5.2.4)
+    ransack (3.0.0)
+      activerecord (>= 6.0.4)
+      activesupport (>= 6.0.4)
       i18n
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
