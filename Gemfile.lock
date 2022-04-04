@@ -238,6 +238,7 @@ GEM
     ffi (1.15.5)
     ffi (1.15.5-java)
     ffi (1.15.5-x64-mingw-ucrt)
+    ffi (1.15.5-x64-unknown)
     fog-aws (3.13.0)
       fog-core (~> 2.1)
       fog-json (~> 1.1)
@@ -362,7 +363,7 @@ GEM
       timeout
     net-ssh (6.1.0)
     netrc (0.11.0)
-    newrelic_rpm (8.5.0)
+    newrelic_rpm (8.6.0)
     nio4r (2.5.8)
     nio4r (2.5.8-java)
     nokogiri (1.13.3)
