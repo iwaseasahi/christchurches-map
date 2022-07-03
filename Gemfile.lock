@@ -451,7 +451,7 @@ GEM
       execjs
       railties (>= 3.2)
       tilt
-    redis (4.7.0)
+    redis (4.7.1)
     regexp_parser (2.5.0)
     request_store (1.5.1)
       rack (>= 1.4)
