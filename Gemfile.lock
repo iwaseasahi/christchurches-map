@@ -524,10 +524,10 @@ GEM
     sentry-raven (3.1.2)
       faraday (>= 1.0)
     shellany (0.0.1)
-    sidekiq (6.5.1)
+    sidekiq (6.5.3)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
-      redis (>= 4.2.0)
+      redis (>= 4.5.0)
     simplecov (0.17.1)
       docile (~> 1.1)
       json (>= 1.8, < 3)
@@ -660,7 +660,7 @@ DEPENDENCIES
   seed-fu
   selenium-webdriver!
   sentry-raven
-  sidekiq (= 6.5.1)
+  sidekiq (= 6.5.3)
   simplecov (< 0.18.0)
   sinatra
   sitemap_generator
