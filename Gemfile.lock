@@ -445,7 +445,10 @@ GEM
       execjs
       railties (>= 3.2)
       tilt
-    redis (4.8.0)
+    redis (5.0.2)
+      redis-client (~> 0.7)
+    redis-client (0.7.1)
+      connection_pool
     regexp_parser (2.5.0)
     request_store (1.5.1)
       rack (>= 1.4)
