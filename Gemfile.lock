@@ -441,6 +441,8 @@ GEM
       railties (>= 3.2)
       tilt
     redis (4.8.0)
+    redis-client (0.11.2)
+      connection_pool
     regexp_parser (2.6.0)
     request_store (1.5.1)
       rack (>= 1.4)
@@ -509,10 +511,11 @@ GEM
     sentry-raven (3.1.2)
       faraday (>= 1.0)
     shellany (0.0.1)
-    sidekiq (6.5.7)
-      connection_pool (>= 2.2.5)
-      rack (~> 2.0)
-      redis (>= 4.5.0, < 5)
+    sidekiq (7.0.2)
+      concurrent-ruby (< 2)
+      connection_pool (>= 2.3.0)
+      rack (>= 2.2.4)
+      redis-client (>= 0.11.0)
     simplecov (0.16.1)
       docile (~> 1.1)
       json (>= 1.8, < 3)
@@ -641,7 +644,7 @@ DEPENDENCIES
   seed-fu
   selenium-webdriver!
   sentry-raven
-  sidekiq (= 6.5.7)
+  sidekiq (= 7.0.2)
   simplecov (< 0.18.0)
   sinatra
   sitemap_generator
