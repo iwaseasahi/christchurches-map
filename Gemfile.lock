@@ -347,7 +347,7 @@ GEM
       net-protocol
       timeout
     net-ssh (7.0.1)
-    newrelic_rpm (8.13.1)
+    newrelic_rpm (8.14.0)
     nio4r (2.5.8)
     nio4r (2.5.8-java)
     nokogiri (1.13.10)
