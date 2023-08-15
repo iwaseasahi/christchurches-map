@@ -12,7 +12,6 @@ permissions:
 
 jobs:
   dependabot:
-    name: Dependabot auto-merge
     runs-on: ubuntu-latest
     if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
@@ -21,7 +20,7 @@ jobs:
         uses: lewagon/wait-on-check-action@v1.3.1
         with:
           ref: ${{ github.ref }}
-          running-workflow-name: 'Dependabot auto-merge'
+          check-name: 'deploy_check'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           wait-interval: 10
 
