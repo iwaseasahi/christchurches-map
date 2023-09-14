@@ -151,7 +151,7 @@ GEM
     config (4.1.0)
       deep_merge (~> 1.2, >= 1.2.1)
       dry-validation (~> 1.0, >= 1.0.0)
-    connection_pool (2.3.0)
+    connection_pool (2.4.1)
     coveralls (0.8.23)
       json (>= 1.8, < 3)
       simplecov (~> 0.16.1)
@@ -434,6 +434,8 @@ GEM
       railties (>= 3.2)
       tilt
     redis (4.8.1)
+    redis-client (0.17.0)
+      connection_pool
     regexp_parser (2.8.1)
     request_store (1.5.1)
       rack (>= 1.4)
@@ -508,10 +510,11 @@ GEM
     sentry-raven (3.1.2)
       faraday (>= 1.0)
     shellany (0.0.1)
-    sidekiq (6.5.7)
-      connection_pool (>= 2.2.5)
-      rack (~> 2.0)
-      redis (>= 4.5.0, < 5)
+    sidekiq (7.1.3)
+      concurrent-ruby (< 2)
+      connection_pool (>= 2.3.0)
+      rack (>= 2.2.4)
+      redis-client (>= 0.14.0)
     simplecov (0.16.1)
       docile (~> 1.1)
       json (>= 1.8, < 3)
@@ -639,7 +642,7 @@ DEPENDENCIES
   seed-fu
   selenium-webdriver
   sentry-raven
-  sidekiq (= 6.5.7)
+  sidekiq (= 7.1.3)
   simplecov (< 0.18.0)
   sinatra
   sitemap_generator
