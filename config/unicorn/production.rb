@@ -1,5 +1,5 @@
 # set lets
-$worker  = 2
+$worker  = 1
 $timeout = 30
 $app_dir = '/var/www/projects/christchurches-map/current'
 $listen  = File.expand_path 'tmp/sockets/.unicorn.sock', $app_dir
