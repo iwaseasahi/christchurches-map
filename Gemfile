@@ -50,7 +50,7 @@ gem 'config'
 # Slack
 gem 'slack-notifier'
 # 画像アップロード
-gem 'carrierwave', '~> 2.2'
+gem 'carrierwave', '~> 3.0'
 # 画像トリミング
 gem 'rmagick'
 # S3にアップロードを簡単にするライブラリ
