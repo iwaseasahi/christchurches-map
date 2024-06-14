@@ -151,6 +151,7 @@ workflows:
             branches:
               ignore:
                 - master
+                - deploy
       - test:
           requires:
             - build
@@ -158,6 +159,7 @@ workflows:
             branches:
               ignore:
                 - master
+                - deploy
       - deploy_check:
           requires:
             - build
@@ -166,15 +168,16 @@ workflows:
             branches:
               ignore:
                 - master
+                - deploy
   deploy:
     jobs:
       - build:
           filters:
             branches:
-              only: master
+              only: deploy
       - deploy:
           requires:
             - build
           filters:
             branches:
-              only: master
+              only: deploy
