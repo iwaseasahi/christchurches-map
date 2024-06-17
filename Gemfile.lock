@@ -406,7 +406,8 @@ GEM
     responders (3.1.0)
       actionpack (>= 5.2)
       railties (>= 5.2)
-    rexml (3.2.6)
+    rexml (3.3.0)
+      strscan
     rmagick (5.3.0)
       pkg-config (~> 1.4)
     rspec (3.13.0)
@@ -504,6 +505,8 @@ GEM
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
     ssrf_filter (1.1.2)
+    strscan (3.1.0)
+    strscan (3.1.0-java)
     sync (0.5.0)
     term-ansicolor (1.7.1)
       tins (~> 1.0)
